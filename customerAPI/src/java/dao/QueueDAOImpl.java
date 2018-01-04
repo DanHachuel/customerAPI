@@ -12,7 +12,7 @@ import dao.http.Urls;
 import dao.request.RequestFactory;
 import java.util.List;
 import java.util.ArrayList;
-import model.entity.QueueTask;
+import model.domain.queue.QueueTaskDTO;
 import util.JacksonMapper;
 
 public class QueueDAOImpl implements QueueDAO {
@@ -20,8 +20,8 @@ public class QueueDAOImpl implements QueueDAO {
     private static final HttpDAO HTTP_DAO = FactoryDAO.createHttpDAO();
 
     @Override
-    public List<QueueTask> consumePendingTasks() throws Exception {
-        JacksonMapper<List<QueueTask>> mapper = new JacksonMapper(new ArrayList<QueueTask>().getClass());
+    public List<QueueTaskDTO> consumePendingTasks() throws Exception {
+        JacksonMapper<List<QueueTaskDTO>> mapper = new JacksonMapper(new ArrayList<QueueTaskDTO>().getClass());
         return mapper.deserialize(HTTP_DAO.post(
                 Urls.QUEUE.getValor() + "consumePendingTasks",
                 RequestFactory.queueRequest(),

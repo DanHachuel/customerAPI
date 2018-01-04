@@ -6,7 +6,7 @@
 package dao;
 
 import java.util.List;
-import model.entity.QueueTask;
+import model.domain.queue.QueueTaskDTO;
 
 /**
  *
@@ -14,6 +14,6 @@ import model.entity.QueueTask;
  */
 public interface QueueDAO {
 
-    public List<QueueTask> consumePendingTasks() throws Exception;
+    public List<QueueTaskDTO> consumePendingTasks() throws Exception;
 
 }

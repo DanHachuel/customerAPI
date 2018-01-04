@@ -5,45 +5,50 @@
  */
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
-import model.entity.QueueTask;
+import model.domain.queue.QueueTaskDTO;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import util.GsonUtil;
+import util.JacksonMapper;
 
 /**
  *
  * @author G0042204
  */
 public class QueueDAOImplIT {
-    
+
     public QueueDAOImplIT() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
 
     /**
      * Test of consumePendingTasks method, of class QueueDAOImpl.
+     *
+     * @throws java.lang.Exception
      */
     @Test
     public void testConsumePendingTasks() throws Exception {
+        JacksonMapper<List<QueueTaskDTO>> mapper = new JacksonMapper(new ArrayList<>().getClass());
         System.out.println("consumePendingTasks");
         QueueDAOImpl instance = new QueueDAOImpl();
-        List<QueueTask> result = instance.consumePendingTasks();
+        List<QueueTaskDTO> result = instance.consumePendingTasks();
+        System.out.println(mapper.serialize(result));
         assertTrue(!result.isEmpty());
     }
-    
+
 }

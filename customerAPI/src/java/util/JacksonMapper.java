@@ -33,7 +33,7 @@ public class JacksonMapper<T> {
         }
     }
 
-    public String writeValueAsString(T obj) throws Exception{
+    public String serialize(T obj) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(obj);
     }
