@@ -5,6 +5,8 @@
  */
 package dao.factory;
 
+import dao.http.HttpDAO;
+import dao.http.HttpDAOImpl;
 import dao.queue.QueueTaskDAO;
 import dao.queue.QueueTaskDAOImpl;
 
@@ -16,6 +18,10 @@ public class FactoryDAO {
 
     public static QueueTaskDAO createQueueTaskDAO() {
         return new QueueTaskDAOImpl();
+    }
+    
+    public static HttpDAO createHttpDAO(){
+        return new HttpDAOImpl();
     }
 
 }

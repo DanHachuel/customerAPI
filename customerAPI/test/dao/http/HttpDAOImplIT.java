@@ -6,7 +6,7 @@
 package dao.http;
 
 import io.swagger.model.GenericRequest;
-import model.CustomerRequest;
+import model.requests.CustomerRequest;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

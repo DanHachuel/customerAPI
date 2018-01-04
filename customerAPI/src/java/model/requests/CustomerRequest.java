@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package model.requests;
+
+import io.swagger.model.GenericRequest;
 
 /**
  *
@@ -16,6 +18,11 @@ public class CustomerRequest {
     private String instancia;
 
     public CustomerRequest() {
+    }
+
+    public CustomerRequest(GenericRequest gen) {
+        this.executor = gen.getExecutor();
+        this.instancia = gen.getParameter();
     }
 
     public String getExecutor() {
