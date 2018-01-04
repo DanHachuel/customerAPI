@@ -11,13 +11,11 @@ import java.util.List;
 import model.domain.queue.Item;
 import model.domain.queue.enuns.TaskState;
 import model.domain.queue.enuns.TasksEnum;
-import org.mongodb.morphia.annotations.Entity;
 
 /**
  *
  * @author G0042204
  */
-@Entity("queue_task")
 public class QueueTask extends AbstractMongoEntity {
 
     private Date dateQueueIn;

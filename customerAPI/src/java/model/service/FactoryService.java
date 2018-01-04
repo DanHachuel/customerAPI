@@ -9,7 +9,7 @@ package model.service;
  *
  * @author G0041775
  */
-public class FinderFactory {
+public class FactoryService {
 
     public static CustomerFinder customerFinder() {
         return new CustomerFinderImpl();

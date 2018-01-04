@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.requests;
+package dao.request;
 
 import io.swagger.model.GenericRequest;
 

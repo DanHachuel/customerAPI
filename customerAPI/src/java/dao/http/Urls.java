@@ -3,24 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.service;
+package dao.http;
 
 /**
  *
  * @author G0041775
  */
-public enum ContentType {
+public enum Urls {
 
-    JSON("application/json"),
-    XML("application/xml");
+    CADASTRO_STEALER("http://10.40.195.81:8080/stealerAPI/oss/"),
+    QUEUE("http://localhost:8080/queueAPI/queue/");
 
     private final String valor;
 
-    private ContentType(String cont) {
-        valor = cont;
+    private Urls(String url) {
+        valor = url;
     }
 
-    public String getCont() {
+    public String getUrl() {
         return valor;
     }
 
@@ -28,8 +28,8 @@ public enum ContentType {
         return valor;
     }
 
-    public static ContentType find(String cont) {
-        return ContentType.valueOf(cont);
+    public static Urls find(String url) {
+        return Urls.valueOf(url);
     }
 
 }

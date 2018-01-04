@@ -3,20 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao.factory;
-
-import dao.http.HttpDAO;
-import dao.http.HttpDAOImpl;
-
+package model.service;
 
 /**
  *
  * @author G0042204
  */
-public class FactoryDAO {
-
-    public static HttpDAO createHttpDAO(){
-        return new HttpDAOImpl();
-    }
+public interface CertificationService {
 
 }

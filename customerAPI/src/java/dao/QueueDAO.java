@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.domain.queue.service;
+package dao;
 
+import java.util.List;
 import model.entity.QueueTask;
 
 /**
  *
  * @author G0042204
  */
-public interface QueueTaskService {
+public interface QueueDAO {
 
-    public QueueTask process(QueueTask task) throws Exception;
-    
-    public QueueTask queue(QueueTask task) throws Exception;
+    public List<QueueTask> consumePendingTasks() throws Exception;
 
 }
