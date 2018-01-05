@@ -23,7 +23,7 @@ public class CertificationApi  {
    private final CertificationApiService delegate = CertificationApiServiceFactory.getCertificationApi();
 
     @POST
-    
+    @Path("/execByParam")
     @Consumes({ "application/json", "application/xml" })
     @Produces({ "application/json", "application/xml" })
     @io.swagger.annotations.ApiOperation(value = "Certificação dos produtos contratados", notes = "", response = CertificationResponse.class, tags={ "certification", })

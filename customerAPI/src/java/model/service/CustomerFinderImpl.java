@@ -12,7 +12,7 @@ import dao.factory.FactoryDAO;
 import dao.http.HttpDAO;
 import io.swagger.model.GenericRequest;
 import dao.request.RequestFactory;
-import util.GsonUtil;
+import util.JacksonMapper;
 
 public class CustomerFinderImpl implements CustomerFinder {
 
@@ -20,12 +20,11 @@ public class CustomerFinderImpl implements CustomerFinder {
 
     @Override
     public EfikaCustomer getCustomer(GenericRequest req) throws Exception {
-        return GsonUtil.getGson().fromJson(
-                HTTP_DAO.post(
-                        Urls.CADASTRO_STEALER.getValor(),
-                        RequestFactory.customerRequest(req),
-                        ContentType.JSON.getValor()),
-                EfikaCustomer.class);
+        JacksonMapper<EfikaCustomer> mapper = new JacksonMapper(EfikaCustomer.class);
+        return mapper.deserialize(HTTP_DAO.post(
+                Urls.CADASTRO_STEALER.getValor(),
+                RequestFactory.customerRequest(req),
+                ContentType.JSON.getValor()));
     }
 
 }

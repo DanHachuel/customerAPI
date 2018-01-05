@@ -7,6 +7,7 @@ import io.swagger.model.GenericRequest;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
+import model.service.CertificationService;
 import model.service.CustomerFinder;
 import model.service.FactoryService;
 
@@ -14,12 +15,13 @@ import model.service.FactoryService;
 public class CertificationApiServiceImpl extends CertificationApiService {
 
     private CustomerFinder finder = FactoryService.customerFinder();
+    private CertificationService certificator = FactoryService.certSrvc();
 
     @Override
     public Response certification(GenericRequest body, SecurityContext securityContext)
             throws NotFoundException {
         try {
-            return Response.ok().entity(finder.getCustomer(body)).build();
+            return Response.ok().entity(certificator.fulltestByParam(body)).build();
         } catch (Exception e) {
             return Response.ok().entity(e).build();
         }

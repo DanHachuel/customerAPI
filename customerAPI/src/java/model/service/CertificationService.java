@@ -5,10 +5,15 @@
  */
 package model.service;
 
+import io.swagger.model.GenericRequest;
+import model.service.entity.fulltest.FullTest;
+
 /**
  *
  * @author G0042204
  */
 public interface CertificationService {
 
+    public FullTest fulltestByParam(GenericRequest req) throws Exception;
+    
 }

@@ -15,4 +15,7 @@ public class FactoryService {
         return new CustomerFinderImpl();
     }
 
+    public static CertificationService certSrvc() {
+        return new CertificationServiceImpl();
+    }
 }

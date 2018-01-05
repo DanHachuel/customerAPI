@@ -5,8 +5,8 @@
  */
 package model.service;
 
-import br.net.gvt.efika.customer.EfikaCustomer;
 import io.swagger.model.GenericRequest;
+import model.service.entity.fulltest.FullTest;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -14,15 +14,14 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import util.GsonUtil;
-import util.JacksonMapper;
 
 /**
  *
  * @author G0041775
  */
-public class CustomerFinderImplIT {
+public class CertificationServiceImplIT {
     
-    public CustomerFinderImplIT() {
+    public CertificationServiceImplIT() {
     }
     
     @BeforeClass
@@ -42,18 +41,15 @@ public class CustomerFinderImplIT {
     }
 
     /**
-     * Test of getCustomer method, of class CustomerFinderImpl.
+     * Test of fulltestByParam method, of class CertificationServiceImpl.
      */
     @Test
-    public void testGetCustomer() throws Exception {
-        System.out.println("getCustomer");
-        JacksonMapper<GenericRequest> mapper = new JacksonMapper(GenericRequest.class);
-        GenericRequest req = mapper.deserialize("{\"parameter\":\"4130157784\", \"executor\":\"G0041775\"}");
-       
-        CustomerFinderImpl instance = new CustomerFinderImpl();
-        EfikaCustomer result = instance.getCustomer(req);
+    public void testFulltestByParam() throws Exception {
+        System.out.println("fulltestByParam");
+        GenericRequest req = new GenericRequest("4130157784", "G0041775");
+        CertificationServiceImpl instance = new CertificationServiceImpl();
+        FullTest result = instance.fulltestByParam(req);
         System.out.println(GsonUtil.serialize(result));
-        
     }
     
 }
