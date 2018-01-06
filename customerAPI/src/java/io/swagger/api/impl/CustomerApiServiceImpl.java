@@ -18,6 +18,7 @@ public class CustomerApiServiceImpl extends CustomerApiService {
             // do some magic!
             return Response.ok().entity(FactoryService.customerFinder().getCustomer(body)).build();
         } catch (Exception ex) {
+            ex.printStackTrace();
             return Response.serverError().entity(ex).build();
         }
     }

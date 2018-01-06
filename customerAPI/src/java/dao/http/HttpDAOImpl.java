@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import util.GsonUtil;
+import util.JacksonMapper;
 
 public class HttpDAOImpl implements HttpDAO {
 
@@ -48,8 +48,8 @@ public class HttpDAOImpl implements HttpDAO {
         conn.setRequestMethod("POST");
         conn.setRequestProperty("Content-Type", contentType);
 
-        String input = GsonUtil.serialize(obj);
-
+        String input = new JacksonMapper(Object.class).serialize(obj);
+        System.out.println("leInputdoPost -> "+input);
         OutputStream os = conn.getOutputStream();
         os.write(input.getBytes());
         os.flush();
