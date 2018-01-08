@@ -5,8 +5,8 @@
  */
 package model.service;
 
+import br.net.gvt.efika.model.entity.fulltest.FullTest;
 import io.swagger.model.GenericRequest;
-import model.service.entity.fulltest.FullTest;
 
 /**
  *

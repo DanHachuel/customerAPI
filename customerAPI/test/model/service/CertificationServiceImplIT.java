@@ -5,14 +5,13 @@
  */
 package model.service;
 
+import br.net.gvt.efika.model.entity.fulltest.FullTest;
 import io.swagger.model.GenericRequest;
-import model.service.entity.fulltest.FullTest;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import util.GsonUtil;
 
 /**

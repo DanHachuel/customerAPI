@@ -12,7 +12,7 @@ import dao.http.Urls;
 import dao.request.RequestFactory;
 import java.util.List;
 import java.util.ArrayList;
-import model.domain.queue.QueueTaskDTO;
+import model.domain.queue.dto.QueueTaskDTO;
 import util.JacksonMapper;
 
 public class QueueDAOImpl implements QueueDAO {

@@ -7,7 +7,7 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.domain.queue.QueueTaskDTO;
+import model.domain.queue.dto.QueueTaskDTO;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

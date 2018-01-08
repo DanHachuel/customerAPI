@@ -6,13 +6,13 @@
 package model.service;
 
 import br.net.gvt.efika.customer.EfikaCustomer;
+import br.net.gvt.efika.model.entity.fulltest.FullTest;
+import br.net.gvt.efika.model.entity.fulltest.FulltestRequest;
 import dao.factory.FactoryDAO;
 import dao.http.ContentType;
 import dao.http.HttpDAO;
 import dao.http.Urls;
 import io.swagger.model.GenericRequest;
-import model.entity.fulltest.FulltestRequest;
-import model.service.entity.fulltest.FullTest;
 import util.JacksonMapper;
 
 public class CertificationServiceImpl implements CertificationService {
