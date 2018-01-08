@@ -3,16 +3,16 @@
   xmlns:j2ee="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-<!--  <filter>
+  <filter>
     <filter-name>ApiOriginFilter</filter-name>
     <filter-class>io.swagger.api.ApiOriginFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>ApiOriginFilter</filter-name>
     <url-pattern>/*</url-pattern>
-  </filter-mapping>-->
+  </filter-mapping>
   
-  <servlet>
+<!--  <servlet>
         <servlet-name>Resteasy</servlet-name>
         <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
     </servlet>
@@ -38,5 +38,5 @@
     <filter-mapping>
         <filter-name>CORSFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping>-->
 </web-app>
