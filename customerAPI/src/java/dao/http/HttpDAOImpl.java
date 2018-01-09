@@ -7,26 +7,35 @@ package dao.http;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import util.JacksonMapper;
 
 public class HttpDAOImpl implements HttpDAO {
 
     @Override
     public String get(String url, String contentType) throws Exception {
-        URL leUrl = new URL(url);
-        HttpURLConnection conn = (HttpURLConnection) leUrl.openConnection();
-        conn.setRequestMethod("GET");
-        conn.setRequestProperty("Accept", contentType);
 
-        if (conn.getResponseCode() != 200) {
+        CloseableHttpClient httpClient = HttpClientBuilder.create().build();
+        HttpGet get = new HttpGet(url);
+        get.addHeader("Content-Type", contentType);
+
+        HttpResponse response = httpClient.execute(get);
+
+        if (response.getStatusLine().getStatusCode() != 200) {
+
             throw new RuntimeException("Failed : HTTP error code : "
-                    + conn.getResponseCode());
+                    + response.getStatusLine().getStatusCode());
         }
 
-        BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+        BufferedReader br = new BufferedReader(new InputStreamReader(
+                (response.getEntity().getContent())));
 
         String output;
         StringBuffer result = new StringBuffer();
@@ -34,7 +43,7 @@ public class HttpDAOImpl implements HttpDAO {
             result.append(output);
         }
 
-        conn.disconnect();
+        httpClient.close();
 
         return result.toString();
     }
@@ -42,25 +51,24 @@ public class HttpDAOImpl implements HttpDAO {
     @Override
     public String post(String url, Object obj, String contentType) throws Exception {
 
-        URL leUrl = new URL(url);
-        HttpURLConnection conn = (HttpURLConnection) leUrl.openConnection();
-        conn.setDoOutput(true);
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("Content-Type", contentType);
+        CloseableHttpClient httpClient = HttpClientBuilder.create().build();
+        HttpPost post = new HttpPost(url);
+        post.addHeader("Content-Type", contentType);
+        String json = new JacksonMapper(Object.class).serialize(obj);
 
-        String input = new JacksonMapper(Object.class).serialize(obj);
-        System.out.println("leInputdoPost -> "+input);
-        OutputStream os = conn.getOutputStream();
-        os.write(input.getBytes());
-        os.flush();
+        System.out.println("POST -> " + json);
+        post.setEntity(new StringEntity(json));
 
-        if (conn.getResponseCode() != 200) {
+        HttpResponse response = httpClient.execute(post);
+
+        if (response.getStatusLine().getStatusCode() != 200) {
+
             throw new RuntimeException("Failed : HTTP error code : "
-                    + conn.getResponseCode());
+                    + response.getStatusLine().getStatusCode());
         }
 
         BufferedReader br = new BufferedReader(new InputStreamReader(
-                (conn.getInputStream())));
+                (response.getEntity().getContent())));
 
         String output;
         StringBuffer result = new StringBuffer();
@@ -68,7 +76,7 @@ public class HttpDAOImpl implements HttpDAO {
             result.append(output);
         }
 
-        conn.disconnect();
+        httpClient.close();
 
         return result.toString();
     }

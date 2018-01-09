@@ -23,6 +23,7 @@ public class CertificationApiServiceImpl extends CertificationApiService {
         try {
             return Response.ok().entity(certificator.fulltestByParam(body)).build();
         } catch (Exception e) {
+            e.printStackTrace();
             return Response.ok().entity(e).build();
         }
     }

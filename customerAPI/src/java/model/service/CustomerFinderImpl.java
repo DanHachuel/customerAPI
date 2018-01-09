@@ -21,7 +21,6 @@ public class CustomerFinderImpl implements CustomerFinder {
     @Override
     public EfikaCustomer getCustomer(GenericRequest req) throws Exception {
         JacksonMapper<EfikaCustomer> mapper = new JacksonMapper(EfikaCustomer.class);
-        System.out.println("RequestToStealer -> "+new JacksonMapper(CustomerRequest.class).serialize(RequestFactory.customerRequest(req)));
         return mapper.deserialize(FactoryDAO.createHttpDAO().post(
                 Urls.CADASTRO_STEALER.getUrl(),
                 RequestFactory.customerRequest(req),
