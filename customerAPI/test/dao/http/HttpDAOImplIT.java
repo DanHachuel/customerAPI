@@ -7,6 +7,7 @@ package dao.http;
 
 import io.swagger.model.GenericRequest;
 import dao.request.CustomerRequest;
+import java.nio.charset.Charset;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -49,7 +50,7 @@ public class HttpDAOImplIT {
         String contentType = "application/json";
         HttpDAOImpl instance = new HttpDAOImpl();
 
-        String result = instance.get(url, contentType);
+        String result = instance.get(url, contentType, Charset.forName("UTF-8"));
         System.out.println(result);
     }
 
@@ -65,7 +66,7 @@ public class HttpDAOImplIT {
         obj.setInstancia("4133335556");
         String contentType = "application/json";
         HttpDAOImpl instance = new HttpDAOImpl();
-        String result = instance.post(url, obj, contentType);
+        String result = instance.post(url, obj, contentType, Charset.forName("UTF-8"));
         System.out.println(result);
 
     }

@@ -13,6 +13,7 @@ import dao.http.HttpDAO;
 import dao.request.CustomerRequest;
 import io.swagger.model.GenericRequest;
 import dao.request.RequestFactory;
+import java.nio.charset.Charset;
 import util.JacksonMapper;
 
 public class CustomerFinderImpl implements CustomerFinder {
@@ -24,7 +25,7 @@ public class CustomerFinderImpl implements CustomerFinder {
         return mapper.deserialize(FactoryDAO.createHttpDAO().post(
                 Urls.CADASTRO_STEALER.getUrl(),
                 RequestFactory.customerRequest(req),
-                ContentType.JSON.getValor()));
+                ContentType.JSON.getValor(), Charset.forName("UTF-8")));
     }
 
 }

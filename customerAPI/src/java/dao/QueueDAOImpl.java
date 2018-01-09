@@ -25,7 +25,7 @@ public class QueueDAOImpl implements QueueDAO {
         return mapper.deserialize(HTTP_DAO.post(
                 Urls.QUEUE.getValor() + "consumePendingTasks",
                 RequestFactory.queueRequest(),
-                ContentType.JSON.getValor()));
+                ContentType.JSON.getValor(), null));
     }
 
 }

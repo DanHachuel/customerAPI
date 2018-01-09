@@ -13,6 +13,7 @@ import dao.http.ContentType;
 import dao.http.HttpDAO;
 import dao.http.Urls;
 import io.swagger.model.GenericRequest;
+import java.nio.charset.Charset;
 import util.JacksonMapper;
 
 public class CertificationServiceImpl implements CertificationService {
@@ -27,7 +28,7 @@ public class CertificationServiceImpl implements CertificationService {
 
         return mapperFulltest.deserialize(dao.post(Urls.FULLTEST.getUrl(),
                 new FulltestRequest(cust, req.getExecutor()),
-                ContentType.JSON.getCont()));
+                ContentType.JSON.getCont(), Charset.forName("UTF-8")));
     }
 
 }
