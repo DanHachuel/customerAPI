@@ -18,4 +18,8 @@ public class FactoryService {
     public static CertificationService certSrvc() {
         return new CertificationServiceImpl();
     }
+
+    public static LogService logFulltest() {
+        return new LogServiceFullTest();
+    }
 }
