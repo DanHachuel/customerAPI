@@ -6,13 +6,13 @@
 package model.service;
 
 import br.net.gvt.efika.customer.EfikaCustomer;
-import br.net.gvt.efika.model.entity.fulltest.FullTest;
-import br.net.gvt.efika.model.entity.fulltest.FulltestRequest;
 import dao.factory.FactoryDAO;
 import dao.http.ContentType;
 import dao.http.HttpDAO;
 import dao.http.Urls;
 import dao.log.FulltestLogDAO;
+import fulltest.FullTest;
+import fulltest.FulltestRequest;
 import io.swagger.model.GenericRequest;
 import java.nio.charset.Charset;
 import java.util.Calendar;
@@ -34,7 +34,7 @@ public class CertificationServiceImpl implements CertificationService {
         FullTest ret = mapperFulltest.deserialize(dao.post(Urls.FULLTEST.getUrl(),
                 new FulltestRequest(cust, req.getExecutor()),
                 ContentType.JSON.getCont(), Charset.forName("UTF-8")));
-        
+
         CustomerLogFulltest log = FactoryEntitiy.createCustLogFulltest();
         log.setDataExecucao(Calendar.getInstance().getTime());
         log.setInput(req);

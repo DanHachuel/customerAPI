@@ -5,7 +5,7 @@
  */
 package model.service;
 
-import br.net.gvt.efika.model.entity.fulltest.FullTest;
+import fulltest.FullTest;
 import io.swagger.model.GenericRequest;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -19,22 +19,22 @@ import util.GsonUtil;
  * @author G0041775
  */
 public class CertificationServiceImplIT {
-    
+
     public CertificationServiceImplIT() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -50,5 +50,5 @@ public class CertificationServiceImplIT {
         FullTest result = instance.fulltestByParam(req);
         System.out.println(GsonUtil.serialize(result));
     }
-    
+
 }

@@ -5,7 +5,7 @@
  */
 package model.entity;
 
-import br.net.gvt.efika.model.entity.fulltest.FullTest;
+import fulltest.FullTest;
 import org.mongodb.morphia.annotations.Embedded;
 
 public class CustomerLogFulltest extends CustomerLog {
@@ -14,7 +14,7 @@ public class CustomerLogFulltest extends CustomerLog {
     private FullTest output;
 
     public CustomerLogFulltest() {
-    }   
+    }
 
     public FullTest getOutput() {
         return output;
