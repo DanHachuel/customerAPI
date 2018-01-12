@@ -12,7 +12,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import util.GsonUtil;
+import util.JacksonMapper;
 
 /**
  *
@@ -48,7 +48,7 @@ public class CertificationServiceImplIT {
         GenericRequest req = new GenericRequest("4130157784", "G0041775");
         CertificationServiceImpl instance = new CertificationServiceImpl();
         FullTest result = instance.fulltestByParam(req);
-        System.out.println(GsonUtil.serialize(result));
+        System.out.println(new JacksonMapper(FullTest.class).serialize(result));
     }
 
 }

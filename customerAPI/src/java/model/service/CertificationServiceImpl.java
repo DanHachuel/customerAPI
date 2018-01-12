@@ -10,7 +10,6 @@ import dao.factory.FactoryDAO;
 import dao.http.ContentType;
 import dao.http.HttpDAO;
 import dao.http.Urls;
-import dao.log.FulltestLogDAO;
 import fulltest.FullTest;
 import fulltest.FulltestRequest;
 import io.swagger.model.GenericRequest;
@@ -23,7 +22,6 @@ import util.JacksonMapper;
 public class CertificationServiceImpl implements CertificationService {
 
     private final HttpDAO dao = FactoryDAO.createHttpDAO();
-    private final FulltestLogDAO logDao = FactoryDAO.createFulltestLogDAO();
     private final CustomerFinder finder = FactoryService.customerFinder();
 
     @Override
