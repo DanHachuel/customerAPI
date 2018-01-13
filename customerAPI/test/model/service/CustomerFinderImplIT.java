@@ -5,6 +5,7 @@
  */
 package model.service;
 
+import model.service.finder.CustomerFinderImpl;
 import br.net.gvt.efika.customer.EfikaCustomer;
 import io.swagger.model.GenericRequest;
 import org.junit.After;

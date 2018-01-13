@@ -5,8 +5,10 @@
  */
 package model.service;
 
+import model.service.certification.CertificationServiceImpl;
 import fulltest.FullTest;
 import io.swagger.model.GenericRequest;
+import model.entity.CustomerLogCertification;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -47,8 +49,8 @@ public class CertificationServiceImplIT {
         System.out.println("fulltestByParam");
         GenericRequest req = new GenericRequest("4130157784", "G0041775");
         CertificationServiceImpl instance = new CertificationServiceImpl();
-        FullTest result = instance.fulltestByParam(req);
-        System.out.println(new JacksonMapper(FullTest.class).serialize(result));
+        CustomerLogCertification result = instance.certificationByParam(req);
+        System.out.println(new JacksonMapper(CustomerLogCertification.class).serialize(result));
     }
 
 }

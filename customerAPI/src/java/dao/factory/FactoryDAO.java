@@ -7,7 +7,7 @@ package dao.factory;
 
 import dao.http.HttpDAO;
 import dao.http.HttpDAOImpl;
-import dao.log.FulltestLogDAO;
+import dao.log.CertificationLogDAO;
 
 /**
  *
@@ -19,7 +19,7 @@ public class FactoryDAO {
         return new HttpDAOImpl();
     }
 
-    public static FulltestLogDAO createFulltestLogDAO() {
-        return new FulltestLogDAO();
+    public static CertificationLogDAO createCertificationLogDAO() {
+        return new CertificationLogDAO();
     }
 }

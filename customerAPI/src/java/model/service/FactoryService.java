@@ -5,6 +5,13 @@
  */
 package model.service;
 
+import model.service.log.LogServiceCertification;
+import model.service.log.LogService;
+import model.service.finder.CustomerFinder;
+import model.service.finder.CustomerFinderImpl;
+import model.service.certification.CertificationServiceImpl;
+import model.service.certification.CertificationService;
+
 /**
  *
  * @author G0041775
@@ -19,7 +26,7 @@ public class FactoryService {
         return new CertificationServiceImpl();
     }
 
-    public static LogService logFulltest() {
-        return new LogServiceFullTest();
+    public static LogService logCertification() {
+        return new LogServiceCertification();
     }
 }

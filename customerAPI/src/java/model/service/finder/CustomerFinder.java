@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.service;
+package model.service.finder;
 
-import fulltest.FullTest;
+import br.net.gvt.efika.customer.EfikaCustomer;
 import io.swagger.model.GenericRequest;
 
 /**
  *
- * @author G0042204
+ * @author G0041775
  */
-public interface CertificationService {
+public interface CustomerFinder {
 
-    public FullTest fulltestByParam(GenericRequest req) throws Exception;
-    
+    public EfikaCustomer getCustomer(GenericRequest req) throws Exception;
+
 }

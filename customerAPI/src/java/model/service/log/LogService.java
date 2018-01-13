@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.service;
+package model.service.log;
 
-import br.net.gvt.efika.customer.EfikaCustomer;
-import io.swagger.model.GenericRequest;
+import model.entity.CustomerLog;
 
 /**
  *
  * @author G0041775
  */
-public interface CustomerFinder {
+public interface LogService<T> {
 
-    public EfikaCustomer getCustomer(GenericRequest req) throws Exception;
-
+    public void salvaLog(T t) throws Exception;
+    
 }

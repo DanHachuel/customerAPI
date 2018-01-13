@@ -1,11 +1,12 @@
 package io.swagger.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Objects;
 import java.util.Date;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
+import io.swagger.model.enums.ParamTypeEnum;
+import io.swagger.model.enums.SystemEnum;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2018-01-04T13:39:04.668Z")
 public class GenericRequest {
@@ -21,45 +22,7 @@ public class GenericRequest {
     public GenericRequest() {
     }
 
-    /**
-     * Sistema que originou a requisição
-     */
-    public enum SystemEnum {
-        URA("URA"),
-        APP("APP");
-        private String value;
-
-        SystemEnum(String value) {
-            this.value = value;
-        }
-
-        @Override
-        @JsonValue
-        public String toString() {
-            return String.valueOf(value);
-        }
-    }
-
     private SystemEnum system = null;
-
-    /**
-     * Tipo do parâmetro enviado
-     */
-    public enum ParamTypeEnum {
-        INSTANCIA("INSTANCIA"),
-        WORKORDER_ID("WORKORDER_ID");
-        private String value;
-
-        ParamTypeEnum(String value) {
-            this.value = value;
-        }
-
-        @Override
-        @JsonValue
-        public String toString() {
-            return String.valueOf(value);
-        }
-    }
 
     private ParamTypeEnum paramType = null;
     private Date requestDate = null;

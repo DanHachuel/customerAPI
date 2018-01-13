@@ -3,16 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.service;
-
-import model.entity.CustomerLog;
+package model.entity.enums;
 
 /**
  *
  * @author G0041775
  */
-public interface LogService<T> {
+public enum CertificationResult {
 
-    public void salvaLog(T t) throws Exception;
-    
+    OK,
+    FIXED,
+    FISICAL,
+    FAIL_FIXING;
+
 }
