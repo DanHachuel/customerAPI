@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.service;
+package model.service.certification.impl;
 
-import model.service.certification.CertificationServiceImpl;
-import fulltest.FullTest;
 import io.swagger.model.GenericRequest;
 import model.entity.CustomerLogCertification;
+import model.service.certification.enums.CertificationResult;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -46,11 +47,17 @@ public class CertificationServiceImplIT {
      */
     @Test
     public void testFulltestByParam() throws Exception {
-        System.out.println("fulltestByParam");
-        GenericRequest req = new GenericRequest("4130157784", "G0041775");
-        CertificationServiceImpl instance = new CertificationServiceImpl();
-        CustomerLogCertification result = instance.certificationByParam(req);
-        System.out.println(new JacksonMapper(CustomerLogCertification.class).serialize(result));
+        try {
+            System.out.println("fulltestByParam");
+            GenericRequest req = new GenericRequest("4130886762", "G0041775");
+            CertificationServiceImpl instance = new CertificationServiceImpl();
+            CustomerLogCertification result = instance.certificationByParam(req);
+            System.out.println(new JacksonMapper(CustomerLogCertification.class).serialize(result));
+            assertTrue(result.getResultado() == CertificationResult.OK);
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+
     }
 
 }

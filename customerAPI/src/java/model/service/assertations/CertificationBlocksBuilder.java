@@ -5,9 +5,9 @@
  */
 package model.service.assertations;
 
-import fulltest.FullTest;
+import br.net.gvt.efika.customer.EfikaCustomer;
 import java.util.List;
-import model.entity.CertificationBlock;
+import model.service.certification.impl.CertificationBlock;
 
 /**
  *
@@ -15,6 +15,6 @@ import model.entity.CertificationBlock;
  */
 public interface CertificationBlocksBuilder {
 
-    public List<CertificationBlock> buildAsserts(FullTest ft) throws Exception;
+    public List<CertificationBlock> buildAsserts(EfikaCustomer ec) throws Exception;
 
 }

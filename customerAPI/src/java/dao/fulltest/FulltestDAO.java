@@ -3,14 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.entity;
+package dao.fulltest;
+
+import fulltest.FullTest;
+import fulltest.FulltestRequest;
 
 /**
  *
- * @author G0041775
+ * @author G0042204
  */
-public interface Certificable {
+public interface FulltestDAO {
     
-    
+    public FullTest fulltest(FulltestRequest request) throws Exception;
     
 }

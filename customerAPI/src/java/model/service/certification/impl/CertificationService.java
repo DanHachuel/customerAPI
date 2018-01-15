@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.service.certification;
+package model.service.certification.impl;
 
 import io.swagger.model.GenericRequest;
 import model.entity.CustomerLogCertification;

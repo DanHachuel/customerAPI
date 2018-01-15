@@ -1,4 +1,4 @@
-package model.factory;
+package model.service.factory;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

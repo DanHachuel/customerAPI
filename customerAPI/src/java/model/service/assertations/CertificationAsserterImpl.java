@@ -5,16 +5,14 @@
  */
 package model.service.assertations;
 
-import fulltest.FullTest;
-import model.entity.CertificationAssert;
-import model.entity.enums.CertificationAssertName;
-import model.factory.FactoryCertificationAssert;
+import model.service.certification.impl.CertificationAssert;
+import model.service.certification.enums.CertificationAssertName;
 
 public class CertificationAsserterImpl implements CertificationAsserter {
 
     @Override
     public CertificationAssert assertCertification(CertificationAssertName name) throws Exception {
-        CertificationAssert retorno = FactoryCertificationAssert.createAssertByName(name);
+        CertificationAssert retorno = null;
         switch (name) {
             case HAS_BLOQ_INVENTARIO:
                 break;

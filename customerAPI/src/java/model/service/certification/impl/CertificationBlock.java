@@ -3,18 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.entity;
+package model.service.certification.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.entity.enums.CertificationBlockName;
-import model.entity.enums.CertificationResult;
+import model.service.certification.enums.CertificationBlockName;
+import model.service.certification.enums.CertificationResult;
 
 /**
  *
  * @author G0041775
+ * @param <T>
  */
-public class CertificationBlock {
+public abstract class CertificationBlock<T> implements Certificable<T> {
 
     private List<CertificationAssert> asserts;
 
@@ -23,6 +24,8 @@ public class CertificationBlock {
     private String orientacao;
 
     private CertificationBlockName nome;
+
+    private T subject;
 
     public CertificationBlock(CertificationBlockName nome) {
         this.nome = nome;
@@ -61,6 +64,24 @@ public class CertificationBlock {
 
     public void setNome(CertificationBlockName nome) {
         this.nome = nome;
+    }
+
+    protected abstract void process();
+
+    @Override
+    public CertificationBlock certify(T t) {
+        this.subject = t;
+        this.process();
+        return this;
+    }
+
+    protected final void concluir(CertificationResult resultado, String orientacao) {
+        this.resultado = resultado;
+        this.orientacao = orientacao;
+    }
+
+    public T getSubject() {
+        return subject;
     }
 
 }

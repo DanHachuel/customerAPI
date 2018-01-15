@@ -5,9 +5,9 @@
  */
 package model.service.assertations;
 
-import fulltest.FullTest;
-import model.entity.CertificationBlock;
-import model.entity.enums.CertificationBlockName;
+import br.net.gvt.efika.customer.EfikaCustomer;
+import model.service.certification.impl.CertificationBlock;
+import model.service.certification.enums.CertificationBlockName;
 
 /**
  *
@@ -15,6 +15,6 @@ import model.entity.enums.CertificationBlockName;
  */
 public interface BlockCertifier {
 
-    public CertificationBlock certify(CertificationBlockName name, FullTest ft) throws Exception;
+    public CertificationBlock certify(CertificationBlockName name, EfikaCustomer ec) throws Exception;
 
 }

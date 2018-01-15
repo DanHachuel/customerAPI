@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
-
-import java.util.List;
-import model.domain.queue.dto.QueueTaskDTO;
+package model.service.certification.enums;
 
 /**
  *
- * @author G0042204
+ * @author G0041775
  */
-public interface QueueDAO {
+public enum CertificationBlockName {
 
-    public List<QueueTaskDTO> consumePendingTasks() throws Exception;
+    CADASTRO,
+    CONECTIVIDADE,
+    SERVICOS,
+    PERFORMANCE;
 
 }

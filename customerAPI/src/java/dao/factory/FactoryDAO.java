@@ -5,6 +5,8 @@
  */
 package dao.factory;
 
+import dao.fulltest.FulltestDAO;
+import dao.fulltest.FulltestDAOImpl;
 import dao.http.HttpDAO;
 import dao.http.HttpDAOImpl;
 import dao.log.CertificationLogDAO;
@@ -22,4 +24,9 @@ public class FactoryDAO {
     public static CertificationLogDAO createCertificationLogDAO() {
         return new CertificationLogDAO();
     }
+
+    public static FulltestDAO newFulltestDAO() {
+        return new FulltestDAOImpl();
+    }
+
 }

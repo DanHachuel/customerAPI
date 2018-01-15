@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.entity;
+package model.service.certification.impl;
 
-import model.entity.enums.CertificationAssertName;
-import model.entity.enums.CertificationResult;
+import model.service.certification.enums.CertificationAssertName;
+import model.service.certification.enums.CertificationResult;
 
 /**
  *
@@ -22,6 +22,12 @@ public class CertificationAssert {
 
     public CertificationAssert(CertificationAssertName name) {
         nome = name;
+    }
+
+    public CertificationAssert(CertificationAssertName nome, CertificationResult resultado, String orientacao) {
+        this.resultado = resultado;
+        this.orientacao = orientacao;
+        this.nome = nome;
     }
 
     public CertificationResult getResultado() {

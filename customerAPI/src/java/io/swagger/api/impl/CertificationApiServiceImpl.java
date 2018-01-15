@@ -7,9 +7,9 @@ import io.swagger.model.GenericRequest;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
-import model.service.certification.CertificationService;
+import model.service.certification.impl.CertificationService;
 import model.service.finder.CustomerFinder;
-import model.service.FactoryService;
+import model.service.factory.FactoryService;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2018-01-04T13:39:04.668Z")
 public class CertificationApiServiceImpl extends CertificationApiService {

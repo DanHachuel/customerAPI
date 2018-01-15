@@ -5,9 +5,11 @@
  */
 package model.entity;
 
+import model.service.certification.impl.CertificationBlock;
 import fulltest.FullTest;
+import java.util.ArrayList;
 import java.util.List;
-import model.entity.enums.CertificationResult;
+import model.service.certification.enums.CertificationResult;
 import org.mongodb.morphia.annotations.Embedded;
 
 public class CustomerLogCertification extends CustomerLog {
@@ -50,6 +52,9 @@ public class CustomerLogCertification extends CustomerLog {
     }
 
     public List<CertificationBlock> getCertificationBlocks() {
+        if (certificationBlocks == null) {
+            this.certificationBlocks = new ArrayList<>();
+        }
         return certificationBlocks;
     }
 

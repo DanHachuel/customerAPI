@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.service;
+package model.service.factory;
 
 import model.service.log.LogServiceCertification;
 import model.service.log.LogService;
 import model.service.finder.CustomerFinder;
 import model.service.finder.CustomerFinderImpl;
-import model.service.certification.CertificationServiceImpl;
-import model.service.certification.CertificationService;
+import model.service.certification.impl.CertificationServiceImpl;
+import model.service.certification.impl.CertificationService;
 
 /**
  *

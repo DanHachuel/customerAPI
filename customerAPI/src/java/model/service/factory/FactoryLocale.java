@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.factory;
+package model.service.factory;
 
 import io.swagger.model.enums.SystemEnum;
 import java.util.Locale;

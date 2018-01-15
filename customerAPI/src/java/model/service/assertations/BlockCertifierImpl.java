@@ -5,31 +5,28 @@
  */
 package model.service.assertations;
 
-import fulltest.FullTest;
-import model.entity.CertificationAssert;
-import model.entity.CertificationBlock;
-import model.entity.enums.CertificationBlockName;
-import model.factory.FactoryCertificationBlock;
+import br.net.gvt.efika.customer.EfikaCustomer;
+import model.service.certification.impl.CertificationBlock;
+import model.service.certification.enums.CertificationBlockName;
 
 public class BlockCertifierImpl implements BlockCertifier {
 
     @Override
-    public CertificationBlock certify(CertificationBlockName name, FullTest ft) throws Exception {
-        CertificationBlock retorno = FactoryCertificationBlock.createBlockByName(name);
-        switch(name){
-            case CADASTRO:
-                retorno.getAsserts().add(null);
-                break;
-            case CONECTIVIDADE:
-                break;
-            case PERFORMANCE:
-                break;
-            case SERVICOS:
-                break;
-            default:
-                break;
-        }
-        return retorno;
+    public CertificationBlock certify(CertificationBlockName name, EfikaCustomer ec) throws Exception {
+//        switch (name) {
+//            case CADASTRO:
+//                retorno.getAsserts().add(null);
+//                break;
+//            case CONECTIVIDADE:
+//                break;
+//            case PERFORMANCE:
+//                break;
+//            case SERVICOS:
+//                break;
+//            default:
+//                break;
+//        }
+        return null;
     }
 
 }

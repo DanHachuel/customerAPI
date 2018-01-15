@@ -20,6 +20,7 @@ public class RequestFactory {
     public static CustomerRequest customerRequest(GenericRequest gen) {
         return new CustomerRequest(gen);
     }
+    
 
     public static QueueTaskRequest queueRequest() {
         QueueTaskRequest req = new QueueTaskRequest();

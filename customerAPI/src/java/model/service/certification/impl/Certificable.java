@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.domain.queue.enuns;
+package model.service.certification.impl;
 
 /**
  *
- * @author G0042204
+ * @author G0041775
+ * @param <T>
  */
-public enum TaskState {
+public interface Certificable <T>{
 
-    PENDING, RUNNING, EXECUTED;
+    public CertificationBlock certify(T t);
 
 }
