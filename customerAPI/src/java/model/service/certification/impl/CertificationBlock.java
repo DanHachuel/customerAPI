@@ -75,6 +75,16 @@ public abstract class CertificationBlock<T> implements Certificable<T> {
         return this;
     }
 
+    protected final void check() {
+        for (CertificationAssert aAssert : getAsserts()) {
+            if (aAssert.getResultado() == CertificationResult.TO_FIX) {
+                this.concluir(aAssert.getResultado(), aAssert.getOrientacao());
+                break;
+            }
+            
+        }
+    }
+
     protected final void concluir(CertificationResult resultado, String orientacao) {
         this.resultado = resultado;
         this.orientacao = orientacao;
