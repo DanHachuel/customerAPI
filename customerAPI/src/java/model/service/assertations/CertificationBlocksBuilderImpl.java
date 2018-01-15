@@ -5,21 +5,18 @@
  */
 package model.service.assertations;
 
-import br.net.gvt.efika.customer.CustomerAssert;
 import fulltest.FullTest;
 import java.util.ArrayList;
 import java.util.List;
+import model.entity.CertificationBlock;
 
-
-public class CustomerAssertBuilderImpl implements CustomerAssertsBuilder {
+public class CertificationBlocksBuilderImpl implements CertificationBlocksBuilder {
 
     @Override
-    public List<CustomerAssert> buildAsserts(FullTest ft) throws Exception {
-        List<CustomerAssert> l = new ArrayList<>();
-        
-        
+    public List<CertificationBlock> buildAsserts(FullTest ft) throws Exception {
+        List<CertificationBlock> l = new ArrayList<>();
         
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

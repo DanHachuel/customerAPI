@@ -5,7 +5,6 @@
  */
 package model.entity;
 
-import br.net.gvt.efika.customer.CustomerAssert;
 import fulltest.FullTest;
 import java.util.List;
 import model.entity.enums.CertificationResult;
@@ -21,7 +20,7 @@ public class CustomerLogCertification extends CustomerLog {
     private String orientacao;
 
     @Embedded
-    private List<CustomerAssert> asserts;
+    private List<CertificationBlock> certificationBlocks;
 
     public CustomerLogCertification() {
     }
@@ -50,12 +49,12 @@ public class CustomerLogCertification extends CustomerLog {
         this.orientacao = orientacao;
     }
 
-    public List<CustomerAssert> getAsserts() {
-        return asserts;
+    public List<CertificationBlock> getCertificationBlocks() {
+        return certificationBlocks;
     }
 
-    public void setAsserts(List<CustomerAssert> asserts) {
-        this.asserts = asserts;
+    public void setCertificationBlocks(List<CertificationBlock> certificationBlocks) {
+        this.certificationBlocks = certificationBlocks;
     }
 
 }
