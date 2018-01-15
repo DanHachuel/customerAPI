@@ -14,6 +14,7 @@ public enum CertificationResult {
     OK,
     FIXED,
     FISICAL,
-    FORWARDED_CO;
+    FORWARDED_CO,
+    TO_FIX;
 
 }

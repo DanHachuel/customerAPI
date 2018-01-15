@@ -5,14 +5,18 @@
  */
 package model.service.certification.impl.filters;
 
+import fulltest.ValidacaoResult;
+import java.util.List;
+import telecom.properties.TelecomPropertiesEnum;
+
 public class ValidsFilter {
 
-//    public static CustomerAssert getAssertByEnum(List<CustomerAssert> list, AssertsEnum assertEnum) {
-//        for (CustomerAssert customerAssert : list) {
-//            if (customerAssert.getAsserts() == assertEnum) {
-//                return customerAssert;
-//            }
-//        }
-//        return null;
-//    }
+    public static ValidacaoResult getValidByEnum(List<ValidacaoResult> list, TelecomPropertiesEnum validName) {
+        for (ValidacaoResult valid : list) {
+            if (TelecomPropertiesEnum.find(valid.getResult().getNome()) == validName) {
+                return valid;
+            }
+        }
+        return null;
+    }
 }
