@@ -5,19 +5,16 @@
  */
 package model.service.assertations;
 
-import model.service.certification.impl.CertificationAssert;
+import fulltest.FullTest;
 import model.service.certification.enums.CertificationAssertName;
+import model.service.certification.impl.CertificationAssert;
 
-public class CertificationAsserterImpl implements CertificationAsserter {
+public class FulltestCertificationAsserter extends CertificationAsserterAbs<FullTest> {
 
     @Override
-    public CertificationAssert assertCertification(CertificationAssertName name) throws Exception {
-        CertificationAssert retorno = null;
+    public CertificationAssert assertCertification(CertificationAssertName name, FullTest ft) throws Exception {
+        certName = name;
         switch (name) {
-            case HAS_BLOQ_INVENTARIO:
-                break;
-            case HAS_BLOQ_RADIUS:
-                break;
             case HAS_MAC_DSLAM:
                 break;
             case IS_ADM_UP:
@@ -44,8 +41,6 @@ public class CertificationAsserterImpl implements CertificationAsserter {
                 break;
             case IS_REDE_TV_OK:
                 break;
-            case IS_TBS_EQUALS_RADIUS:
-                break;
             case IS_VIZINHO_OK:
                 break;
             case IS_VLANS_OK:
@@ -54,7 +49,7 @@ public class CertificationAsserterImpl implements CertificationAsserter {
                 break;
         }
 
-        return retorno;
+        return new CertificationAssert(certName, result, orientacao);
     }
 
 }

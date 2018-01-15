@@ -12,8 +12,8 @@ import model.service.certification.enums.CertificationAssertName;
  *
  * @author G0041775
  */
-public interface CertificationAsserter {
+public interface CertificationAsserter<T> {
 
-    public CertificationAssert assertCertification(CertificationAssertName name) throws Exception;
+    public CertificationAssert assertCertification(CertificationAssertName name, T t) throws Exception;
 
 }

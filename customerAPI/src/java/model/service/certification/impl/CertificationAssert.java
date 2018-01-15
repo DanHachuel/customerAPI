@@ -19,7 +19,7 @@ public class CertificationAssert {
     private String orientacao;
 
     private CertificationAssertName nome;
-
+    
     public CertificationAssert(CertificationAssertName name) {
         nome = name;
     }

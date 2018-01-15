@@ -15,6 +15,7 @@ public class CadastroCertificationVIVO2Impl extends CadastroCertification {
     @Override
     protected void process() {
         if (this.getSubject().getRede() != null) {
+            
             this.concluir(CertificationResult.OK, "Cadastro OK");
         } else {
             this.concluir(CertificationResult.FORWARDED_CO, "Cadastro NOK.");
