@@ -32,12 +32,18 @@ public class CertificationServiceImpl implements CertificationService {
     private final FulltestDAO ftDAO = FactoryDAO.newFulltestDAO();
     private final CertificationDAO certDAO = FactoryDAO.createCertificationLogDAO();
 
+    private EfikaCustomer cust;
+
     @Override
     public CustomerCertification certificationByParam(GenericRequest req) throws Exception {
-        EfikaCustomer cust = finder.getCustomer(req);
+        if (req.getCust() == null) {
+            cust = finder.getCustomer(req);
+        }else{
+            cust = req.getCust();
+        }
         this.certification.setCustomer(cust);
         this.certification.setExecutor(req.getExecutor());
-        
+
         CertificationBlock<EfikaCustomer> cadastro = FactoryCertificationBlock.createBlockByName(CertificationBlockName.CADASTRO, cust).certify(cust);
         this.certification.getBlocks().add(cadastro);
 

@@ -5,6 +5,7 @@
  */
 package model.service.factory;
 
+import br.net.gvt.efika.customer.EfikaCustomer;
 import model.service.finder.CustomerFinder;
 import model.service.finder.CustomerFinderImpl;
 import model.service.certification.impl.CertificationServiceImpl;
@@ -21,6 +22,10 @@ public class FactoryService {
     }
 
     public static CertificationService certSrvc() {
+        return new CertificationServiceImpl();
+    }
+
+    public static CertificationService certSrvc(EfikaCustomer ec) {
         return new CertificationServiceImpl();
     }
 
