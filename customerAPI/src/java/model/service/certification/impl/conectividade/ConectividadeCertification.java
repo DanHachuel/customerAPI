@@ -26,18 +26,45 @@ public class ConectividadeCertification extends CertificationBlock<FullTest> {
             new NonExceptionCommand() {
                 @Override
                 public void run() throws Exception {
-                    ConectividadeCertification.this.getAsserts().add(new FulltestCertificationAsserter().assertCertification(CertificationAssertName.HAS_MAC_DSLAM, getSubject()));
+                    ConectividadeCertification.this.getAsserts().add(new FulltestCertificationAsserter().assertCertification(CertificationAssertName.IS_ADM_UP, getSubject()));
                 }
             };
 
             new NonExceptionCommand() {
                 @Override
                 public void run() throws Exception {
-                    ConectividadeCertification.this.getAsserts().add(new FulltestCertificationAsserter().assertCertification(CertificationAssertName.IS_ADM_UP, getSubject()));
+                    ConectividadeCertification.this.getAsserts().add(new FulltestCertificationAsserter().assertCertification(CertificationAssertName.IS_OPER_UP, getSubject()));
                 }
             };
 
-            this.concluir(CertificationResult.OK, "Cadastro OK");
+            new NonExceptionCommand() {
+                @Override
+                public void run() throws Exception {
+                    ConectividadeCertification.this.getAsserts().add(new FulltestCertificationAsserter().assertCertification(CertificationAssertName.IS_PARAM_OK, getSubject()));
+                }
+            };
+
+            new NonExceptionCommand() {
+                @Override
+                public void run() throws Exception {
+                    ConectividadeCertification.this.getAsserts().add(new FulltestCertificationAsserter().assertCertification(CertificationAssertName.IS_MODUL_OK, getSubject()));
+                }
+            };
+
+            new NonExceptionCommand() {
+                @Override
+                public void run() throws Exception {
+                    ConectividadeCertification.this.getAsserts().add(new FulltestCertificationAsserter().assertCertification(CertificationAssertName.IS_ONT_ASSOC, getSubject()));
+                }
+            };
+
+            new NonExceptionCommand() {
+                @Override
+                public void run() throws Exception {
+                    ConectividadeCertification.this.getAsserts().add(new FulltestCertificationAsserter().assertCertification(CertificationAssertName.IS_VIZINHO_OK, getSubject()));
+                }
+            };
+            this.check();
         } else {
             this.concluir(CertificationResult.FORWARDED_CO, "Cadastro NOK.");
         }

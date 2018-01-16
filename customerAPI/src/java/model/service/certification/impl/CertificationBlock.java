@@ -5,7 +5,6 @@
  */
 package model.service.certification.impl;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +69,17 @@ public abstract class CertificationBlock<T> extends Certificational implements C
                 this.concluir(aAssert.getResultado(), aAssert.getOrientacao());
                 break;
             }
+
+            if (aAssert.getResultado() == CertificationResult.FIXED) {
+                this.concluir(aAssert.getResultado(), aAssert.getOrientacao());
+                break;
+            }
+
+            if (aAssert.getResultado() == CertificationResult.FISICAL) {
+                this.concluir(aAssert.getResultado(), aAssert.getOrientacao());
+                break;
+            }
+
         }
 
         if (this.getOrientacao() == null) {

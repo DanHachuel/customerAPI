@@ -35,8 +35,7 @@ public class CadastroCertificationVIVO2Impl extends CadastroCertification {
                 }
             };
             
-
-            this.concluir(CertificationResult.OK, "Cadastro OK");
+            this.check();
         } else {
             this.concluir(CertificationResult.FORWARDED_CO, "Cadastro NOK.");
         }

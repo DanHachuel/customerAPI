@@ -74,6 +74,7 @@ public class FulltestCertificationAsserter extends CertificationAsserterAbs<Full
                     ValidacaoResult valid = ValidsFilter.getValidByEnum(ft.getValids(), TelecomPropertiesEnum.TabelaParametrosGpon);
                     v = valid == null ? ValidsFilter.getValidByEnum(ft.getValids(), TelecomPropertiesEnum.TabelaParametrosMetalico) : valid;
                     result = v.getResultado() ? CertificationResult.OK : CertificationResult.FISICAL;
+                    orientacao = v.getMensagem();
                     break;
 
                 case IS_PROFILE_OK:
@@ -93,11 +94,14 @@ public class FulltestCertificationAsserter extends CertificationAsserterAbs<Full
                     } else {
                         result = v.getResultado() ? CertificationResult.OK : CertificationResult.FISICAL;
                     }
+                    orientacao = v.getMensagem();
                     break;
 
                 case IS_VIZINHO_OK:
+                    v = ValidsFilter.getValidByName(ft.getValids(), "Afetação Vizinhança");
+                    result = v.getResultado() ? CertificationResult.OK : CertificationResult.FORWARDED_CO;
+                    orientacao = v.getMensagem();
 
-                    //to do
                     break;
                 case IS_VLANS_OK:
                     v = ValidsFilter.getValidByEnum(ft.getValids(), TelecomPropertiesEnum.VlanBanda);
