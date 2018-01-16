@@ -12,7 +12,7 @@ package model.service.certification.enums;
 public enum CertificationAssertName {
 
     HAS_BLOQ_RADIUS,
-    IS_TBS_EQUALS_RADIUS,
+    IS_INV_REDE_EQUALS_RADIUS,
     HAS_BLOQ_INVENTARIO,
     IS_ADM_UP,
     IS_OPER_UP,

@@ -13,7 +13,7 @@ public class ValidsFilter {
 
     public static ValidacaoResult getValidByEnum(List<ValidacaoResult> list, TelecomPropertiesEnum validName) {
         for (ValidacaoResult valid : list) {
-            if (TelecomPropertiesEnum.find(valid.getResult().getNome()) == validName) {
+            if (TelecomPropertiesEnum.fromString(valid.getResult().getNome()) == validName) {
                 return valid;
             }
         }

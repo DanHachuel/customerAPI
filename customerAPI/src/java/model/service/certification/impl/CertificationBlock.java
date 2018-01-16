@@ -15,13 +15,9 @@ import model.service.certification.enums.CertificationResult;
  * @author G0041775
  * @param <T>
  */
-public abstract class CertificationBlock<T> implements Certificable<T> {
+public abstract class CertificationBlock<T> extends Certificational implements Certificable<T> {
 
     private List<CertificationAssert> asserts;
-
-    private CertificationResult resultado;
-
-    private String orientacao;
 
     private CertificationBlockName nome;
 
@@ -42,22 +38,6 @@ public abstract class CertificationBlock<T> implements Certificable<T> {
         this.asserts = asserts;
     }
 
-    public CertificationResult getResultado() {
-        return resultado;
-    }
-
-    public void setResultado(CertificationResult resultado) {
-        this.resultado = resultado;
-    }
-
-    public String getOrientacao() {
-        return orientacao;
-    }
-
-    public void setOrientacao(String orientacao) {
-        this.orientacao = orientacao;
-    }
-
     public CertificationBlockName getNome() {
         return nome;
     }
@@ -75,19 +55,23 @@ public abstract class CertificationBlock<T> implements Certificable<T> {
         return this;
     }
 
+    @Override
     protected final void check() {
         for (CertificationAssert aAssert : getAsserts()) {
+            if (aAssert.getResultado() == CertificationResult.FORWARDED_CO) {
+                this.concluir(aAssert.getResultado(), aAssert.getOrientacao());
+                break;
+            }
+
             if (aAssert.getResultado() == CertificationResult.TO_FIX) {
                 this.concluir(aAssert.getResultado(), aAssert.getOrientacao());
                 break;
             }
-            
         }
-    }
 
-    protected final void concluir(CertificationResult resultado, String orientacao) {
-        this.resultado = resultado;
-        this.orientacao = orientacao;
+        if (this.getOrientacao() == null) {
+            this.concluir(CertificationResult.OK, this.getNome().name() + " OK.");
+        }
     }
 
     public T getSubject() {

@@ -6,7 +6,6 @@
 package model.service.certification.impl;
 
 import io.swagger.model.GenericRequest;
-import model.entity.CustomerLogCertification;
 import model.service.certification.enums.CertificationResult;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -51,8 +50,8 @@ public class CertificationServiceImplIT {
             System.out.println("fulltestByParam");
             GenericRequest req = new GenericRequest("4130886762", "G0041775");
             CertificationServiceImpl instance = new CertificationServiceImpl();
-            CustomerLogCertification result = instance.certificationByParam(req);
-            System.out.println(new JacksonMapper(CustomerLogCertification.class).serialize(result));
+            CustomerCertification result = instance.certificationByParam(req);
+            System.out.println(new JacksonMapper(CustomerCertification.class).serialize(result));
             assertTrue(result.getResultado() == CertificationResult.OK);
         } catch (Exception e) {
             e.printStackTrace();

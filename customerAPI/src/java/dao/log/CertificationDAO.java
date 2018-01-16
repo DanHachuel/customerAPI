@@ -6,16 +6,16 @@
 package dao.log;
 
 import dao.AbstractMongoDAO;
-import model.entity.CustomerLogCertification;
+import model.service.certification.impl.CustomerCertification;
 
 /**
  *
  * @author G0041775
  */
-public class CertificationLogDAO extends AbstractMongoDAO<CustomerLogCertification> {
+public class CertificationDAO extends AbstractMongoDAO<CustomerCertification> {
 
-    public CertificationLogDAO() {
-        super("10.40.197.137", "customerAPI", CustomerLogCertification.class);
+    public CertificationDAO() {
+        super("10.40.197.137", "customerAPI", CustomerCertification.class);
     }
 
 }

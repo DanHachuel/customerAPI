@@ -8,7 +8,7 @@ package model.service.certification.impl;
 import br.net.gvt.efika.customer.EfikaCustomer;
 import dao.factory.FactoryDAO;
 import dao.fulltest.FulltestDAO;
-import dao.log.CertificationLogDAO;
+import dao.log.CertificationDAO;
 import fulltest.FullTest;
 import fulltest.FulltestRequest;
 import io.swagger.model.GenericRequest;
@@ -17,7 +17,6 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.entity.CustomerLogCertification;
 import model.service.certification.command.LogCommand;
 import model.service.factory.FactoryCertificationBlock;
 import model.service.factory.FactoryEntitiy;
@@ -29,53 +28,53 @@ import model.service.factory.FactoryService;
 public class CertificationServiceImpl implements CertificationService {
 
     private final CustomerFinder finder = FactoryService.customerFinder();
-    private final CustomerLogCertification resultado = FactoryEntitiy.createCustLogCertification();
+    private final CustomerCertification certification = FactoryEntitiy.createCustLogCertification();
     private final FulltestDAO ftDAO = FactoryDAO.newFulltestDAO();
-    private final CertificationLogDAO certDAO = FactoryDAO.createCertificationLogDAO();
-    private static final Logger LOG = Logger.getLogger(CertificationServiceImpl.class.getName());
+    private final CertificationDAO certDAO = FactoryDAO.createCertificationLogDAO();
 
     @Override
-    public CustomerLogCertification certificationByParam(GenericRequest req) throws Exception {
+    public CustomerCertification certificationByParam(GenericRequest req) throws Exception {
         EfikaCustomer cust = finder.getCustomer(req);
-
+        this.certification.setCustomer(cust);
+        this.certification.setExecutor(req.getExecutor());
+        
         CertificationBlock<EfikaCustomer> cadastro = FactoryCertificationBlock.createBlockByName(CertificationBlockName.CADASTRO, cust).certify(cust);
-        this.addBlock(cadastro);
+        this.certification.getBlocks().add(cadastro);
 
         if (cadastro.getResultado() == CertificationResult.OK) {
             FullTest fulltest = ftDAO.fulltest(new FulltestRequest(cust, req.getExecutor()));
-
             List<Thread> threads = new ArrayList<>();
 
-            threads.add(new Thread(new LogCommand(resultado) {
+            threads.add(new Thread(new LogCommand(certification) {
                 @Override
                 public void run() {
                     try {
                         CertificationBlock<FullTest> perfBlock = FactoryCertificationBlock.createBlockByName(CertificationBlockName.PERFORMANCE, cust).certify(fulltest);
-                        resultado.getCertificationBlocks().add(perfBlock);
+                        certification.getBlocks().add(perfBlock);
                     } catch (Exception e) {
                         Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, e);
                     }
                 }
             }));
 
-            threads.add(new Thread(new LogCommand(resultado) {
+            threads.add(new Thread(new LogCommand(certification) {
                 @Override
                 public void run() {
                     try {
                         CertificationBlock<FullTest> perfBlock = FactoryCertificationBlock.createBlockByName(CertificationBlockName.CONECTIVIDADE, cust).certify(fulltest);
-                        resultado.getCertificationBlocks().add(perfBlock);
+                        certification.getBlocks().add(perfBlock);
                     } catch (Exception e) {
                         Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, e);
                     }
                 }
             }));
 
-            threads.add(new Thread(new LogCommand(resultado) {
+            threads.add(new Thread(new LogCommand(certification) {
                 @Override
                 public void run() {
                     try {
                         CertificationBlock<FullTest> servBlock = FactoryCertificationBlock.createBlockByName(CertificationBlockName.SERVICOS, cust).certify(fulltest);
-                        resultado.getCertificationBlocks().add(servBlock);
+                        certification.getBlocks().add(servBlock);
                     } catch (Exception e) {
                         Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, e);
                     }
@@ -93,23 +92,17 @@ public class CertificationServiceImpl implements CertificationService {
                     Logger.getLogger(CertificationServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
                 }
             });
-
-        } else {
-            this.resultado.setResultado(cadastro.getResultado());
-            this.resultado.setOrientacao(cadastro.getOrientacao());
         }
 
         this.conclude();
-        return resultado;
-    }
-
-    protected void addBlock(CertificationBlock block) {
-        this.resultado.getCertificationBlocks().add(block);
+        return certification;
     }
 
     protected void conclude() throws Exception {
-        resultado.setDataFim(Calendar.getInstance().getTime());
-        certDAO.save(resultado);
+        certification.check();
+        certification.setDataFim(Calendar.getInstance().getTime());
+        certification.setDataFim(Calendar.getInstance().getTime());
+        certDAO.save(certification);
     }
 
 }

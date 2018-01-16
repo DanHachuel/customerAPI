@@ -5,7 +5,7 @@
  */
 package model.service.certification.command;
 
-import model.entity.CustomerLogCertification;
+import model.service.certification.impl.CustomerCertification;
 
 /**
  *
@@ -13,14 +13,18 @@ import model.entity.CustomerLogCertification;
  */
 public abstract class LogCommand implements Runnable {
 
-    private CustomerLogCertification log;
+    private CustomerCertification cert;
 
-    public LogCommand(CustomerLogCertification log) {
-        this.log = log;
+    public LogCommand(CustomerCertification cert) {
+        this.cert = cert;
     }
 
-    public CustomerLogCertification getLog() {
-        return log;
+    public CustomerCertification getCert() {
+        return cert;
+    }
+
+    public void setCert(CustomerCertification cert) {
+        this.cert = cert;
     }
 
 }

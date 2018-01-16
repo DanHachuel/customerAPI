@@ -6,7 +6,7 @@ package model.service.factory;
  * and open the template in the editor.
  */
 
-import model.entity.CustomerLogCertification;
+import model.service.certification.impl.CustomerCertification;
 
 /**
  *
@@ -14,8 +14,8 @@ import model.entity.CustomerLogCertification;
  */
 public class FactoryEntitiy {
 
-    public static CustomerLogCertification createCustLogCertification() {
-        return new CustomerLogCertification();
+    public static CustomerCertification createCustLogCertification() {
+        return new CustomerCertification();
     }
 
 }

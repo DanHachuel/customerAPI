@@ -3,16 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.service.certification.impl;
-
-import io.swagger.model.GenericRequest;
+package model.service.assertations.exception;
 
 /**
  *
  * @author G0042204
  */
-public interface CertificationService {
+public class AssertNaoImpl extends Exception {
 
-    public CustomerCertification certificationByParam(GenericRequest req) throws Exception;
+    public AssertNaoImpl() {
+        super("Assert não implementada.");
+    }
+
     
+
 }

@@ -5,8 +5,6 @@
  */
 package model.service.log;
 
-import model.entity.CustomerLog;
-
 /**
  *
  * @author G0041775

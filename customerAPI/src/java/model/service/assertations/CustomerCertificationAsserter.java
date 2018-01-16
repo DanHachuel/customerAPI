@@ -7,13 +7,13 @@ package model.service.assertations;
 
 import br.net.gvt.efika.asserts.AssertsEnum;
 import br.net.gvt.efika.customer.EfikaCustomer;
+import model.service.assertations.exception.AssertNaoImpl;
 import model.service.certification.enums.CertificationAssertName;
 import model.service.certification.enums.CertificationResult;
 import model.service.certification.impl.CertificationAssert;
 import model.service.certification.filters.CustomerAssertFilter;
 
 public class CustomerCertificationAsserter extends CertificationAsserterAbs<EfikaCustomer> {
-    
 
     @Override
     public CertificationAssert assertCertification(CertificationAssertName name, EfikaCustomer cust) throws Exception {
@@ -57,13 +57,13 @@ public class CustomerCertificationAsserter extends CertificationAsserterAbs<Efik
 //                break;
 //            case IS_REDE_TV_OK:
 //                break;
-            case IS_TBS_EQUALS_RADIUS:
+            case IS_INV_REDE_EQUALS_RADIUS:
                 if (!CustomerAssertFilter.getAssertByEnum(cust.getAsserts(), AssertsEnum.DIVERGENCIA_TBS_RADIUS).getValue()) {
                     result = CertificationResult.OK;
-                    orientacao = "Não há bloqueio no Radius.";
+                    orientacao = "Radius e Inventário de Rede OK.";
                 } else {
                     result = CertificationResult.FORWARDED_CO;
-                    orientacao = "Há bloqueio no Radius.";
+                    orientacao = "Radius divergente do Inventário de Rede.";
                 }
                 break;
 //            case IS_VIZINHO_OK:
@@ -71,7 +71,7 @@ public class CustomerCertificationAsserter extends CertificationAsserterAbs<Efik
 //            case IS_VLANS_OK:
 //                break;
             default:
-                break;
+                throw new AssertNaoImpl();
         }
 
         return new CertificationAssert(certName, result, orientacao);

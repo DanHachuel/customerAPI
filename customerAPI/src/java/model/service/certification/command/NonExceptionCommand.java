@@ -5,8 +5,8 @@
  */
 package model.service.certification.command;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import dao.factory.FactoryDAO;
+import model.entity.ExceptionLog;
 
 /**
  *
@@ -24,7 +24,10 @@ public abstract class NonExceptionCommand {
         try {
             this.run();
         } catch (Exception ex) {
-            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
+            try {
+                FactoryDAO.newExceptionLogDAO().save(new ExceptionLog(ex));
+            } catch (Exception e) {
+            }
         }
     }
 
