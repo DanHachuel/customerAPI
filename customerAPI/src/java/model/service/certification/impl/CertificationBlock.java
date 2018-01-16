@@ -5,6 +5,8 @@
  */
 package model.service.certification.impl;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
 import java.util.List;
 import model.service.certification.enums.CertificationBlockName;
@@ -15,13 +17,14 @@ import model.service.certification.enums.CertificationResult;
  * @author G0041775
  * @param <T>
  */
+@JsonIgnoreProperties({"subject"})
 public abstract class CertificationBlock<T> extends Certificational implements Certificable<T> {
 
     private List<CertificationAssert> asserts;
 
     private CertificationBlockName nome;
 
-    private T subject;
+    private transient T subject;
 
     public CertificationBlock(CertificationBlockName nome) {
         this.nome = nome;

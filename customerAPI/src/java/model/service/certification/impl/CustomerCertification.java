@@ -3,6 +3,7 @@ package model.service.certification.impl;
 import br.net.gvt.efika.customer.EfikaCustomer;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import fulltest.FullTest;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -37,6 +38,8 @@ public class CustomerCertification extends Certificational {
     private EfikaCustomer customer;
 
     private String executor;
+
+    private FullTest fulltest;
 
     public CustomerCertification() {
         dataInicio = Calendar.getInstance().getTime();
@@ -111,6 +114,14 @@ public class CustomerCertification extends Certificational {
 
     public void setExecutor(String executor) {
         this.executor = executor;
+    }
+
+    public FullTest getFulltest() {
+        return fulltest;
+    }
+
+    public void setFulltest(FullTest fulltest) {
+        this.fulltest = fulltest;
     }
 
 }
