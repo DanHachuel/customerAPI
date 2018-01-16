@@ -1,5 +1,6 @@
 package io.swagger.model;
 
+import br.net.gvt.efika.customer.EfikaCustomer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 import java.util.Date;
@@ -13,6 +14,7 @@ public class GenericRequest {
 
     private String parameter = null;
     private String executor = null;
+    private EfikaCustomer cust;
 
     public GenericRequest(String parameter, String executor) {
         this.parameter = parameter;
@@ -143,4 +145,13 @@ public class GenericRequest {
         }
         return o.toString().replace("\n", "\n    ");
     }
+
+    public EfikaCustomer getCust() {
+        return cust;
+    }
+
+    public void setCust(EfikaCustomer cust) {
+        this.cust = cust;
+    }
+
 }
