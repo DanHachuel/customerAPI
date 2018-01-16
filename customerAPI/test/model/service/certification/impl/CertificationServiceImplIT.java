@@ -55,6 +55,7 @@ public class CertificationServiceImplIT {
             System.out.println(new JacksonMapper(CustomerLogCertification.class).serialize(result));
             assertTrue(result.getResultado() == CertificationResult.OK);
         } catch (Exception e) {
+            e.printStackTrace();
             fail(e.getMessage());
         }
 

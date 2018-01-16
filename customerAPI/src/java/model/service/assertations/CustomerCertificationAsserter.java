@@ -10,7 +10,7 @@ import br.net.gvt.efika.customer.EfikaCustomer;
 import model.service.certification.enums.CertificationAssertName;
 import model.service.certification.enums.CertificationResult;
 import model.service.certification.impl.CertificationAssert;
-import model.service.certification.impl.filters.CustomerAssertFilter;
+import model.service.certification.filters.CustomerAssertFilter;
 
 public class CustomerCertificationAsserter extends CertificationAsserterAbs<EfikaCustomer> {
     

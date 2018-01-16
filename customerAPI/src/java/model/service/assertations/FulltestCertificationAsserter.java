@@ -12,7 +12,7 @@ import fulltest.ValidacaoResult;
 import model.service.certification.enums.CertificationAssertName;
 import model.service.certification.enums.CertificationResult;
 import model.service.certification.impl.CertificationAssert;
-import model.service.certification.impl.filters.ValidsFilter;
+import model.service.certification.filters.ValidsFilter;
 import telecom.properties.EstadoDaPorta;
 import telecom.properties.TelecomPropertiesEnum;
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.service.certification.impl.filters;
+package model.service.certification.filters;
 
 import br.net.gvt.efika.asserts.AssertsEnum;
 import br.net.gvt.efika.customer.CustomerAssert;

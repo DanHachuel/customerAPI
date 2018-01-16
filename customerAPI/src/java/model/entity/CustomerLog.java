@@ -8,6 +8,7 @@ package model.entity;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import io.swagger.model.GenericRequest;
+import java.util.Calendar;
 import java.util.Date;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
@@ -24,11 +25,14 @@ public abstract class CustomerLog {
     @JsonSerialize(using = ToStringSerializer.class)
     private ObjectId id;
 
-    private Date dataExecucao;
+    private Date dataInicio;
+
+    private Date dataFim;
 
     private GenericRequest input;
 
     public CustomerLog() {
+        this.dataInicio = Calendar.getInstance().getTime();
     }
 
     public ObjectId getId() {
@@ -39,12 +43,20 @@ public abstract class CustomerLog {
         this.id = id;
     }
 
-    public Date getDataExecucao() {
-        return dataExecucao;
+    public Date getDataInicio() {
+        return dataInicio;
     }
 
-    public void setDataExecucao(Date dataExecucao) {
-        this.dataExecucao = dataExecucao;
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public Date getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(Date dataFim) {
+        this.dataFim = dataFim;
     }
 
     public GenericRequest getInput() {

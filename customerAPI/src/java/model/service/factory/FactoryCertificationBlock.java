@@ -11,6 +11,9 @@ import model.service.certification.impl.cadastro.CadastroCertificationVIVO1Impl;
 import model.service.certification.impl.cadastro.CadastroCertificationVIVO2Impl;
 import model.service.certification.impl.CertificationBlock;
 import model.service.certification.enums.CertificationBlockName;
+import model.service.certification.impl.conectividade.ConectividadeCertification;
+import model.service.certification.impl.performance.PerformanceCertification;
+import model.service.certification.impl.servicos.ServicosCertification;
 
 /**
  *
@@ -19,12 +22,18 @@ import model.service.certification.enums.CertificationBlockName;
 public class FactoryCertificationBlock {
 
     public static CertificationBlock createBlockByName(CertificationBlockName name, EfikaCustomer ec) throws Exception {
-        if (name == CertificationBlockName.CADASTRO) {
-            return ec.getRede().getPlanta() == OrigemPlanta.VIVO2 ? new CadastroCertificationVIVO2Impl() : new CadastroCertificationVIVO1Impl();
-        } else if (name == CertificationBlockName.CONECTIVIDADE) {
-
+        switch (name) {
+            case CADASTRO:
+                return ec.getRede().getPlanta() == OrigemPlanta.VIVO2 ? new CadastroCertificationVIVO2Impl() : new CadastroCertificationVIVO1Impl();
+            case CONECTIVIDADE:
+                return new ConectividadeCertification();
+            case SERVICOS:
+                return new ServicosCertification();
+            case PERFORMANCE:
+                return new PerformanceCertification();
+            default:
+                throw new Exception("Bloco de Certificação não implementado.");
         }
-        throw new Exception("Bloco de Certificação não implementado.");
     }
 
 }
