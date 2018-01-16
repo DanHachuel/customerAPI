@@ -14,7 +14,7 @@ public class GenericRequest {
 
     private String parameter = null;
     private String executor = null;
-    private EfikaCustomer cust;
+    private EfikaCustomer customer;
 
     public GenericRequest(String parameter, String executor) {
         this.parameter = parameter;
@@ -146,12 +146,12 @@ public class GenericRequest {
         return o.toString().replace("\n", "\n    ");
     }
 
-    public EfikaCustomer getCust() {
-        return cust;
+    public EfikaCustomer getCustomer() {
+        return customer;
     }
 
-    public void setCust(EfikaCustomer cust) {
-        this.cust = cust;
+    public void setCustomer(EfikaCustomer customer) {
+        this.customer = customer;
     }
 
 }

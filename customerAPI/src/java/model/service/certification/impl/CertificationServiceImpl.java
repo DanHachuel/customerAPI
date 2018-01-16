@@ -36,10 +36,10 @@ public class CertificationServiceImpl implements CertificationService {
 
     @Override
     public CustomerCertification certificationByParam(GenericRequest req) throws Exception {
-        if (req.getCust() == null) {
+        if (req.getCustomer() == null) {
             cust = finder.getCustomer(req);
         }else{
-            cust = req.getCust();
+            cust = req.getCustomer();
         }
         this.certification.setCustomer(cust);
         this.certification.setExecutor(req.getExecutor());
