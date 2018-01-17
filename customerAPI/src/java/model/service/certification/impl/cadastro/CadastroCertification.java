@@ -6,8 +6,8 @@
 package model.service.certification.impl.cadastro;
 
 import br.net.gvt.efika.customer.EfikaCustomer;
-import model.service.certification.impl.CertificationBlock;
-import model.service.certification.enums.CertificationBlockName;
+import model.entity.CertificationBlock;
+import model.enums.CertificationBlockName;
 
 public abstract class CadastroCertification extends CertificationBlock<EfikaCustomer> {
 

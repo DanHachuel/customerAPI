@@ -5,6 +5,8 @@
  */
 package model.service.certification.impl;
 
+import model.entity.CertificationBlock;
+import model.entity.CustomerCertification;
 import br.net.gvt.efika.customer.EfikaCustomer;
 import dao.factory.FactoryDAO;
 import dao.fulltest.FulltestDAO;
@@ -20,20 +22,20 @@ import java.util.logging.Logger;
 import model.service.certification.command.LogCommand;
 import model.service.factory.FactoryCertificationBlock;
 import model.service.factory.FactoryEntitiy;
-import model.service.certification.enums.CertificationBlockName;
-import model.service.certification.enums.CertificationResult;
+import model.enums.CertificationBlockName;
+import model.enums.CertificationResult;
 import model.service.finder.CustomerFinder;
 import model.service.factory.FactoryService;
 
 public class CertificationServiceImpl implements CertificationService {
-    
+
     private final CustomerFinder finder = FactoryService.customerFinder();
     private final CustomerCertification certification = FactoryEntitiy.createCustLogCertification();
     private final FulltestDAO ftDAO = FactoryDAO.newFulltestDAO();
     private final CertificationDAO certDAO = FactoryDAO.createCertificationLogDAO();
-    
+
     private EfikaCustomer cust;
-    
+
     @Override
     public CustomerCertification certificationByParam(GenericRequest req) throws Exception {
         if (req.getCustomer() == null) {
@@ -43,15 +45,15 @@ public class CertificationServiceImpl implements CertificationService {
         }
         this.certification.setCustomer(cust);
         this.certification.setExecutor(req.getExecutor());
-        
+
         CertificationBlock<EfikaCustomer> cadastro = FactoryCertificationBlock.createBlockByName(CertificationBlockName.CADASTRO, cust).certify(cust);
         this.certification.getBlocks().add(cadastro);
-        
+
         if (cadastro.getResultado() == CertificationResult.OK) {
             FullTest fulltest = ftDAO.fulltest(new FulltestRequest(cust, req.getExecutor()));
             this.certification.setFulltest(fulltest);
             List<Thread> threads = new ArrayList<>();
-            
+
             threads.add(new Thread(new LogCommand(certification) {
                 @Override
                 public void run() {
@@ -63,7 +65,7 @@ public class CertificationServiceImpl implements CertificationService {
                     }
                 }
             }));
-            
+
             threads.add(new Thread(new LogCommand(certification) {
                 @Override
                 public void run() {
@@ -75,7 +77,7 @@ public class CertificationServiceImpl implements CertificationService {
                     }
                 }
             }));
-            
+
             threads.add(new Thread(new LogCommand(certification) {
                 @Override
                 public void run() {
@@ -87,7 +89,7 @@ public class CertificationServiceImpl implements CertificationService {
                     }
                 }
             }));
-            
+
             threads.forEach((t) -> {
                 t.start();
                 System.out.println("started" + Calendar.getInstance());
@@ -100,16 +102,16 @@ public class CertificationServiceImpl implements CertificationService {
                 }
             });
         }
-        
+
         this.conclude();
         return certification;
     }
-    
+
     protected void conclude() throws Exception {
         certification.check();
         certification.setDataFim(Calendar.getInstance().getTime());
         certification.setDataFim(Calendar.getInstance().getTime());
         certDAO.save(certification);
     }
-    
+
 }

@@ -5,7 +5,7 @@
  */
 package model.service.certification.command;
 
-import model.service.certification.impl.CustomerCertification;
+import model.entity.CustomerCertification;
 
 /**
  *

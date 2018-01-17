@@ -5,6 +5,7 @@
  */
 package model.service.certification.impl;
 
+import model.entity.CustomerCertification;
 import io.swagger.model.GenericRequest;
 
 /**

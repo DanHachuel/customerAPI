@@ -6,7 +6,7 @@ package model.service.factory;
  * and open the template in the editor.
  */
 
-import model.service.certification.impl.CustomerCertification;
+import model.entity.CustomerCertification;
 
 /**
  *

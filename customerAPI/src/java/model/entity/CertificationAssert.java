@@ -3,26 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.service.certification.impl;
+package model.entity;
 
-import model.service.certification.enums.CertificationResult;
+import model.enums.CertificationAssertName;
+import model.enums.CertificationResult;
 
 /**
  *
- * @author G0042204
+ * @author G0041775
  */
-public abstract class Certificational {
+public class CertificationAssert {
 
     private CertificationResult resultado;
 
     private String orientacao;
 
-    public final void concluir(CertificationResult resultado, String orientacao) {
-        this.resultado = resultado;
-        this.orientacao = orientacao;
+    private CertificationAssertName nome;
+    
+    public CertificationAssert(CertificationAssertName name) {
+        nome = name;
     }
 
-    protected abstract void check();
+    public CertificationAssert(CertificationAssertName nome, CertificationResult resultado, String orientacao) {
+        this.resultado = resultado;
+        this.orientacao = orientacao;
+        this.nome = nome;
+    }
 
     public CertificationResult getResultado() {
         return resultado;
@@ -38,6 +44,14 @@ public abstract class Certificational {
 
     public void setOrientacao(String orientacao) {
         this.orientacao = orientacao;
+    }
+
+    public CertificationAssertName getNome() {
+        return nome;
+    }
+
+    public void setNome(CertificationAssertName nome) {
+        this.nome = nome;
     }
 
 }

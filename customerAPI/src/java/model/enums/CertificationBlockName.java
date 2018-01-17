@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.service.certification.enums;
+package model.enums;
 
 /**
  *
  * @author G0041775
  */
-public enum CertificationResult {
+public enum CertificationBlockName {
 
-    OK,
-    FIXED,
-    FISICAL,
-    FORWARDED_CO,
-    TO_FIX;
+    CADASTRO,
+    CONECTIVIDADE,
+    SERVICOS,
+    PERFORMANCE;
 
 }

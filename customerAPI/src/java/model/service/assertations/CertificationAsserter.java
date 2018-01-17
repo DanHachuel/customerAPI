@@ -5,8 +5,8 @@
  */
 package model.service.assertations;
 
-import model.service.certification.impl.CertificationAssert;
-import model.service.certification.enums.CertificationAssertName;
+import model.entity.CertificationAssert;
+import model.enums.CertificationAssertName;
 
 /**
  *

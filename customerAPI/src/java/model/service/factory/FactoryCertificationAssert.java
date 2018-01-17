@@ -5,9 +5,9 @@
  */
 package model.service.factory;
 
-import model.service.certification.impl.CertificationAssert;
-import model.service.certification.enums.CertificationAssertName;
-import model.service.certification.enums.CertificationResult;
+import model.entity.CertificationAssert;
+import model.enums.CertificationAssertName;
+import model.enums.CertificationResult;
 
 /**
  *

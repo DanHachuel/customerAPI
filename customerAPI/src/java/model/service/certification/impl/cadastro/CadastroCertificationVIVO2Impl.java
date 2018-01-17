@@ -9,8 +9,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.service.assertations.CustomerCertificationAsserter;
 import model.service.certification.command.NonExceptionCommand;
-import model.service.certification.enums.CertificationAssertName;
-import model.service.certification.enums.CertificationResult;
+import model.enums.CertificationAssertName;
+import model.enums.CertificationResult;
 
 public class CadastroCertificationVIVO2Impl extends CadastroCertification {
 

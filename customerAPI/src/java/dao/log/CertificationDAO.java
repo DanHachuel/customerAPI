@@ -6,7 +6,7 @@
 package dao.log;
 
 import dao.AbstractMongoDAO;
-import model.service.certification.impl.CustomerCertification;
+import model.entity.CustomerCertification;
 
 /**
  *

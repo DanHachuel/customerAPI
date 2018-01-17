@@ -6,8 +6,8 @@
 package model.service.certification.impl.cadastro;
 
 import model.service.factory.FactoryCertificationAssert;
-import model.service.certification.enums.CertificationAssertName;
-import model.service.certification.enums.CertificationResult;
+import model.enums.CertificationAssertName;
+import model.enums.CertificationResult;
 
 public class CadastroCertificationVIVO1Impl extends CadastroCertification {
 

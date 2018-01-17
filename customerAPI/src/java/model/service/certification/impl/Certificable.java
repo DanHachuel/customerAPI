@@ -5,6 +5,8 @@
  */
 package model.service.certification.impl;
 
+import model.entity.CertificationBlock;
+
 /**
  *
  * @author G0041775

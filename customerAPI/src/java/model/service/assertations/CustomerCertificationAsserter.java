@@ -8,9 +8,9 @@ package model.service.assertations;
 import br.net.gvt.efika.asserts.AssertsEnum;
 import br.net.gvt.efika.customer.EfikaCustomer;
 import model.service.assertations.exception.AssertNaoImpl;
-import model.service.certification.enums.CertificationAssertName;
-import model.service.certification.enums.CertificationResult;
-import model.service.certification.impl.CertificationAssert;
+import model.enums.CertificationAssertName;
+import model.enums.CertificationResult;
+import model.entity.CertificationAssert;
 import model.service.certification.filters.CustomerAssertFilter;
 
 public class CustomerCertificationAsserter extends CertificationAsserterAbs<EfikaCustomer> {

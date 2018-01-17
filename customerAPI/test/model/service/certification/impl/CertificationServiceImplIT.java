@@ -5,8 +5,9 @@
  */
 package model.service.certification.impl;
 
+import model.entity.CustomerCertification;
 import io.swagger.model.GenericRequest;
-import model.service.certification.enums.CertificationResult;
+import model.enums.CertificationResult;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertTrue;

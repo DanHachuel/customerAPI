@@ -5,8 +5,8 @@
  */
 package model.service.assertations;
 
-import model.service.certification.enums.CertificationAssertName;
-import model.service.certification.enums.CertificationResult;
+import model.enums.CertificationAssertName;
+import model.enums.CertificationResult;
 
 public abstract class CertificationAsserterAbs<T> implements CertificationAsserter<T> {
 

@@ -8,10 +8,10 @@ package model.service.certification.impl.performance;
 import fulltest.FullTest;
 import model.service.assertations.FulltestCertificationAsserter;
 import model.service.certification.command.NonExceptionCommand;
-import model.service.certification.enums.CertificationAssertName;
-import model.service.certification.impl.CertificationBlock;
-import model.service.certification.enums.CertificationBlockName;
-import model.service.certification.enums.CertificationResult;
+import model.enums.CertificationAssertName;
+import model.entity.CertificationBlock;
+import model.enums.CertificationBlockName;
+import model.enums.CertificationResult;
 
 public class PerformanceCertification extends CertificationBlock<FullTest> {
 

@@ -6,7 +6,7 @@
 package model.service.certification.filters;
 
 import java.util.List;
-import model.service.certification.enums.CertificationResult;
+import model.enums.CertificationResult;
 
 public class CertificationResultFilter {
 

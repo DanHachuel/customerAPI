@@ -1,4 +1,4 @@
-package model.service.certification.impl;
+package model.entity;
 
 import br.net.gvt.efika.customer.EfikaCustomer;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import model.service.certification.enums.CertificationResult;
+import model.enums.CertificationResult;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
@@ -46,7 +46,7 @@ public class CustomerCertification extends Certificational {
     }
 
     @Override
-    protected void check() {
+    public void check() {
         for (CertificationBlock block : blocks) {
 
             if (block.getResultado() == CertificationResult.FORWARDED_CO) {

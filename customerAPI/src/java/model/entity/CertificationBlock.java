@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.service.certification.impl;
+package model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
 import java.util.List;
-import model.service.certification.enums.CertificationBlockName;
-import model.service.certification.enums.CertificationResult;
+import model.enums.CertificationBlockName;
+import model.enums.CertificationResult;
+import model.service.certification.impl.Certificable;
 
 /**
  *
@@ -58,7 +59,7 @@ public abstract class CertificationBlock<T> extends Certificational implements C
     }
 
     @Override
-    protected final void check() {
+    public final void check() {
         for (CertificationAssert aAssert : getAsserts()) {
             if (aAssert.getResultado() == CertificationResult.FORWARDED_CO) {
                 this.concluir(aAssert.getResultado(), aAssert.getOrientacao());
