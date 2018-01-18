@@ -52,9 +52,8 @@ public class CertificationServiceImpl implements CertificationService {
         if (cadastro.getResultado() == CertificationResult.OK) {
             FullTest fulltest = ftDAO.fulltest(new FulltestRequest(cust, req.getExecutor()));
             this.certification.setFulltest(fulltest);
-            List<Thread> threads = new ArrayList<>();
 
-            threads.add(new Thread(new LogCommand(certification) {
+            Thread threadPerf = new Thread(new LogCommand(certification) {
                 @Override
                 public void run() {
                     try {
@@ -64,21 +63,21 @@ public class CertificationServiceImpl implements CertificationService {
                         Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, e);
                     }
                 }
-            }));
+            });
 
-            threads.add(new Thread(new LogCommand(certification) {
+            Thread threadConnect = new Thread(new LogCommand(certification) {
                 @Override
                 public void run() {
                     try {
-                        CertificationBlock<FullTest> perfBlock = FactoryCertificationBlock.createBlockByName(CertificationBlockName.CONECTIVIDADE, cust).certify(fulltest);
-                        certification.getBlocks().add(perfBlock);
+                        CertificationBlock<FullTest> connectBlock = FactoryCertificationBlock.createBlockByName(CertificationBlockName.CONECTIVIDADE, cust).certify(fulltest);
+                        certification.getBlocks().add(connectBlock);
                     } catch (Exception e) {
                         Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, e);
                     }
                 }
-            }));
+            });
 
-            threads.add(new Thread(new LogCommand(certification) {
+            Thread threadServ = new Thread(new LogCommand(certification) {
                 @Override
                 public void run() {
                     try {
@@ -88,21 +87,16 @@ public class CertificationServiceImpl implements CertificationService {
                         Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, e);
                     }
                 }
-            }));
+            });
 
-            threads.forEach((t) -> {
-                t.start();
-                System.out.println("started" + Calendar.getInstance());
-            });
-            threads.forEach((t) -> {
-                try {
-                    t.join();
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(CertificationServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            });
+            threadPerf.start();
+            threadConnect.start();
+            threadServ.start();
+
+            threadPerf.join();
+            threadConnect.join();
+            threadServ.join();
         }
-
         this.conclude();
         return certification;
     }
