@@ -7,6 +7,7 @@ package model.entity;
 
 import model.enums.CertificationResult;
 
+
 /**
  *
  * @author G0042204
@@ -21,9 +22,6 @@ public abstract class Certificational {
         this.resultado = resultado;
         this.orientacao = orientacao;
     }
-
-    public abstract void check();
-
     public CertificationResult getResultado() {
         return resultado;
     }

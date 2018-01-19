@@ -7,21 +7,17 @@ import io.swagger.model.GenericRequest;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
-import model.service.certification.impl.CertificationService;
-import model.service.finder.CustomerFinder;
 import model.service.factory.FactoryService;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2018-01-04T13:39:04.668Z")
 public class CertificationApiServiceImpl extends CertificationApiService {
 
-    private CustomerFinder finder = FactoryService.customerFinder();
-    private CertificationService certificator = FactoryService.certSrvc();
 
     @Override
     public Response certification(GenericRequest body, SecurityContext securityContext)
             throws NotFoundException {
         try {
-            return Response.ok().entity(certificator.certificationByParam(body)).build();
+            return Response.ok().entity(FactoryService.certSrvc().certificationByParam(body)).build();
         } catch (Exception e) {
             e.printStackTrace();
             return Response.ok().entity(e).build();

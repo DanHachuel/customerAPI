@@ -5,26 +5,19 @@
  */
 package model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
 import java.util.List;
 import model.enums.CertificationBlockName;
-import model.enums.CertificationResult;
-import model.service.certification.impl.Certificable;
 
 /**
  *
  * @author G0041775
- * @param <T>
  */
-@JsonIgnoreProperties({"subject"})
-public abstract class CertificationBlock<T> extends Certificational implements Certificable<T> {
+public class CertificationBlock extends Certificational {
 
     private List<CertificationAssert> asserts;
 
     private CertificationBlockName nome;
-
-    private transient T subject;
 
     public CertificationBlock(CertificationBlockName nome) {
         this.nome = nome;
@@ -49,47 +42,47 @@ public abstract class CertificationBlock<T> extends Certificational implements C
         this.nome = nome;
     }
 
-    protected abstract void process();
+//    protected abstract void process();
 
-    @Override
-    public CertificationBlock certify(T t) {
-        this.subject = t;
-        this.process();
-        return this;
-    }
-
-    @Override
-    public final void check() {
-        for (CertificationAssert aAssert : getAsserts()) {
-            if (aAssert.getResultado() == CertificationResult.FORWARDED_CO) {
-                this.concluir(aAssert.getResultado(), aAssert.getOrientacao());
-                break;
-            }
-
-            if (aAssert.getResultado() == CertificationResult.TO_FIX) {
-                this.concluir(aAssert.getResultado(), aAssert.getOrientacao());
-                break;
-            }
-
-            if (aAssert.getResultado() == CertificationResult.FIXED) {
-                this.concluir(aAssert.getResultado(), aAssert.getOrientacao());
-                break;
-            }
-
-            if (aAssert.getResultado() == CertificationResult.FISICAL) {
-                this.concluir(aAssert.getResultado(), aAssert.getOrientacao());
-                break;
-            }
-
-        }
-
-        if (this.getOrientacao() == null) {
-            this.concluir(CertificationResult.OK, this.getNome().name() + " OK.");
-        }
-    }
-
-    public T getSubject() {
-        return subject;
-    }
+//    @Override
+//    public CertificationBlock certify(T t) {
+//        this.subject = t;
+//        this.process();
+//        return this;
+//    }
+//
+//    @Override
+//    public final void check() {
+//        for (CertificationAssert aAssert : getAsserts()) {
+//            if (aAssert.getResultado() == CertificationResult.FORWARDED_CO) {
+//                this.concluir(aAssert.getResultado(), aAssert.getOrientacao());
+//                break;
+//            }
+//
+//            if (aAssert.getResultado() == CertificationResult.TO_FIX) {
+//                this.concluir(aAssert.getResultado(), aAssert.getOrientacao());
+//                break;
+//            }
+//
+//            if (aAssert.getResultado() == CertificationResult.FIXED) {
+//                this.concluir(aAssert.getResultado(), aAssert.getOrientacao());
+//                break;
+//            }
+//
+//            if (aAssert.getResultado() == CertificationResult.FISICAL) {
+//                this.concluir(aAssert.getResultado(), aAssert.getOrientacao());
+//                break;
+//            }
+//
+//        }
+//
+//        if (this.getOrientacao() == null) {
+//            this.concluir(CertificationResult.OK, this.getNome().name() + " OK.");
+//        }
+//    }
+//
+//    public T getSubject() {
+//        return subject;
+//    }
 
 }

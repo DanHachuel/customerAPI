@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import model.enums.CertificationResult;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
@@ -45,25 +44,7 @@ public class CustomerCertification extends Certificational {
         dataInicio = Calendar.getInstance().getTime();
     }
 
-    @Override
-    public void check() {
-        for (CertificationBlock block : blocks) {
 
-            if (block.getResultado() == CertificationResult.FORWARDED_CO) {
-                this.concluir(block.getResultado(), block.getOrientacao());
-                break;
-            }
-
-            if (block.getResultado() == CertificationResult.TO_FIX) {
-                this.concluir(block.getResultado(), block.getOrientacao());
-                break;
-            }
-        }
-
-        if (this.getOrientacao() == null) {
-            this.concluir(CertificationResult.OK, "OK");
-        }
-    }
 
     public List<CertificationBlock> getBlocks() {
         if (blocks == null) {
