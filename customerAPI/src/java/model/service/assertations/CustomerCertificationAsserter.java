@@ -31,6 +31,29 @@ public class CustomerCertificationAsserter extends CertificationAsserterAbs<Efik
                     orientacao = "Há bloqueio no Radius.";
                 }
                 break;
+            case HAS_INV_REDE:
+
+                if (cust.getRede().getIpDslam() == null) {
+                    result = CertificationResult.FORWARDED_CO;
+                    orientacao = "Acionar célula de Cadastro.";
+                } else {
+                    result = CertificationResult.OK;
+                    orientacao = "Inventário de Rede OK.";
+                }
+
+                break;
+
+            case HAS_INV_SERV:
+
+                if (cust.getServicos().getVelDown() == null || cust.getServicos().getVelUp() == null){
+                    result = CertificationResult.FORWARDED_CO;
+                    orientacao = "Falha ao identificar serviços contratados.";
+                } else {
+                    result = CertificationResult.OK;
+                    orientacao = "Inventário de Rede OK.";
+                }
+
+                break;
 //            case HAS_MAC_DSLAM:
 //                break;
 //            case IS_ADM_UP:

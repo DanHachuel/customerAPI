@@ -43,6 +43,8 @@ public class CertifierCadastroCertificationImpl extends CertifierCertificationBl
     public void definirAsserts() {
         this.asserts.add(CertificationAssertName.HAS_BLOQ_RADIUS);
         this.asserts.add(CertificationAssertName.IS_INV_REDE_EQUALS_RADIUS);
+        this.asserts.add(CertificationAssertName.HAS_INV_REDE);
+        this.asserts.add(CertificationAssertName.HAS_INV_SERV);
     }
 
 }
