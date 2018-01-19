@@ -5,8 +5,10 @@
  */
 package model.service.factory;
 
-import model.entity.CertificationBlock;
-import model.enums.CertificationBlockName;
+import br.net.gvt.efika.model.certification.CertificationBlock;
+import br.net.gvt.efika.model.certification.enuns.CertificationBlockName;
+
+
 
 /**
  *

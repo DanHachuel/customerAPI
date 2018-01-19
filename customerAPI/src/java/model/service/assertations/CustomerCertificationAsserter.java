@@ -7,10 +7,10 @@ package model.service.assertations;
 
 import br.net.gvt.efika.asserts.AssertsEnum;
 import br.net.gvt.efika.customer.EfikaCustomer;
+import br.net.gvt.efika.model.certification.CertificationAssert;
+import br.net.gvt.efika.model.certification.enuns.CertificationAssertName;
+import br.net.gvt.efika.model.certification.enuns.CertificationResult;
 import model.service.assertations.exception.AssertNaoImpl;
-import model.enums.CertificationAssertName;
-import model.enums.CertificationResult;
-import model.entity.CertificationAssert;
 import model.service.certification.filters.CustomerAssertFilter;
 
 public class CustomerCertificationAsserter extends CertificationAsserterAbs<EfikaCustomer> {
@@ -45,7 +45,7 @@ public class CustomerCertificationAsserter extends CertificationAsserterAbs<Efik
 
             case HAS_INV_SERV:
 
-                if (cust.getServicos().getVelDown() == null || cust.getServicos().getVelUp() == null){
+                if (cust.getServicos().getVelDown() == null || cust.getServicos().getVelUp() == null) {
                     result = CertificationResult.FORWARDED_CO;
                     orientacao = "Falha ao identificar serviços contratados.";
                 } else {

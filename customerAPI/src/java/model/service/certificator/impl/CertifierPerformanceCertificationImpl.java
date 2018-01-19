@@ -5,9 +5,9 @@
  */
 package model.service.certificator.impl;
 
+import br.net.gvt.efika.model.certification.enuns.CertificationAssertName;
+import br.net.gvt.efika.model.certification.enuns.CertificationResult;
 import fulltest.FullTest;
-import model.enums.CertificationAssertName;
-import model.enums.CertificationResult;
 import model.service.assertations.FulltestCertificationAsserter;
 import model.service.certification.command.NonExceptionCommand;
 

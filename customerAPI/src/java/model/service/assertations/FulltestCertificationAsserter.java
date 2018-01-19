@@ -7,15 +7,17 @@ package model.service.assertations;
 
 import br.net.gvt.efika.enums.TecnologiaLinha;
 import br.net.gvt.efika.enums.TecnologiaTv;
+import br.net.gvt.efika.model.certification.CertificationAssert;
+import br.net.gvt.efika.model.certification.enuns.CertificationAssertName;
+import br.net.gvt.efika.model.certification.enuns.CertificationResult;
 import fulltest.FullTest;
 import fulltest.ValidacaoResult;
 import model.service.assertations.exception.AssertNaoImpl;
-import model.enums.CertificationAssertName;
-import model.enums.CertificationResult;
-import model.entity.CertificationAssert;
 import model.service.certification.filters.ValidsFilter;
 import telecom.properties.EstadoDaPorta;
 import telecom.properties.TelecomPropertiesEnum;
+
+
 
 public class FulltestCertificationAsserter extends CertificationAsserterAbs<FullTest> {
 

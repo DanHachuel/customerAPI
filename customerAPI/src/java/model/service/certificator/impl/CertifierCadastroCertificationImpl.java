@@ -6,8 +6,8 @@
 package model.service.certificator.impl;
 
 import br.net.gvt.efika.customer.EfikaCustomer;
-import model.enums.CertificationAssertName;
-import model.enums.CertificationResult;
+import br.net.gvt.efika.model.certification.enuns.CertificationAssertName;
+import br.net.gvt.efika.model.certification.enuns.CertificationResult;
 import model.service.assertations.CustomerCertificationAsserter;
 import model.service.certification.command.NonExceptionCommand;
 

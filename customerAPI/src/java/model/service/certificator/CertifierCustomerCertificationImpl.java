@@ -5,9 +5,11 @@
  */
 package model.service.certificator;
 
-import model.entity.CertificationBlock;
+import br.net.gvt.efika.model.certification.CertificationBlock;
+import br.net.gvt.efika.model.certification.enuns.CertificationResult;
 import model.entity.CustomerCertification;
-import model.enums.CertificationResult;
+
+
 
 public class CertifierCustomerCertificationImpl extends CertifierAbstract<CustomerCertification> {
 

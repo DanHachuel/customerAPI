@@ -5,12 +5,13 @@
  */
 package model.service.certificator.impl;
 
+import br.net.gvt.efika.model.certification.CertificationAssert;
+import br.net.gvt.efika.model.certification.CertificationBlock;
+import br.net.gvt.efika.model.certification.enuns.CertificationAssertName;
+import br.net.gvt.efika.model.certification.enuns.CertificationResult;
 import java.util.ArrayList;
 import java.util.List;
-import model.entity.CertificationAssert;
-import model.entity.CertificationBlock;
-import model.enums.CertificationAssertName;
-import model.enums.CertificationResult;
+
 import model.service.certificator.CertifierAbstract;
 
 public abstract class CertifierCertificationBlockGeneric extends CertifierAbstract<CertificationBlock> {

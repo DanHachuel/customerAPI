@@ -5,9 +5,9 @@
  */
 package model.service.certification.impl;
 
+import br.net.gvt.efika.model.certification.enuns.CertificationResult;
 import model.entity.CustomerCertification;
 import io.swagger.model.GenericRequest;
-import model.enums.CertificationResult;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertTrue;

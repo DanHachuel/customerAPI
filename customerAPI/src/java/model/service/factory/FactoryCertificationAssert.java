@@ -5,9 +5,11 @@
  */
 package model.service.factory;
 
-import model.entity.CertificationAssert;
-import model.enums.CertificationAssertName;
-import model.enums.CertificationResult;
+import br.net.gvt.efika.model.certification.CertificationAssert;
+import br.net.gvt.efika.model.certification.enuns.CertificationAssertName;
+import br.net.gvt.efika.model.certification.enuns.CertificationResult;
+
+
 
 /**
  *

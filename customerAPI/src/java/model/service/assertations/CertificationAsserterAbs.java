@@ -5,8 +5,10 @@
  */
 package model.service.assertations;
 
-import model.enums.CertificationAssertName;
-import model.enums.CertificationResult;
+import br.net.gvt.efika.model.certification.enuns.CertificationAssertName;
+import br.net.gvt.efika.model.certification.enuns.CertificationResult;
+
+
 
 public abstract class CertificationAsserterAbs<T> implements CertificationAsserter<T> {
 

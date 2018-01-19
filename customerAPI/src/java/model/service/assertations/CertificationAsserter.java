@@ -5,12 +5,13 @@
  */
 package model.service.assertations;
 
-import model.entity.CertificationAssert;
-import model.enums.CertificationAssertName;
+import br.net.gvt.efika.model.certification.CertificationAssert;
+import br.net.gvt.efika.model.certification.enuns.CertificationAssertName;
 
 /**
  *
  * @author G0041775
+ * @param <T>
  */
 public interface CertificationAsserter<T> {
 

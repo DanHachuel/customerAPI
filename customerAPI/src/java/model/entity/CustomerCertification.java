@@ -1,6 +1,8 @@
 package model.entity;
 
 import br.net.gvt.efika.customer.EfikaCustomer;
+import br.net.gvt.efika.model.certification.CertificationBlock;
+import br.net.gvt.efika.model.certification.Certificational;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import fulltest.FullTest;

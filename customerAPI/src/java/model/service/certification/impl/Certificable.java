@@ -5,7 +5,8 @@
  */
 package model.service.certification.impl;
 
-import model.entity.CertificationBlock;
+import br.net.gvt.efika.model.certification.CertificationBlock;
+
 
 /**
  *
