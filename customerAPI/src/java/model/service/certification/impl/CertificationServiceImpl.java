@@ -61,7 +61,7 @@ public class CertificationServiceImpl implements CertificationService {
                 @Override
                 public void run() {
                     try {
-                        CertificationBlock perfBlock = FactoryCertificationBlock.createBlockByName(CertificationBlockName.CADASTRO);
+                        CertificationBlock perfBlock = FactoryCertificationBlock.createBlockByName(CertificationBlockName.PERFORMANCE);
                         new CertifierPerformanceCertificationImpl(fulltest).certify(perfBlock);
                         certification.getBlocks().add(perfBlock);
                     } catch (Exception e) {
