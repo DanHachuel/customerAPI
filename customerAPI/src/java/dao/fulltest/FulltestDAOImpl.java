@@ -8,7 +8,7 @@ package dao.fulltest;
 import dao.factory.FactoryDAO;
 import dao.http.ContentType;
 import dao.http.HttpDAO;
-import dao.http.Urls;
+import dao.http.Urlss;
 import fulltest.FullTest;
 import fulltest.FulltestRequest;
 import java.nio.charset.Charset;
@@ -21,7 +21,7 @@ public class FulltestDAOImpl implements FulltestDAO {
     @Override
     public FullTest fulltest(FulltestRequest request) throws Exception {
         JacksonMapper<FullTest> mapperFulltest = new JacksonMapper(FullTest.class);
-        return mapperFulltest.deserialize(dao.post(Urls.FULLTEST.getUrl(),
+        return mapperFulltest.deserialize(dao.post(Urlss.FULLTEST.getUrl(),
                 new FulltestRequest(request.getCust(), request.getExecutor()),
                 ContentType.JSON.getCont(), Charset.forName("UTF-8")));
     }

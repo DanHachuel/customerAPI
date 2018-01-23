@@ -9,15 +9,16 @@ package dao.http;
  *
  * @author G0041775
  */
-public enum Urls {
+public enum Urlss {
 
     CADASTRO_STEALER("http://10.40.195.81:8080/stealerAPI/oss/"),
+    CADASTRO_NETWORK("http://10.40.195.81:8080/networkInventoryAPI/networkInventory/"),
     FULLTEST("http://10.40.195.81:8080/fulltestAPI/fulltest/co"),
     QUEUE("http://localhost:8080/queueAPI/queue/");
 
     private final String valor;
 
-    private Urls(String url) {
+    private Urlss(String url) {
         valor = url;
     }
 
@@ -29,8 +30,8 @@ public enum Urls {
         return valor;
     }
 
-    public static Urls find(String url) {
-        return Urls.valueOf(url);
+    public static Urlss find(String url) {
+        return Urlss.valueOf(url);
     }
 
 }

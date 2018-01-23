@@ -13,8 +13,6 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import util.GsonUtil;
 import util.JacksonMapper;
 
 /**
@@ -22,22 +20,22 @@ import util.JacksonMapper;
  * @author G0041775
  */
 public class CustomerFinderImplIT {
-    
+
     public CustomerFinderImplIT() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -49,12 +47,12 @@ public class CustomerFinderImplIT {
     public void testGetCustomer() throws Exception {
         System.out.println("getCustomer");
         JacksonMapper<GenericRequest> mapper = new JacksonMapper(GenericRequest.class);
-        GenericRequest req = mapper.deserialize("{\"parameter\":\"4130157784\", \"executor\":\"G0041775\"}");
-       
+        GenericRequest req = mapper.deserialize("{\"parameter\":\"1332321512\", \"executor\":\"G0041775\"}");
+
         CustomerFinderImpl instance = new CustomerFinderImpl();
         EfikaCustomer result = instance.getCustomer(req);
-        System.out.println(GsonUtil.serialize(result));
-        
+        System.out.println(new JacksonMapper(EfikaCustomer.class).serialize(result));
+
     }
-    
+
 }
