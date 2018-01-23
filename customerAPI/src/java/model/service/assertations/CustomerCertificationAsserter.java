@@ -50,7 +50,7 @@ public class CustomerCertificationAsserter extends CertificationAsserterAbs<Efik
                     orientacao = "Falha ao identificar serviços contratados.";
                 } else {
                     result = CertificationResult.OK;
-                    orientacao = "Inventário de Rede OK.";
+                    orientacao = "Inventário de Serviços OK.";
                 }
 
                 break;
