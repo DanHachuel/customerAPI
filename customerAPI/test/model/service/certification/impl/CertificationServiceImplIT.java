@@ -46,10 +46,10 @@ public class CertificationServiceImplIT {
      * Test of fulltestByParam method, of class CertificationServiceImpl.
      */
     @Test
-    public void testFulltestByParam() throws Exception {
+    public void testCertificationByParam() throws Exception {
         try {
-            System.out.println("fulltestByParam");
-            GenericRequest req = new GenericRequest("5130190034", "G0041775");
+            System.out.println("certificationByParam");
+            GenericRequest req = new GenericRequest("1332321512", "G0041775");
             CertificationServiceImpl instance = new CertificationServiceImpl();
             CustomerCertification result = instance.certificationByParam(req);
             System.out.println("RESULTADO -> " + new JacksonMapper(CustomerCertification.class).serialize(result));
