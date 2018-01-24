@@ -11,10 +11,9 @@ package dao.http;
  */
 public enum Urlss {
 
-    CADASTRO_STEALER("http://10.40.195.81:8080/stealerAPI/oss/"),
-    CADASTRO_NETWORK("http://10.40.195.81:8080/networkInventoryAPI/networkInventory/"),
-    FULLTEST("http://10.40.195.81:8080/fulltestAPI/fulltest/co"),
-    QUEUE("http://localhost:8080/queueAPI/queue/");
+    CADASTRO_STEALER("http://10.40.198.168:8080/stealerAPI/oss/"),
+    CADASTRO_NETWORK("http://10.40.198.168:8080/networkInventoryAPI/networkInventory/"),
+    FULLTEST("http://10.40.198.168:8080/fulltestAPI/fulltest/co");
 
     private final String valor;
 
