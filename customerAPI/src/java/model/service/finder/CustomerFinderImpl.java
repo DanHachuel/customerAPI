@@ -24,7 +24,7 @@ public class CustomerFinderImpl implements CustomerFinder {
                 RequestFactory.customerRequest(req),
                 ContentType.JSON.getValor(), Charset.forName("UTF-8")));
 
-        if (ret.getRede().getPlanta() == OrigemPlanta.VIVO1 || ret.getRede().getIpDslam() == null) {
+        if (ret.getRede().getIpDslam() == null) {
             EfikaCustomer retNet = mapper.deserialize(FactoryDAO.createHttpDAO().get(Urlss.CADASTRO_NETWORK.getUrl() + ret.getInstancia(),
                     ContentType.JSON.getValor(), Charset.forName("UTF-8")));
             ret.setRede(retNet.getRede());
