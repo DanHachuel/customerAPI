@@ -12,7 +12,7 @@ package dao.http;
 public enum Urlss {
 
     CADASTRO_STEALER("http://10.40.198.168:8080/stealerAPI/oss/"),
-    CADASTRO_NETWORK("http://10.40.198.168:8080/networkInventoryAPI/networkInventory/"),
+    CADASTRO_NETWORK("http://10.200.35.67:80/networkInventoryAPI/networkInventory/"),
     FULLTEST("http://10.200.35.67:80/fulltestAPI/fulltest/co");
 
     private final String valor;
