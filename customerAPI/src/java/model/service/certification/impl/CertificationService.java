@@ -5,6 +5,7 @@
  */
 package model.service.certification.impl;
 
+import fulltest.ValidacaoResult;
 import model.entity.CustomerCertification;
 import io.swagger.model.GenericRequest;
 
@@ -15,5 +16,7 @@ import io.swagger.model.GenericRequest;
 public interface CertificationService {
 
     public CustomerCertification certificationByParam(GenericRequest req) throws Exception;
-    
+
+    public ValidacaoResult certifyRede(GenericRequest req) throws Exception;
+
 }

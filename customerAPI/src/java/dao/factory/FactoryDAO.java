@@ -6,6 +6,8 @@
 package dao.factory;
 
 import dao.AbstractMongoDAO;
+import dao.configporta.ConfigPortaDAO;
+import dao.configporta.ConfigPortaDAOImpl;
 import dao.exception.ExceptionLogDAOImpl;
 import dao.fulltest.FulltestDAO;
 import dao.fulltest.FulltestDAOImpl;
@@ -30,6 +32,10 @@ public class FactoryDAO {
 
     public static FulltestDAO newFulltestDAO() {
         return new FulltestDAOImpl();
+    }
+
+    public static ConfigPortaDAO newConfigPortaDAO() {
+        return new ConfigPortaDAOImpl();
     }
 
     public static AbstractMongoDAO<ExceptionLog> newExceptionLogDAO() {

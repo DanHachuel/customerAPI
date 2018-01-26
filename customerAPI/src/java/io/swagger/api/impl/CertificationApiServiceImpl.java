@@ -12,7 +12,6 @@ import model.service.factory.FactoryService;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2018-01-04T13:39:04.668Z")
 public class CertificationApiServiceImpl extends CertificationApiService {
 
-
     @Override
     public Response certification(GenericRequest body, SecurityContext securityContext)
             throws NotFoundException {
@@ -44,5 +43,15 @@ public class CertificationApiServiceImpl extends CertificationApiService {
             throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+    }
+
+    @Override
+    public Response confiabilidadeRede(GenericRequest body, SecurityContext securityContext) throws NotFoundException {
+        try {
+            return Response.ok().entity(FactoryService.certSrvc().certifyRede(body)).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.ok().entity(e).build();
+        }
     }
 }

@@ -66,11 +66,11 @@ public class HttpDAOImpl implements HttpDAO {
 
         HttpResponse response = httpClient.execute(post);
 
-        if (response.getStatusLine().getStatusCode() != 200) {
-
-            throw new RuntimeException("Failed : HTTP error code : "
-                    + response.getStatusLine().getStatusCode());
-        }
+//        if (response.getStatusLine().getStatusCode() != 200) {
+//
+//            throw new RuntimeException("Failed : HTTP error code : "
+//                    + response.getStatusLine().getStatusCode());
+//        }
         InputStreamReader reader;
         if (responseCharset != null) {
             reader = new InputStreamReader(response.getEntity().getContent(), responseCharset);
@@ -82,6 +82,7 @@ public class HttpDAOImpl implements HttpDAO {
         String output;
         StringBuffer result = new StringBuffer();
         while ((output = br.readLine()) != null) {
+            System.out.println("SAIDA-> "+output);
             result.append(output);
         }
         httpClient.close();

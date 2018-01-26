@@ -10,11 +10,13 @@ import br.net.gvt.efika.customer.EfikaCustomer;
 import br.net.gvt.efika.model.certification.CertificationBlock;
 import br.net.gvt.efika.model.certification.enuns.CertificationBlockName;
 import br.net.gvt.efika.model.certification.enuns.CertificationResult;
+import dao.configporta.ConfigPortaDAO;
 import dao.factory.FactoryDAO;
 import dao.fulltest.FulltestDAO;
 import dao.log.CertificationDAO;
 import fulltest.FullTest;
 import fulltest.FulltestRequest;
+import fulltest.ValidacaoResult;
 import io.swagger.model.GenericRequest;
 import java.util.Calendar;
 import java.util.logging.Level;
@@ -35,6 +37,7 @@ public class CertificationServiceImpl implements CertificationService {
     private final CustomerFinder finder = FactoryService.customerFinder();
     private final CustomerCertification certification = FactoryEntitiy.createCustLogCertification();
     private final FulltestDAO ftDAO = FactoryDAO.newFulltestDAO();
+    private final ConfigPortaDAO confPortaDAO = FactoryDAO.newConfigPortaDAO();
     private final CertificationDAO certDAO = FactoryDAO.createCertificationLogDAO();
 
     private EfikaCustomer cust;
@@ -95,7 +98,7 @@ public class CertificationServiceImpl implements CertificationService {
                     }
                 }
             });
-            
+
             threadPerf.start();
             threadConnect.start();
             threadServ.start();
@@ -113,6 +116,18 @@ public class CertificationServiceImpl implements CertificationService {
         certification.setDataFim(Calendar.getInstance().getTime());
         certification.setDataFim(Calendar.getInstance().getTime());
         certDAO.save(certification);
+    }
+
+    @Override
+    public ValidacaoResult certifyRede(GenericRequest req) throws Exception {
+        if (req.getCustomer() == null) {
+            cust = finder.getCustomer(req);
+        } else {
+            cust = req.getCustomer();
+        }
+        ValidacaoResult confRede = confPortaDAO.confiabilidadeRede(new FulltestRequest(cust, req.getExecutor()));
+
+        return confRede;
     }
 
 }
