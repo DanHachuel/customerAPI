@@ -16,7 +16,7 @@ import model.service.factory.FactoryService;
  *
  * @author G0042204
  */
-@WebService(serviceName = "customerService", portName = "8080")
+@WebService(serviceName = "customerService", portName = "8080", targetNamespace = "http://efika/fulltest/")
 public class CustomerAPI {
 
     @WebMethod(operationName = "certification")
