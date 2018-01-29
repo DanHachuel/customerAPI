@@ -1,18 +1,14 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
-  xmlns:j2ee="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-
-  <filter>
-    <filter-name>ApiOriginFilter</filter-name>
-    <filter-class>io.swagger.api.ApiOriginFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>ApiOriginFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
-  
-<!--  <servlet>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:j2ee="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <filter>
+        <filter-name>ApiOriginFilter</filter-name>
+        <filter-class>io.swagger.api.ApiOriginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ApiOriginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!--  <servlet>
         <servlet-name>Resteasy</servlet-name>
         <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
     </servlet>
@@ -39,4 +35,13 @@
         <filter-name>CORSFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>-->
+    <servlet>
+        <servlet-name>CustomerAPI</servlet-name>
+        <servlet-class>soap.CustomerAPI</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CustomerAPI</servlet-name>
+        <url-pattern>/customerService</url-pattern>
+    </servlet-mapping>
 </web-app>
