@@ -5,15 +5,19 @@
  */
 package dao.factory;
 
+import br.net.gvt.efika.customer.EfikaCustomer;
+import br.net.gvt.efika.model.certification.CustomerCertificationDTO;
+import br.net.gvt.efika.util.dao.http.HttpDAO;
+import br.net.gvt.efika.util.dao.http.HttpDAOGenericImpl;
 import dao.AbstractMongoDAO;
 import dao.configporta.ConfigPortaDAO;
 import dao.configporta.ConfigPortaDAOImpl;
 import dao.exception.ExceptionLogDAOImpl;
 import dao.fulltest.FulltestDAO;
 import dao.fulltest.FulltestDAOImpl;
-import dao.http.HttpDAO;
-import dao.http.HttpDAOImpl;
 import dao.log.CertificationDAO;
+import fulltest.FullTest;
+import fulltest.ValidacaoResult;
 import model.entity.ExceptionLog;
 
 /**
@@ -22,8 +26,24 @@ import model.entity.ExceptionLog;
  */
 public class FactoryDAO {
 
-    public static HttpDAO createHttpDAO() {
-        return new HttpDAOImpl();
+    public static HttpDAO createHttpCertificationDAO() {
+        return new HttpDAOGenericImpl<CustomerCertificationDTO>(CustomerCertificationDTO.class) {
+        };
+    }
+
+    public static HttpDAO createHttpValidacaoResultDAO() {
+        return new HttpDAOGenericImpl<ValidacaoResult>(ValidacaoResult.class) {
+        };
+    }
+
+    public static HttpDAO createHttpFulltestDAO() {
+        return new HttpDAOGenericImpl<FullTest>(FullTest.class) {
+        };
+    }
+
+    public static HttpDAO createHttpCustomerDAO() {
+        return new HttpDAOGenericImpl<EfikaCustomer>(EfikaCustomer.class) {
+        };
     }
 
     public static CertificationDAO createCertificationLogDAO() {
