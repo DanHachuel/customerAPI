@@ -15,7 +15,8 @@ public enum Urlss {
     CADASTRO_NETWORK("http://10.200.35.67:80/networkInventoryAPI/networkInventory/"),
     FULLTEST("http://10.200.35.67:80/fulltestAPI/fulltest/co"),
     CONF_REDE("http://localhost:8080/fulltestAPI/configPorta/getConfiabilidadeRede"),
-    ONTS_DISP("http://localhost:8080/fulltestAPI/configPorta/unsetOntFromOlt");
+    ONTS_DISP("http://localhost:8080/fulltestAPI/configPorta/unsetOntFromOlt"),
+    SET_ONT("http://localhost:8080/fulltestAPI/configPorta/setOntToOlt");
 
     private final String valor;
 

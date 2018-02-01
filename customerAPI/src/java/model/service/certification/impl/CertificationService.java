@@ -24,4 +24,6 @@ public interface CertificationService {
 
     public List<SerialOntGpon> ontsDisp(GenericRequest req) throws Exception;
 
+    public ValidacaoResult setOntToOlt(GenericRequest req) throws Exception;
+
 }

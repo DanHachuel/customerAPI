@@ -64,4 +64,14 @@ public class CertificationApiServiceImpl extends CertificationApiService {
             return Response.ok().entity(e).build();
         }
     }
+
+    @Override
+    public Response setOntToOlt(GenericRequest body, SecurityContext securityContext) throws NotFoundException {
+        try {
+            return Response.ok().entity(FactoryService.certSrvc().setOntToOlt(body)).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.ok().entity(e).build();
+        }
+    }
 }
