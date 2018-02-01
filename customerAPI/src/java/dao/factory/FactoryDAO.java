@@ -18,7 +18,10 @@ import dao.fulltest.FulltestDAOImpl;
 import dao.log.CertificationDAO;
 import fulltest.FullTest;
 import fulltest.ValidacaoResult;
+import java.nio.charset.Charset;
+import java.util.List;
 import model.entity.ExceptionLog;
+import telecom.properties.Validavel;
 
 /**
  *
@@ -28,11 +31,29 @@ public class FactoryDAO {
 
     public static HttpDAO createHttpCertificationDAO() {
         return new HttpDAOGenericImpl<CustomerCertificationDTO>(CustomerCertificationDTO.class) {
+            @Override
+            public Charset getResponseCharset() {
+                return Charset.forName("UTF-8");
+            }
         };
     }
 
     public static HttpDAO createHttpValidacaoResultDAO() {
         return new HttpDAOGenericImpl<ValidacaoResult>(ValidacaoResult.class) {
+            @Override
+            public Charset getResponseCharset() {
+                return Charset.forName("UTF-8");
+            }
+        };
+    }
+
+    public static HttpDAO createHttpListDAO() {
+        return new HttpDAOGenericImpl<List>(List.class) {
+            @Override
+            public Charset getResponseCharset() {
+                return Charset.forName("UTF-8");
+            }
+
         };
     }
 

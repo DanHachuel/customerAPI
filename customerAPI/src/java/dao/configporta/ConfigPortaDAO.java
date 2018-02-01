@@ -7,6 +7,8 @@ package dao.configporta;
 
 import fulltest.FulltestRequest;
 import fulltest.ValidacaoResult;
+import java.util.List;
+import telecom.properties.gpon.SerialOntGpon;
 
 /**
  *
@@ -15,5 +17,7 @@ import fulltest.ValidacaoResult;
 public interface ConfigPortaDAO {
 
     public ValidacaoResult confiabilidadeRede(FulltestRequest request) throws Exception;
+
+    public List<SerialOntGpon> ontsDisponiveis(FulltestRequest request) throws Exception;
 
 }

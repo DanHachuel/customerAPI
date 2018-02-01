@@ -15,7 +15,8 @@ import model.entity.CustomerCertification;
 public class CertificationDAO extends AbstractMongoDAO<CustomerCertification> {
 
     public CertificationDAO() {
-        super("10.40.197.137", "customerAPI", CustomerCertification.class);
+        //10.40.197.137
+        super("10.200.35.67", "customerAPI", CustomerCertification.class);
     }
 
 }

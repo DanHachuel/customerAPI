@@ -49,6 +49,22 @@ public class CertificationApi  {
     throws NotFoundException {
         return delegate.confiabilidadeRede(body,securityContext);
     }
+    
+    @POST
+    @Path("/ontsDisp")
+    @Consumes({ "application/json", "application/xml" })
+    @Produces({ "application/json", "application/xml" })
+    @io.swagger.annotations.ApiOperation(value = "Certificação dos produtos contratados", notes = "", response = CertificationResponse.class, tags={ "certification", })
+    @io.swagger.annotations.ApiResponses(value = { 
+        @io.swagger.annotations.ApiResponse(code = 200, message = "successful operation", response = CertificationResponse.class),
+        
+        @io.swagger.annotations.ApiResponse(code = 405, message = "Invalid input", response = Void.class) })
+    public Response ontsDisponiveis(@ApiParam(value = "Pet object that needs to be added to the store" ,required=true) GenericRequest body,@Context SecurityContext securityContext)
+    throws NotFoundException {
+        return delegate.ontsDisponiveis(body,securityContext);
+    }
+    
+    
     @POST
     @Path("/findByCustomer")
     

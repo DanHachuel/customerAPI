@@ -19,6 +19,7 @@ import fulltest.FulltestRequest;
 import fulltest.ValidacaoResult;
 import io.swagger.model.GenericRequest;
 import java.util.Calendar;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.service.certification.command.LogCommand;
@@ -31,6 +32,8 @@ import model.service.certificator.impl.CertifierServicosCertificationImpl;
 import model.service.factory.FactoryCertificationBlock;
 import model.service.finder.CustomerFinder;
 import model.service.factory.FactoryService;
+import telecom.properties.Validavel;
+import telecom.properties.gpon.SerialOntGpon;
 
 public class CertificationServiceImpl implements CertificationService {
 
@@ -128,6 +131,18 @@ public class CertificationServiceImpl implements CertificationService {
         ValidacaoResult confRede = confPortaDAO.confiabilidadeRede(new FulltestRequest(cust, req.getExecutor()));
 
         return confRede;
+    }
+
+    @Override
+    public List<SerialOntGpon> ontsDisp(GenericRequest req) throws Exception {
+        if (req.getCustomer() == null) {
+            cust = finder.getCustomer(req);
+        } else {
+            cust = req.getCustomer();
+        }
+        List<SerialOntGpon> ontsDisp = confPortaDAO.ontsDisponiveis(new FulltestRequest(cust, req.getExecutor()));
+
+        return ontsDisp;
     }
 
 }
