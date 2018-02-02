@@ -89,11 +89,10 @@ public class CertificationApi {
     @io.swagger.annotations.ApiResponses(value = {
         @io.swagger.annotations.ApiResponse(code = 200, message = "successful operation", response = CertificationResponse.class, responseContainer = "List")
         ,
-        
-        @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid status value", response = Void.class)})
-    public Response findByCustomer(@ApiParam(value = "EfikaCustomer Object", required = true) EfikaCustomer body, @Context SecurityContext securityContext)
-            throws NotFoundException {
-        return delegate.findByCustomer(body, securityContext);
+        @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid status value", response = Void.class) })
+    public Response findByCustomer(@ApiParam(value = "EfikaCustomer Object" ,required=true) EfikaCustomer body,@Context SecurityContext securityContext)
+    throws Exception {
+        return delegate.findByCustomer(body,securityContext);
     }
 
     @GET

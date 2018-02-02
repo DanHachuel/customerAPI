@@ -10,18 +10,17 @@ import br.net.gvt.efika.model.certification.CustomerCertificationDTO;
 import br.net.gvt.efika.util.dao.http.HttpDAO;
 import br.net.gvt.efika.util.dao.http.HttpDAOGenericImpl;
 import dao.AbstractMongoDAO;
+import dao.certification.CertificationDAOImpl;
 import dao.configporta.ConfigPortaDAO;
 import dao.configporta.ConfigPortaDAOImpl;
 import dao.exception.ExceptionLogDAOImpl;
 import dao.fulltest.FulltestDAO;
 import dao.fulltest.FulltestDAOImpl;
-import dao.log.CertificationDAO;
 import fulltest.FullTest;
 import fulltest.ValidacaoResult;
 import java.nio.charset.Charset;
 import java.util.List;
 import model.entity.ExceptionLog;
-import telecom.properties.Validavel;
 
 /**
  *
@@ -67,8 +66,8 @@ public class FactoryDAO {
         };
     }
 
-    public static CertificationDAO createCertificationLogDAO() {
-        return new CertificationDAO();
+    public static CertificationDAOImpl createCertificationLogDAO() {
+        return new CertificationDAOImpl();
     }
 
     public static FulltestDAO newFulltestDAO() {
