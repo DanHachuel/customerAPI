@@ -17,8 +17,6 @@ import model.service.certification.filters.ValidsFilter;
 import telecom.properties.EstadoDaPorta;
 import telecom.properties.TelecomPropertiesEnum;
 
-
-
 public class FulltestCertificationAsserter extends CertificationAsserterAbs<FullTest> {
 
     private transient ValidacaoResult v;
@@ -91,11 +89,7 @@ public class FulltestCertificationAsserter extends CertificationAsserterAbs<Full
 
                 case IS_REDE_BANDA_OK:
                     v = ValidsFilter.getValidByEnum(ft.getValids(), TelecomPropertiesEnum.TabelaRedeMetalico);
-                    if (v.getFoiCorrigido()) {
-                        result = CertificationResult.TO_FIX;
-                    } else {
-                        result = v.getResultado() ? CertificationResult.OK : CertificationResult.FISICAL;
-                    }
+                    result = v.getResultado() ? CertificationResult.OK : CertificationResult.FISICAL;
                     orientacao = v.getMensagem();
                     break;
 
