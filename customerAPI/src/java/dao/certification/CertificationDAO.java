@@ -3,20 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.service.certification.impl;
+package dao.certification;
 
 import br.net.gvt.efika.customer.EfikaCustomer;
-import model.entity.CustomerCertification;
-import io.swagger.model.GenericRequest;
 import java.util.List;
+import model.entity.CustomerCertification;
 
 /**
  *
- * @author G0042204
+ * @author g0042204
  */
-public interface CertificationService {
-
-    public CustomerCertification certificationByParam(GenericRequest req) throws Exception;
+public interface CertificationDAO {
 
     public List<CustomerCertification> findByCustomer(EfikaCustomer cust) throws Exception;
 

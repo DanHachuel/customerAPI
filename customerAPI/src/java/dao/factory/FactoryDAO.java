@@ -11,7 +11,7 @@ import dao.fulltest.FulltestDAO;
 import dao.fulltest.FulltestDAOImpl;
 import dao.http.HttpDAO;
 import dao.http.HttpDAOImpl;
-import dao.log.CertificationDAO;
+import dao.certification.CertificationDAOImpl;
 import model.entity.ExceptionLog;
 
 /**
@@ -24,8 +24,8 @@ public class FactoryDAO {
         return new HttpDAOImpl();
     }
 
-    public static CertificationDAO createCertificationLogDAO() {
-        return new CertificationDAO();
+    public static CertificationDAOImpl createCertificationLogDAO() {
+        return new CertificationDAOImpl();
     }
 
     public static FulltestDAO newFulltestDAO() {

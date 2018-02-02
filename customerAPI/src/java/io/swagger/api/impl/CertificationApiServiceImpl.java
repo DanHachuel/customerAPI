@@ -26,10 +26,8 @@ public class CertificationApiServiceImpl extends CertificationApiService {
 
     @Override
     public Response findByCustomer(EfikaCustomer body, SecurityContext securityContext)
-            throws NotFoundException {
-        // do some magic!
-        EfikaCustomer cst = new EfikaCustomer("designador");
-        return Response.ok().entity(cst).build();
+            throws Exception {
+        return Response.ok().entity(FactoryService.certSrvc().findByCustomer(body)).build();
     }
 
     @Override
