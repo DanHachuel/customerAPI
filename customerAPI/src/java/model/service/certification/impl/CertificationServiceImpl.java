@@ -10,10 +10,14 @@ import br.net.gvt.efika.customer.EfikaCustomer;
 import br.net.gvt.efika.model.certification.CertificationBlock;
 import br.net.gvt.efika.model.certification.enuns.CertificationBlockName;
 import br.net.gvt.efika.model.certification.enuns.CertificationResult;
+import dao.certification.CertificationDAO;
+import dao.configporta.ConfigPortaDAO;
 import dao.factory.FactoryDAO;
 import dao.fulltest.FulltestDAO;
 import fulltest.FullTest;
 import fulltest.FulltestRequest;
+import fulltest.SetOntToOltRequest;
+import fulltest.ValidacaoResult;
 import io.swagger.model.GenericRequest;
 import java.util.Calendar;
 import java.util.List;
@@ -29,11 +33,15 @@ import model.service.certificator.impl.CertifierPerformanceCertificationImpl;
 import model.service.certificator.impl.CertifierServicosCertificationImpl;
 import model.service.factory.FactoryCertificationBlock;
 import model.service.factory.FactoryService;
+import model.service.finder.CustomerFinder;
+import telecom.properties.gpon.SerialOntGpon;
 
 public class CertificationServiceImpl implements CertificationService {
 
+    private final CustomerFinder finder = FactoryService.customerFinder();
     private final CustomerCertification certification = FactoryEntitiy.createCustLogCertification();
     private final FulltestDAO ftDAO = FactoryDAO.newFulltestDAO();
+    private final ConfigPortaDAO confPortaDAO = FactoryDAO.newConfigPortaDAO();
 
     private EfikaCustomer cust;
 
@@ -121,6 +129,43 @@ public class CertificationServiceImpl implements CertificationService {
             FactoryDAO.newExceptionLogDAO().save(new ExceptionLog(e));
             throw new Exception("Falha ao buscar histórico de execuções.");
         }
+    }
+
+    @Override
+    public ValidacaoResult certifyRede(GenericRequest req) throws Exception {
+        if (req.getCustomer() == null) {
+            cust = finder.getCustomer(req);
+        } else {
+            cust = req.getCustomer();
+        }
+        ValidacaoResult confRede = confPortaDAO.confiabilidadeRede(new FulltestRequest(cust, req.getExecutor()));
+
+        return confRede;
+    }
+
+    @Override
+    public List<SerialOntGpon> ontsDisp(GenericRequest req) throws Exception {
+        if (req.getCustomer() == null) {
+            cust = finder.getCustomer(req);
+        } else {
+            cust = req.getCustomer();
+        }
+        List<SerialOntGpon> ontsDisp = confPortaDAO.ontsDisponiveis(new FulltestRequest(cust, req.getExecutor()));
+
+        return ontsDisp;
+    }
+
+    @Override
+    public ValidacaoResult setOntToOlt(GenericRequest req) throws Exception {
+        if (req.getCustomer() == null) {
+            cust = finder.getCustomer(req);
+        } else {
+            cust = req.getCustomer();
+        }
+
+        ValidacaoResult settedOnt = confPortaDAO.setOntToOlt(new SetOntToOltRequest(cust, req.getExecutor(), new SerialOntGpon(req.getParameter())));
+
+        return settedOnt;
     }
 
 }

@@ -5,6 +5,8 @@
  */
 package model.service.certification.impl;
 
+import fulltest.ValidacaoResult;
+import telecom.properties.gpon.SerialOntGpon;
 import br.net.gvt.efika.customer.EfikaCustomer;
 import model.entity.CustomerCertification;
 import io.swagger.model.GenericRequest;
@@ -17,6 +19,12 @@ import java.util.List;
 public interface CertificationService {
 
     public CustomerCertification certificationByParam(GenericRequest req) throws Exception;
+
+    public ValidacaoResult certifyRede(GenericRequest req) throws Exception;
+
+    public List<SerialOntGpon> ontsDisp(GenericRequest req) throws Exception;
+
+    public ValidacaoResult setOntToOlt(GenericRequest req) throws Exception;
 
     public List<CustomerCertification> findByCustomer(EfikaCustomer cust) throws Exception;
 

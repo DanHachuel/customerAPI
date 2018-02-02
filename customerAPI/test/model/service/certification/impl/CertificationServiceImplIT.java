@@ -6,6 +6,7 @@
 package model.service.certification.impl;
 
 import br.net.gvt.efika.model.certification.enuns.CertificationResult;
+import fulltest.ValidacaoResult;
 import model.entity.CustomerCertification;
 import io.swagger.model.GenericRequest;
 import org.junit.After;
@@ -59,6 +60,19 @@ public class CertificationServiceImplIT {
             fail(e.getMessage());
         }
 
+    }
+
+    /**
+     * Test of certifyRede method, of class CertificationServiceImpl.
+     */
+    @Test
+    public void testCertifyRede() throws Exception {
+        System.out.println("certifyRede");
+        GenericRequest req = new GenericRequest("4133335556", "G0041775");
+        CertificationServiceImpl instance = new CertificationServiceImpl();
+        ValidacaoResult result = instance.certifyRede(req);
+        System.out.println(new JacksonMapper(ValidacaoResult.class).serialize(result));
+        
     }
 
 }

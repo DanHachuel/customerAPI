@@ -16,5 +16,11 @@ public abstract class CertificationApiService {
       public abstract Response getCertificationById(Long id,SecurityContext securityContext)
       throws NotFoundException;
       public abstract Response updateCertification(CertificationResponse body,SecurityContext securityContext)
+      throws NotFoundException;      
+      public abstract Response confiabilidadeRede(GenericRequest body,SecurityContext securityContext)
+      throws NotFoundException;      
+      public abstract Response ontsDisponiveis(GenericRequest body,SecurityContext securityContext)
+      throws NotFoundException;      
+      public abstract Response setOntToOlt(GenericRequest body,SecurityContext securityContext)
       throws NotFoundException;
 }
