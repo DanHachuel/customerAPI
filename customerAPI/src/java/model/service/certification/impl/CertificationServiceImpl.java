@@ -12,13 +12,14 @@ import br.net.gvt.efika.model.certification.enuns.CertificationBlockName;
 import br.net.gvt.efika.model.certification.enuns.CertificationResult;
 import dao.factory.FactoryDAO;
 import dao.fulltest.FulltestDAO;
-import dao.log.CertificationDAO;
 import fulltest.FullTest;
 import fulltest.FulltestRequest;
 import io.swagger.model.GenericRequest;
 import java.util.Calendar;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.entity.ExceptionLog;
 import model.service.certification.command.LogCommand;
 import model.service.certificator.CertifierCustomerCertificationImpl;
 import model.service.factory.FactoryEntitiy;
@@ -27,22 +28,19 @@ import model.service.certificator.impl.CertifierConectividadeCertificationImpl;
 import model.service.certificator.impl.CertifierPerformanceCertificationImpl;
 import model.service.certificator.impl.CertifierServicosCertificationImpl;
 import model.service.factory.FactoryCertificationBlock;
-import model.service.finder.CustomerFinder;
 import model.service.factory.FactoryService;
 
 public class CertificationServiceImpl implements CertificationService {
 
-    private final CustomerFinder finder = FactoryService.customerFinder();
     private final CustomerCertification certification = FactoryEntitiy.createCustLogCertification();
     private final FulltestDAO ftDAO = FactoryDAO.newFulltestDAO();
-    private final CertificationDAO certDAO = FactoryDAO.createCertificationLogDAO();
 
     private EfikaCustomer cust;
 
     @Override
     public CustomerCertification certificationByParam(GenericRequest req) throws Exception {
         if (req.getCustomer() == null) {
-            cust = finder.getCustomer(req);
+            cust = FactoryService.customerFinder().getCustomer(req);
         } else {
             cust = req.getCustomer();
         }
@@ -95,7 +93,7 @@ public class CertificationServiceImpl implements CertificationService {
                     }
                 }
             });
-            
+
             threadPerf.start();
             threadConnect.start();
             threadServ.start();
@@ -112,7 +110,17 @@ public class CertificationServiceImpl implements CertificationService {
         new CertifierCustomerCertificationImpl().certify(certification);
         certification.setDataFim(Calendar.getInstance().getTime());
         certification.setDataFim(Calendar.getInstance().getTime());
-        certDAO.save(certification);
+        FactoryDAO.createCertificationLogDAO().save(certification);
+    }
+
+    @Override
+    public List<CustomerCertification> findByCustomer(EfikaCustomer cust) throws Exception {
+        try {
+            return FactoryDAO.createCertificationLogDAO().findByCustomer(cust);
+        } catch (Exception e) {
+            FactoryDAO.newExceptionLogDAO().save(new ExceptionLog(e));
+            throw new Exception("Falha ao buscar histórico de execuções.");
+        }
     }
 
 }

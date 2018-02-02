@@ -45,7 +45,7 @@ public class CertificationApi  {
         
         @io.swagger.annotations.ApiResponse(code = 400, message = "Invalid status value", response = Void.class) })
     public Response findByCustomer(@ApiParam(value = "EfikaCustomer Object" ,required=true) EfikaCustomer body,@Context SecurityContext securityContext)
-    throws NotFoundException {
+    throws Exception {
         return delegate.findByCustomer(body,securityContext);
     }
     @GET
