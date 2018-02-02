@@ -11,12 +11,12 @@ package dao.http;
  */
 public enum Urlss {
 
-    CADASTRO_STEALER("http://10.40.198.168:8080/stealerAPI/oss/"),
+    CADASTRO_STEALER("http://10.40.195.81:8080/stealerAPI/oss/"),
     CADASTRO_NETWORK("http://10.200.35.67:80/networkInventoryAPI/networkInventory/"),
-    FULLTEST("http://10.200.35.67:80/fulltestAPI/fulltest/co"),
-    CONF_REDE("http://localhost:8080/fulltestAPI/configPorta/getConfiabilidadeRede"),
-    ONTS_DISP("http://localhost:8080/fulltestAPI/configPorta/unsetOntFromOlt"),
-    SET_ONT("http://localhost:8080/fulltestAPI/configPorta/setOntToOlt");
+    FULLTEST("http://10.40.195.81:8080/fulltestAPI/fulltest/co"),
+    CONF_REDE("http://10.40.195.81:8080/fulltestAPI/configPorta/getConfiabilidadeRede"),
+    ONTS_DISP("http://10.40.195.81:8080/fulltestAPI/configPorta/unsetOntFromOlt"),
+    SET_ONT("http://10.40.195.81:8080/fulltestAPI/configPorta/setOntToOlt");
 
     private final String valor;
 
