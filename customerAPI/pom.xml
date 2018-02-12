@@ -14,7 +14,6 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <swarm.http.port>8081</swarm.http.port>
     </properties>
 
     <dependencyManagement>
