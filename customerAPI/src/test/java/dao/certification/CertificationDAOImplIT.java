@@ -49,6 +49,7 @@ public class CertificationDAOImplIT {
             List<CustomerCertification> result = instance.findByCustomer(cust);
             assertFalse(result.isEmpty());
         } catch (Exception e) {
+            
             e.printStackTrace();
             fail(e.getMessage());
         }
