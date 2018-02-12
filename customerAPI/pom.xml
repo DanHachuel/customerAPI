@@ -14,6 +14,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <swarm.http.port>8081</swarm.http.port>
     </properties>
 
     <dependencyManagement>
@@ -43,6 +44,12 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <bundleDependencies>false</bundleDependencies>
+                    <properties>
+                        <swarm.http.port>7171</swarm.http.port>
+                    </properties>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -119,7 +126,7 @@
             <version>4.5.5</version>
         </dependency>
         
-<!--         https://mvnrepository.com/artifact/commons-logging/commons-logging 
+        <!--         https://mvnrepository.com/artifact/commons-logging/commons-logging 
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
