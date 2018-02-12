@@ -44,8 +44,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <bundleDependencies>false</bundleDependencies>
                     <properties>
+                        <swarm.bundleDependencies>false</swarm.bundleDependencies>
                         <swarm.http.port>7171</swarm.http.port>
                     </properties>
                 </configuration>
