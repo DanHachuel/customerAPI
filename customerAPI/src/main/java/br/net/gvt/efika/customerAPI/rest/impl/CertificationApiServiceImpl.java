@@ -1,6 +1,7 @@
 package br.net.gvt.efika.customerAPI.rest.impl;
 
 import br.net.gvt.efika.customer.EfikaCustomer;
+import br.net.gvt.efika.customerAPI.dao.factory.FactoryDAO;
 import br.net.gvt.efika.customerAPI.rest.ApiResponseMessage;
 import br.net.gvt.efika.customerAPI.rest.CertificationApiService;
 import br.net.gvt.efika.customerAPI.model.CertificationResponse;
@@ -9,6 +10,7 @@ import javax.ws.rs.NotFoundException;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import br.net.gvt.efika.customerAPI.model.service.factory.FactoryService;
+import org.bson.types.ObjectId;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2018-01-04T13:39:04.668Z")
 public class CertificationApiServiceImpl extends CertificationApiService {
@@ -31,10 +33,13 @@ public class CertificationApiServiceImpl extends CertificationApiService {
     }
 
     @Override
-    public Response getCertificationById(Long id, SecurityContext securityContext)
+    public Response getCertificationById(String id, SecurityContext securityContext)
             throws NotFoundException {
-        // do some magic!
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+        try {
+            return Response.ok().entity(FactoryDAO.createCertificationLogDAO().read(new ObjectId(id))).build();
+        } catch (Exception e) {
+            return Response.serverError().entity(e).build();
+        }
     }
 
     @Override

@@ -13,7 +13,7 @@ public abstract class CertificationApiService {
       throws NotFoundException;
       public abstract Response findByCustomer(EfikaCustomer body,SecurityContext securityContext)
       throws Exception;
-      public abstract Response getCertificationById(Long id,SecurityContext securityContext)
+      public abstract Response getCertificationById(String id,SecurityContext securityContext)
       throws NotFoundException;
       public abstract Response updateCertification(CertificationResponse body,SecurityContext securityContext)
       throws NotFoundException;      
