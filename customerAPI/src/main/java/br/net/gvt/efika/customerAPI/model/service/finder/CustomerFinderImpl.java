@@ -15,17 +15,8 @@ public class CustomerFinderImpl implements CustomerFinder {
 
     @Override
     public EfikaCustomer getCustomer(GenericRequest req) throws Exception {
-        EfikaCustomer ret = (EfikaCustomer) FactoryDAO.createHttpCustomerDAO().post(Urls.CADASTRO_STEALER.getUrl(),
+        return (EfikaCustomer) FactoryDAO.createHttpCustomerDAO().post(Urls.CADASTRO_STEALER.getUrl(),
                 RequestFactory.customerRequest(req));
-
-        if (ret.getRede().getIpDslam() == null) {
-            EfikaCustomer retNet = (EfikaCustomer) FactoryDAO.createHttpCustomerDAO().get(Urls.CADASTRO_NETWORK.getUrl() + ret.getInstancia());
-            ret.setRede(retNet.getRede());
-            ret.setRedeExterna(retNet.getRedeExterna());
-            ret.setRadius(retNet.getRadius());
-        }
-
-        return ret;
     }
 
 }
