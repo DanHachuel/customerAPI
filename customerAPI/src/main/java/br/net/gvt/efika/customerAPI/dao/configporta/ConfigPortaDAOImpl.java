@@ -6,7 +6,7 @@
 package br.net.gvt.efika.customerAPI.dao.configporta;
 
 import br.net.gvt.efika.customerAPI.dao.factory.FactoryDAO;
-import br.net.gvt.efika.customerAPI.dao.http.Urlss;
+import br.net.gvt.efika.customerAPI.dao.http.Urls;
 import fulltest.FulltestRequest;
 import fulltest.SetOntToOltRequest;
 import fulltest.ValidacaoResult;
@@ -17,22 +17,19 @@ public class ConfigPortaDAOImpl implements ConfigPortaDAO {
 
     @Override
     public ValidacaoResult confiabilidadeRede(FulltestRequest request) throws Exception {
-        return (ValidacaoResult) FactoryDAO.createHttpValidacaoResultDAO().post(
-                Urlss.CONF_REDE.getUrl(),
+        return (ValidacaoResult) FactoryDAO.createHttpValidacaoResultDAO().post(Urls.CONF_REDE.getUrl(),
                 request);
     }
 
     @Override
     public List<SerialOntGpon> ontsDisponiveis(FulltestRequest request) throws Exception {
-        return (List<SerialOntGpon>) FactoryDAO.createHttpListDAO().post(
-                Urlss.ONTS_DISP.getUrl(),
+        return (List<SerialOntGpon>) FactoryDAO.createHttpListDAO().post(Urls.ONTS_DISP.getUrl(),
                 request);
     }
 
     @Override
     public ValidacaoResult setOntToOlt(SetOntToOltRequest request) throws Exception {
-        return (ValidacaoResult) FactoryDAO.createHttpValidacaoResultDAO().post(
-                Urlss.SET_ONT.getUrl(),
+        return (ValidacaoResult) FactoryDAO.createHttpValidacaoResultDAO().post(Urls.SET_ONT.getUrl(),
                 request);
     }
 

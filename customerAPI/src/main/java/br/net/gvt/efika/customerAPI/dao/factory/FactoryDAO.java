@@ -21,6 +21,7 @@ import java.nio.charset.Charset;
 import java.util.List;
 import br.net.gvt.efika.customerAPI.model.entity.ExceptionLog;
 import br.net.gvt.efika.mongo.dao.AbstractMongoDAO;
+import br.net.gvt.efika.util.dao.http.HttpDAOGenericNonProxyImpl;
 
 /**
  *
@@ -47,7 +48,7 @@ public class FactoryDAO {
     }
 
     public static HttpDAO createHttpListDAO() {
-        return new HttpDAOGenericImpl<List>(List.class) {
+        return new HttpDAOGenericNonProxyImpl<List>(List.class) {
             @Override
             public Charset getResponseCharset() {
                 return Charset.forName("UTF-8");
@@ -56,7 +57,7 @@ public class FactoryDAO {
     }
 
     public static HttpDAO createHttpFulltestDAO() {
-        return new HttpDAOGenericImpl<FullTest>(FullTest.class) {
+        return new HttpDAOGenericNonProxyImpl<FullTest>(FullTest.class) {
             @Override
             public Charset getResponseCharset() {
                 return Charset.forName("UTF-8");

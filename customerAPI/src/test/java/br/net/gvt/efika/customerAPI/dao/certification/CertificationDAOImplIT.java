@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao.certification;
+package br.net.gvt.efika.customerAPI.dao.certification;
 
 import br.net.gvt.efika.customerAPI.dao.certification.CertificationDAOImpl;
 import br.net.gvt.efika.customer.EfikaCustomer;

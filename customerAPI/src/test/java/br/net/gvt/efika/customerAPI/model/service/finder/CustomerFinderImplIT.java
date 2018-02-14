@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.service;
+package br.net.gvt.efika.customerAPI.model.service.finder;
 
 import br.net.gvt.efika.customerAPI.model.service.finder.CustomerFinderImpl;
 import br.net.gvt.efika.customer.EfikaCustomer;

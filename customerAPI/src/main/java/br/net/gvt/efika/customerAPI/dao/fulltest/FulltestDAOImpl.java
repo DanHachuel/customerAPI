@@ -6,7 +6,7 @@
 package br.net.gvt.efika.customerAPI.dao.fulltest;
 
 import br.net.gvt.efika.customerAPI.dao.factory.FactoryDAO;
-import br.net.gvt.efika.customerAPI.dao.http.Urlss;
+import br.net.gvt.efika.customerAPI.dao.http.Urls;
 import fulltest.FullTest;
 import fulltest.FulltestRequest;
 
@@ -14,7 +14,7 @@ public class FulltestDAOImpl implements FulltestDAO {
 
     @Override
     public FullTest fulltest(FulltestRequest request) throws Exception {
-        return (FullTest) FactoryDAO.createHttpFulltestDAO().post(Urlss.FULLTEST.getUrl(),
+        return (FullTest) FactoryDAO.createHttpFulltestDAO().post(Urls.FULLTEST.getUrl(),
                 new FulltestRequest(request.getCust(), request.getExecutor()));
     }
 
