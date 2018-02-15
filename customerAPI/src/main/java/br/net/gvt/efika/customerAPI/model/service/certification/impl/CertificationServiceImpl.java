@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.net.gvt.efika.customerAPI.model.service.certification.impl;
 
 import br.net.gvt.efika.customerAPI.model.entity.CustomerCertification;
@@ -10,7 +5,6 @@ import br.net.gvt.efika.customer.EfikaCustomer;
 import br.net.gvt.efika.model.certification.CertificationBlock;
 import br.net.gvt.efika.model.certification.enuns.CertificationBlockName;
 import br.net.gvt.efika.model.certification.enuns.CertificationResult;
-import br.net.gvt.efika.customerAPI.dao.certification.CertificationDAO;
 import br.net.gvt.efika.customerAPI.dao.configporta.ConfigPortaDAO;
 import br.net.gvt.efika.customerAPI.dao.factory.FactoryDAO;
 import br.net.gvt.efika.customerAPI.dao.fulltest.FulltestDAO;
