@@ -18,7 +18,7 @@ import org.mongodb.morphia.query.FindOptions;
 public class CertificationDAOImpl extends AbstractMongoDAO<CustomerCertification> implements CertificationDAO {
 
     public CertificationDAOImpl() {
-        super("10.40.197.137", "customerAPI", CustomerCertification.class);
+        super("10.200.35.67", "customerAPI", CustomerCertification.class);
     }
 
     @Override
