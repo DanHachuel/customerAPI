@@ -4,6 +4,7 @@ import br.net.gvt.efika.customer.EfikaCustomer;
 import br.net.gvt.efika.customerAPI.rest.factories.CertificationApiServiceFactory;
 import br.net.gvt.efika.customerAPI.model.CertificationResponse;
 import br.net.gvt.efika.customerAPI.model.GenericRequest;
+import br.net.gvt.efika.customerAPI.model.service.factory.FactoryService;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
@@ -46,4 +47,12 @@ public class CertificationApi {
             throws NotFoundException {
         return delegate.updateCertification(body, securityContext);
     }
+
+    @POST
+    @Path("/findByCustomer")
+    @Produces({"application/json", "application/xml"})
+    public Response confiabilidadeRede(GenericRequest body, SecurityContext securityContext) throws NotFoundException {
+        return delegate.confiabilidadeRede(body, securityContext);
+    }
+
 }
