@@ -5,8 +5,8 @@
  */
 package br.net.gvt.efika.customerAPI.dao.fulltest;
 
-import fulltest.FullTest;
-import fulltest.FulltestRequest;
+import br.net.gvt.efika.fulltest.FullTest;
+import br.net.gvt.efika.fulltest.FulltestRequest;
 
 /**
  *

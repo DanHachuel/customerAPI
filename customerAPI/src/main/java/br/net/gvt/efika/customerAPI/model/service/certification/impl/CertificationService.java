@@ -5,11 +5,11 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.certification.impl;
 
-import fulltest.ValidacaoResult;
-import telecom.properties.gpon.SerialOntGpon;
-import br.net.gvt.efika.customer.EfikaCustomer;
+import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.customerAPI.model.entity.CustomerCertification;
 import br.net.gvt.efika.customerAPI.model.GenericRequest;
+import br.net.gvt.efika.fulltest.ValidacaoResult;
+import br.net.gvt.efika.telecom.properties.gpon.SerialOntGpon;
 import java.util.List;
 
 /**

@@ -7,11 +7,11 @@ package br.net.gvt.efika.customerAPI.dao.configporta;
 
 import br.net.gvt.efika.customerAPI.dao.factory.FactoryDAO;
 import br.net.gvt.efika.customerAPI.dao.http.Urls;
-import fulltest.FulltestRequest;
-import fulltest.SetOntToOltRequest;
-import fulltest.ValidacaoResult;
+import br.net.gvt.efika.fulltest.FulltestRequest;
+import br.net.gvt.efika.fulltest.SetOntToOltRequest;
+import br.net.gvt.efika.fulltest.ValidacaoResult;
+import br.net.gvt.efika.telecom.properties.gpon.SerialOntGpon;
 import java.util.List;
-import telecom.properties.gpon.SerialOntGpon;
 
 public class ConfigPortaDAOImpl implements ConfigPortaDAO {
 

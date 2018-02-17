@@ -5,7 +5,7 @@
  */
 package br.net.gvt.efika.customerAPI.soap;
 
-import br.net.gvt.efika.customer.EfikaCustomer;
+import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.customerAPI.model.GenericRequest;
 import javax.jws.WebMethod;
 import javax.jws.WebService;

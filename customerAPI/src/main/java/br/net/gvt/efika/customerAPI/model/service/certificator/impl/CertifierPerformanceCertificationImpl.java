@@ -5,11 +5,11 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.certificator.impl;
 
-import br.net.gvt.efika.model.certification.enuns.CertificationAssertName;
-import br.net.gvt.efika.model.certification.enuns.CertificationResult;
-import fulltest.FullTest;
+import br.net.gvt.efika.customer.model.certification.enums.CertificationAssertName;
+import br.net.gvt.efika.customer.model.certification.enums.CertificationResult;
 import br.net.gvt.efika.customerAPI.model.service.assertations.FulltestCertificationAsserter;
 import br.net.gvt.efika.customerAPI.model.service.certification.command.NonExceptionCommand;
+import br.net.gvt.efika.fulltest.FullTest;
 
 public class CertifierPerformanceCertificationImpl extends CertifierCertificationBlockGeneric {
 

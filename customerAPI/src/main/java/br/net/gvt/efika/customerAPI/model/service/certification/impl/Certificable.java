@@ -5,7 +5,7 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.certification.impl;
 
-import br.net.gvt.efika.model.certification.CertificationBlock;
+import br.net.gvt.efika.customer.model.certification.CertificationBlock;
 
 
 /**

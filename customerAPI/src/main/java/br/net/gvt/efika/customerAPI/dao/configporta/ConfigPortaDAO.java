@@ -6,11 +6,11 @@
 package br.net.gvt.efika.customerAPI.dao.configporta;
 
 
-import fulltest.FulltestRequest;
-import fulltest.SetOntToOltRequest;
-import fulltest.ValidacaoResult;
+import br.net.gvt.efika.fulltest.FulltestRequest;
+import br.net.gvt.efika.fulltest.SetOntToOltRequest;
+import br.net.gvt.efika.fulltest.ValidacaoResult;
+import br.net.gvt.efika.telecom.properties.gpon.SerialOntGpon;
 import java.util.List;
-import telecom.properties.gpon.SerialOntGpon;
 
 /**
  *

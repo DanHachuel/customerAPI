@@ -1,6 +1,6 @@
 package br.net.gvt.efika.customerAPI.rest.impl;
 
-import br.net.gvt.efika.customer.EfikaCustomer;
+import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.customerAPI.dao.factory.FactoryDAO;
 import br.net.gvt.efika.customerAPI.rest.ApiResponseMessage;
 import br.net.gvt.efika.customerAPI.rest.CertificationApiService;

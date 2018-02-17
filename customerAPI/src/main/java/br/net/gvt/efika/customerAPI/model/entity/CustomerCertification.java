@@ -1,11 +1,11 @@
 package br.net.gvt.efika.customerAPI.model.entity;
 
-import br.net.gvt.efika.customer.EfikaCustomer;
-import br.net.gvt.efika.model.certification.CertificationBlock;
-import br.net.gvt.efika.model.certification.Certificational;
+import br.net.gvt.efika.customer.model.certification.CertificationBlock;
+import br.net.gvt.efika.customer.model.certification.Certificational;
+import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
+import br.net.gvt.efika.fulltest.FullTest;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import fulltest.FullTest;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;

@@ -1,6 +1,6 @@
 package br.net.gvt.efika.customerAPI.model;
 
-import br.net.gvt.efika.customer.EfikaCustomer;
+import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
 import java.util.Date;

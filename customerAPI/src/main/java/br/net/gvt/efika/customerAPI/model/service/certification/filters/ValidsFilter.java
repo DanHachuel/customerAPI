@@ -5,9 +5,9 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.certification.filters;
 
-import fulltest.ValidacaoResult;
+import br.net.gvt.efika.fulltest.ValidacaoResult;
+import br.net.gvt.efika.telecom.properties.TelecomPropertiesEnum;
 import java.util.List;
-import telecom.properties.TelecomPropertiesEnum;
 
 public class ValidsFilter {
 

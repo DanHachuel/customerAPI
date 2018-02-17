@@ -5,11 +5,11 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.certification.impl;
 
-import br.net.gvt.efika.customerAPI.model.service.certification.impl.CertificationServiceImpl;
-import br.net.gvt.efika.model.certification.enuns.CertificationResult;
-import fulltest.ValidacaoResult;
+import br.net.gvt.efika.customer.model.certification.enums.CertificationResult;
 import br.net.gvt.efika.customerAPI.model.entity.CustomerCertification;
 import br.net.gvt.efika.customerAPI.model.GenericRequest;
+import br.net.gvt.efika.fulltest.ValidacaoResult;
+import br.net.gvt.efika.util.util.json.JacksonMapper;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertTrue;
@@ -17,7 +17,6 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import util.JacksonMapper;
 
 /**
  *

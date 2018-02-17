@@ -5,7 +5,7 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.certification.filters;
 
-import br.net.gvt.efika.model.certification.enuns.CertificationResult;
+import br.net.gvt.efika.customer.model.certification.enums.CertificationResult;
 import java.util.List;
 
 public class CertificationResultFilter {

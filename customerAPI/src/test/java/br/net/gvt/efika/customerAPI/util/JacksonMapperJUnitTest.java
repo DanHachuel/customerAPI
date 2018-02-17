@@ -5,8 +5,8 @@ package br.net.gvt.efika.customerAPI.util;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import br.net.gvt.efika.customer.EfikaCustomer;
-import br.net.gvt.efika.customer.InventarioRede;
+import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
+import br.net.gvt.efika.customer.model.customer.InventarioRede;
 import br.net.gvt.efika.util.util.json.JacksonMapper;
 import org.junit.After;
 import org.junit.AfterClass;

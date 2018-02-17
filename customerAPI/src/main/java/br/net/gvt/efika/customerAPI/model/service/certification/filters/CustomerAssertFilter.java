@@ -5,8 +5,8 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.certification.filters;
 
-import br.net.gvt.efika.asserts.AssertsEnum;
-import br.net.gvt.efika.customer.CustomerAssert;
+import br.net.gvt.efika.customer.model.customer.CustomerAssert;
+import br.net.gvt.efika.customer.model.customer.asserts.AssertsEnum;
 import java.util.List;
 
 public class CustomerAssertFilter {

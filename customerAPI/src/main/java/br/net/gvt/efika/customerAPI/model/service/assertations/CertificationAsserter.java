@@ -5,8 +5,8 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.assertations;
 
-import br.net.gvt.efika.model.certification.CertificationAssert;
-import br.net.gvt.efika.model.certification.enuns.CertificationAssertName;
+import br.net.gvt.efika.customer.model.certification.CertificationAssert;
+import br.net.gvt.efika.customer.model.certification.enums.CertificationAssertName;
 
 /**
  *

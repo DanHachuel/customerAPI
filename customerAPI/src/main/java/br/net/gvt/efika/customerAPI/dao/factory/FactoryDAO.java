@@ -5,8 +5,8 @@
  */
 package br.net.gvt.efika.customerAPI.dao.factory;
 
-import br.net.gvt.efika.customer.EfikaCustomer;
-import br.net.gvt.efika.model.certification.CustomerCertificationDTO;
+import br.net.gvt.efika.customer.model.certification.CustomerCertificationDTO;
+import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.util.dao.http.HttpDAO;
 import br.net.gvt.efika.util.dao.http.HttpDAOGenericImpl;
 import br.net.gvt.efika.customerAPI.dao.certification.CertificationDAOImpl;
@@ -15,11 +15,11 @@ import br.net.gvt.efika.customerAPI.dao.configporta.ConfigPortaDAOImpl;
 import br.net.gvt.efika.customerAPI.dao.exception.ExceptionLogDAOImpl;
 import br.net.gvt.efika.customerAPI.dao.fulltest.FulltestDAO;
 import br.net.gvt.efika.customerAPI.dao.fulltest.FulltestDAOImpl;
-import fulltest.FullTest;
-import fulltest.ValidacaoResult;
 import java.nio.charset.Charset;
 import java.util.List;
 import br.net.gvt.efika.customerAPI.model.entity.ExceptionLog;
+import br.net.gvt.efika.fulltest.FullTest;
+import br.net.gvt.efika.fulltest.ValidacaoResult;
 import br.net.gvt.efika.mongo.dao.AbstractMongoDAO;
 import br.net.gvt.efika.util.dao.http.HttpDAOGenericNonProxyImpl;
 

@@ -5,8 +5,8 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.factory;
 
-import br.net.gvt.efika.model.certification.CertificationBlock;
-import br.net.gvt.efika.model.certification.enuns.CertificationBlockName;
+import br.net.gvt.efika.customer.model.certification.CertificationBlock;
+import br.net.gvt.efika.customer.model.certification.enums.CertificationBlockName;
 
 
 

@@ -1,17 +1,13 @@
 package br.net.gvt.efika.customerAPI.model.service.certification.impl;
 
 import br.net.gvt.efika.customerAPI.model.entity.CustomerCertification;
-import br.net.gvt.efika.customer.EfikaCustomer;
-import br.net.gvt.efika.model.certification.CertificationBlock;
-import br.net.gvt.efika.model.certification.enuns.CertificationBlockName;
-import br.net.gvt.efika.model.certification.enuns.CertificationResult;
+import br.net.gvt.efika.customer.model.certification.CertificationBlock;
+import br.net.gvt.efika.customer.model.certification.enums.CertificationBlockName;
+import br.net.gvt.efika.customer.model.certification.enums.CertificationResult;
+import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.customerAPI.dao.configporta.ConfigPortaDAO;
 import br.net.gvt.efika.customerAPI.dao.factory.FactoryDAO;
 import br.net.gvt.efika.customerAPI.dao.fulltest.FulltestDAO;
-import fulltest.FullTest;
-import fulltest.FulltestRequest;
-import fulltest.SetOntToOltRequest;
-import fulltest.ValidacaoResult;
 import br.net.gvt.efika.customerAPI.model.GenericRequest;
 import java.util.Calendar;
 import java.util.List;
@@ -28,7 +24,11 @@ import br.net.gvt.efika.customerAPI.model.service.certificator.impl.CertifierSer
 import br.net.gvt.efika.customerAPI.model.service.factory.FactoryCertificationBlock;
 import br.net.gvt.efika.customerAPI.model.service.factory.FactoryService;
 import br.net.gvt.efika.customerAPI.model.service.finder.CustomerFinder;
-import telecom.properties.gpon.SerialOntGpon;
+import br.net.gvt.efika.fulltest.FullTest;
+import br.net.gvt.efika.fulltest.FulltestRequest;
+import br.net.gvt.efika.fulltest.SetOntToOltRequest;
+import br.net.gvt.efika.fulltest.ValidacaoResult;
+import br.net.gvt.efika.telecom.properties.gpon.SerialOntGpon;
 
 public class CertificationServiceImpl implements CertificationService {
 
