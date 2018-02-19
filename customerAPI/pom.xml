@@ -54,7 +54,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.12.4</version>
                 <configuration>
-                    <skipTests>true</skipTests>
+                    <!--                    <skipTests>true</skipTests>-->
                 </configuration>
             </plugin>
         </plugins>
@@ -73,6 +73,21 @@
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>jaxrs</artifactId>
         </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.7.5</version>
+        </dependency>
+
         
         <dependency>
             <groupId>br.net.gvt.efika</groupId>
@@ -98,14 +113,6 @@
             <version>1.0.0</version>
         </dependency>
                 
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.7.0</version>
-        </dependency>
-        
-
         
         <!-- https://mvnrepository.com/artifact/org.mongodb.morphia/morphia -->
         <dependency>
@@ -142,13 +149,7 @@
             <artifactId>httpclient</artifactId>
             <version>4.5.5</version>
         </dependency>
-        
-        <!--         https://mvnrepository.com/artifact/commons-logging/commons-logging 
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>1.2</version>
-        </dependency>-->
+
         
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>

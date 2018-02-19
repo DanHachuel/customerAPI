@@ -23,6 +23,8 @@ public enum Urls {
     /**
      * QA
      */
+    SERVICE_INVENTORY_SOPHIA("http://localhost:8080/stealerAPI/serviceInventory/sophia/"),
+    SERVICE_INVENTORY_LEGADO_V1("http://localhost:8080/stealerAPI/serviceInventory/legado/"),
     CADASTRO_STEALER("http://10.40.195.81:8080/stealerAPI/oss/"),
     CADASTRO_NETWORK("http://10.40.195.81:8080/networkInventoryAPI/networkInventory/"),
     FULLTEST("http://10.40.195.81:8080/fulltestAPI/fulltest/co"),

@@ -7,7 +7,7 @@ package br.net.gvt.efika.customerAPI.util;
  */
 import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.customer.model.customer.InventarioRede;
-import br.net.gvt.efika.util.util.json.JacksonMapper;
+import br.net.gvt.efika.util.json.JacksonMapper;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.fail;
