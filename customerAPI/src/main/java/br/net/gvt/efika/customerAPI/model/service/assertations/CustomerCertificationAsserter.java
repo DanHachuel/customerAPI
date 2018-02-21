@@ -9,8 +9,8 @@ import br.net.gvt.efika.customer.model.certification.CertificationAssert;
 import br.net.gvt.efika.customer.model.certification.enums.CertificationAssertName;
 import static br.net.gvt.efika.customer.model.certification.enums.CertificationAssertName.*;
 import br.net.gvt.efika.customer.model.certification.enums.CertificationResult;
-import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
-import br.net.gvt.efika.customer.model.customer.asserts.AssertsEnum;
+import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
+import br.net.gvt.efika.efika_customer.model.customer.asserts.AssertsEnum;
 import br.net.gvt.efika.customerAPI.model.service.assertations.exception.AssertNaoImpl;
 import br.net.gvt.efika.customerAPI.model.service.certification.filters.CustomerAssertFilter;
 

@@ -5,7 +5,7 @@
  */
 package br.net.gvt.efika.customerAPI.dao.network_inventory;
 
-import br.net.gvt.efika.customer.model.customer.InventarioRede;
+import br.net.gvt.efika.efika_customer.model.customer.InventarioRede;
 
 /**
  *

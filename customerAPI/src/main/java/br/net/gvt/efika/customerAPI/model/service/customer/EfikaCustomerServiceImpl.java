@@ -5,7 +5,7 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.customer;
 
-import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
+import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.customerAPI.dao.network_inventory.NetworkInventoryDAO;
 import br.net.gvt.efika.customerAPI.dao.service_inventory.ServiceInventoryDAO;
 

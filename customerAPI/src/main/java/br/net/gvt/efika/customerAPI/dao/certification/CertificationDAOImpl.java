@@ -5,10 +5,11 @@
  */
 package br.net.gvt.efika.customerAPI.dao.certification;
 
-import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
+import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import java.util.List;
 import br.net.gvt.efika.customerAPI.model.entity.CustomerCertification;
 import br.net.gvt.efika.mongo.dao.AbstractMongoDAO;
+import org.bson.types.ObjectId;
 import org.mongodb.morphia.query.FindOptions;
 
 /**
@@ -29,6 +30,11 @@ public class CertificationDAOImpl extends AbstractMongoDAO<CustomerCertification
                 .order("dataFim")
                 .asList(new FindOptions()
                         .limit(10));
+    }
+
+    @Override
+    public CustomerCertification read(String id) throws Exception {
+        return super.read(new ObjectId(id));
     }
 
 }

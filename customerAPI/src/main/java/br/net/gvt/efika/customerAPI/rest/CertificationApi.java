@@ -1,6 +1,6 @@
 package br.net.gvt.efika.customerAPI.rest;
 
-import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
+import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.customerAPI.rest.factories.CertificationApiServiceFactory;
 import br.net.gvt.efika.customerAPI.model.CertificationResponse;
 import br.net.gvt.efika.customerAPI.model.GenericRequest;

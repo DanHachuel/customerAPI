@@ -5,8 +5,7 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.factory;
 
-import br.net.gvt.efika.customer.model.customer.enums.OrigemInventarioServico;
-import br.net.gvt.efika.customerAPI.dao.factory.FactoryDAO;
+import br.net.gvt.efika.efika_customer.model.customer.enums.OrigemInventarioServico;
 import br.net.gvt.efika.customerAPI.dao.service_inventory.FactoryServiceInventoryDAO;
 import br.net.gvt.efika.customerAPI.model.service.finder.CustomerFinder;
 import br.net.gvt.efika.customerAPI.model.service.finder.CustomerFinderImpl;

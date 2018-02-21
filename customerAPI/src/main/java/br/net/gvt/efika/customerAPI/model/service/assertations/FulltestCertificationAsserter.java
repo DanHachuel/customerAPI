@@ -9,14 +9,14 @@ import br.net.gvt.efika.customer.model.certification.CertificationAssert;
 import br.net.gvt.efika.customer.model.certification.enums.CertificationAssertName;
 import static br.net.gvt.efika.customer.model.certification.enums.CertificationAssertName.*;
 import br.net.gvt.efika.customer.model.certification.enums.CertificationResult;
-import br.net.gvt.efika.customer.model.customer.enums.TecnologiaLinha;
-import br.net.gvt.efika.customer.model.customer.enums.TecnologiaTv;
+import br.net.gvt.efika.efika_customer.model.customer.enums.TecnologiaLinha;
+import br.net.gvt.efika.efika_customer.model.customer.enums.TecnologiaTv;
 import br.net.gvt.efika.customerAPI.model.service.assertations.exception.AssertNaoImpl;
 import br.net.gvt.efika.customerAPI.model.service.certification.filters.ValidsFilter;
-import br.net.gvt.efika.fulltest.FullTest;
-import br.net.gvt.efika.fulltest.ValidacaoResult;
-import br.net.gvt.efika.telecom.properties.EstadoDaPorta;
-import br.net.gvt.efika.telecom.properties.TelecomPropertiesEnum;
+import br.net.gvt.efika.fulltest.model.fulltest.FullTest;
+import br.net.gvt.efika.fulltest.model.fulltest.ValidacaoResult;
+import br.net.gvt.efika.fulltest.model.telecom.properties.EstadoDaPorta;
+import br.net.gvt.efika.fulltest.model.telecom.properties.TelecomPropertiesEnum;
 
 public class FulltestCertificationAsserter extends CertificationAsserterAbs<FullTest> {
 

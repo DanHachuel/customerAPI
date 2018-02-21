@@ -5,7 +5,7 @@
  */
 package br.net.gvt.efika.customerAPI.dao.certification;
 
-import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
+import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import java.util.List;
 import br.net.gvt.efika.customerAPI.model.entity.CustomerCertification;
 import org.junit.After;

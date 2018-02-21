@@ -8,7 +8,7 @@ package br.net.gvt.efika.customerAPI.model.service.certification.impl;
 import br.net.gvt.efika.customer.model.certification.enums.CertificationResult;
 import br.net.gvt.efika.customerAPI.model.entity.CustomerCertification;
 import br.net.gvt.efika.customerAPI.model.GenericRequest;
-import br.net.gvt.efika.fulltest.ValidacaoResult;
+import br.net.gvt.efika.fulltest.model.fulltest.ValidacaoResult;
 import br.net.gvt.efika.util.json.JacksonMapper;
 import org.junit.After;
 import org.junit.AfterClass;

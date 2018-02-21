@@ -4,10 +4,8 @@ import br.net.gvt.efika.customerAPI.model.entity.CustomerCertification;
 import br.net.gvt.efika.customer.model.certification.CertificationBlock;
 import br.net.gvt.efika.customer.model.certification.enums.CertificationBlockName;
 import br.net.gvt.efika.customer.model.certification.enums.CertificationResult;
-import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
-import br.net.gvt.efika.customerAPI.dao.configporta.ConfigPortaDAO;
-import br.net.gvt.efika.customerAPI.dao.factory.FactoryDAO;
-import br.net.gvt.efika.customerAPI.dao.fulltest.FulltestDAO;
+import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
+import br.net.gvt.efika.customerAPI.dao.mongo.FactoryDAO;
 import br.net.gvt.efika.customerAPI.model.GenericRequest;
 import java.util.Calendar;
 import java.util.List;
@@ -24,18 +22,21 @@ import br.net.gvt.efika.customerAPI.model.service.certificator.impl.CertifierSer
 import br.net.gvt.efika.customerAPI.model.service.factory.FactoryCertificationBlock;
 import br.net.gvt.efika.customerAPI.model.service.factory.FactoryService;
 import br.net.gvt.efika.customerAPI.model.service.finder.CustomerFinder;
-import br.net.gvt.efika.fulltest.FullTest;
-import br.net.gvt.efika.fulltest.FulltestRequest;
-import br.net.gvt.efika.fulltest.SetOntToOltRequest;
-import br.net.gvt.efika.fulltest.ValidacaoResult;
-import br.net.gvt.efika.telecom.properties.gpon.SerialOntGpon;
+import br.net.gvt.efika.fulltest.model.fulltest.FullTest;
+import br.net.gvt.efika.fulltest.model.fulltest.FulltestRequest;
+import br.net.gvt.efika.fulltest.model.fulltest.SetOntToOltRequest;
+import br.net.gvt.efika.fulltest.model.fulltest.ValidacaoResult;
+import br.net.gvt.efika.fulltest.service.factory.FactoryFulltestService;
+import br.net.gvt.efika.fulltest.model.telecom.properties.gpon.SerialOntGpon;
+import br.net.gvt.efika.fulltest.service.fulltest.FulltestService;
+import br.net.gvt.efika.fulltest.service.config_porta.ConfigPortaService;
 
 public class CertificationServiceImpl implements CertificationService {
 
     private final CustomerFinder finder = FactoryService.customerFinder();
     private final CustomerCertification certification = FactoryEntitiy.createCustLogCertification();
-    private final FulltestDAO ftDAO = FactoryDAO.newFulltestDAO();
-    private final ConfigPortaDAO confPortaDAO = FactoryDAO.newConfigPortaDAO();
+    private final FulltestService ftDAO = FactoryFulltestService.newFulltestService();
+    private final ConfigPortaService confPortaDAO = FactoryFulltestService.newConfigPortaService();
 
     private EfikaCustomer cust;
 
@@ -112,13 +113,13 @@ public class CertificationServiceImpl implements CertificationService {
         new CertifierCustomerCertificationImpl().certify(certification);
         certification.setDataFim(Calendar.getInstance().getTime());
         certification.setDataFim(Calendar.getInstance().getTime());
-        FactoryDAO.createCertificationLogDAO().save(certification);
+        FactoryDAO.newCertificationDAO().save(certification);
     }
 
     @Override
     public List<CustomerCertification> findByCustomer(EfikaCustomer cust) throws Exception {
         try {
-            return FactoryDAO.createCertificationLogDAO().findByCustomer(cust);
+            return FactoryDAO.newCertificationDAO().findByCustomer(cust);
         } catch (Exception e) {
             FactoryDAO.newExceptionLogDAO().save(new ExceptionLog(e));
             throw new Exception("Falha ao buscar histórico de execuções.");

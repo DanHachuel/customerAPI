@@ -7,7 +7,7 @@ package br.net.gvt.efika.customerAPI.model.service.certificator.impl;
 
 import br.net.gvt.efika.customer.model.certification.enums.CertificationAssertName;
 import br.net.gvt.efika.customer.model.certification.enums.CertificationResult;
-import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
+import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.customerAPI.model.service.assertations.CustomerCertificationAsserter;
 import br.net.gvt.efika.customerAPI.model.service.certification.command.NonExceptionCommand;
 

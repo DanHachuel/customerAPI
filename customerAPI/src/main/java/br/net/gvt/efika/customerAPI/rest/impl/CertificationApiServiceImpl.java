@@ -1,7 +1,7 @@
 package br.net.gvt.efika.customerAPI.rest.impl;
 
-import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
-import br.net.gvt.efika.customerAPI.dao.factory.FactoryDAO;
+import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
+import br.net.gvt.efika.customerAPI.dao.mongo.FactoryDAO;
 import br.net.gvt.efika.customerAPI.rest.ApiResponseMessage;
 import br.net.gvt.efika.customerAPI.rest.CertificationApiService;
 import br.net.gvt.efika.customerAPI.model.CertificationResponse;
@@ -36,7 +36,7 @@ public class CertificationApiServiceImpl extends CertificationApiService {
     public Response getCertificationById(String id, SecurityContext securityContext)
             throws NotFoundException {
         try {
-            return Response.ok().entity(FactoryDAO.createCertificationLogDAO().read(new ObjectId(id))).build();
+            return Response.ok().entity(FactoryDAO.newCertificationDAO().read(id)).build();
         } catch (Exception e) {
             return Response.serverError().entity(e).build();
         }

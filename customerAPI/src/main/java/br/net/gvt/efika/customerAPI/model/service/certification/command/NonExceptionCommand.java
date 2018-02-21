@@ -5,7 +5,7 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.certification.command;
 
-import br.net.gvt.efika.customerAPI.dao.factory.FactoryDAO;
+import br.net.gvt.efika.customerAPI.dao.mongo.FactoryDAO;
 import br.net.gvt.efika.customerAPI.model.entity.ExceptionLog;
 
 /**

@@ -5,17 +5,17 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.finder;
 
-import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
-import br.net.gvt.efika.customerAPI.dao.factory.FactoryDAO;
-import br.net.gvt.efika.customerAPI.dao.http.Urls;
+import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.customerAPI.model.GenericRequest;
 import br.net.gvt.efika.customerAPI.dao.request.RequestFactory;
+import br.net.gvt.efika.util.dao.http.factory.FactoryHttpDAOAbstract;
 
 public class CustomerFinderImpl implements CustomerFinder {
 
     @Override
     public EfikaCustomer getCustomer(GenericRequest req) throws Exception {
-        return (EfikaCustomer) FactoryDAO.createHttpCustomerDAO().post(Urls.CADASTRO_STEALER.getUrl(),
+        FactoryHttpDAOAbstract<EfikaCustomer> fac = new FactoryHttpDAOAbstract<>(EfikaCustomer.class);
+        return (EfikaCustomer) fac.createWithoutProxy().post(br.net.gvt.efika.util.dao.http.Urls.CADASTRO_STEALER.getUrl(),
                 RequestFactory.customerRequest(req));
     }
 

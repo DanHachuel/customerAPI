@@ -5,8 +5,8 @@
  */
 package br.net.gvt.efika.customerAPI.dao.service_inventory;
 
-import br.net.gvt.efika.customer.model.customer.EfikaCustomer;
-import br.net.gvt.efika.customer.model.customer.enums.OrigemInventarioServico;
+import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
+import br.net.gvt.efika.efika_customer.model.customer.enums.OrigemInventarioServico;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
