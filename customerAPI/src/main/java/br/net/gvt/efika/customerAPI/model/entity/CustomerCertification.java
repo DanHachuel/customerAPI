@@ -23,7 +23,7 @@ import org.mongodb.morphia.annotations.Id;
  *
  * @author G0042204
  */
-@Entity("certification")
+@Entity(value = "certification", noClassnameStored = true)
 public class CustomerCertification extends Certificational {
 
     @Id
@@ -45,7 +45,6 @@ public class CustomerCertification extends Certificational {
     public CustomerCertification() {
         dataInicio = Calendar.getInstance().getTime();
     }
-    
 
     public List<CertificationBlock> getBlocks() {
         if (blocks == null) {

@@ -18,7 +18,7 @@ import org.mongodb.morphia.annotations.Id;
  *
  * @author G0041775
  */
-@Entity("log")
+@Entity(value = "log", noClassnameStored = true)
 public abstract class CustomerLog {
 
     @Id

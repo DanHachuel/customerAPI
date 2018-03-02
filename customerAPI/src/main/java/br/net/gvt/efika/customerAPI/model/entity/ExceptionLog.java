@@ -17,7 +17,7 @@ import org.mongodb.morphia.annotations.Id;
  *
  * @author G0042204
  */
-@Entity("exception_customerAPI")
+@Entity(value = "exception_customerAPI", noClassnameStored = true)
 public class ExceptionLog {
 
     @Id
