@@ -10,7 +10,6 @@ import javax.ws.rs.NotFoundException;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import br.net.gvt.efika.customerAPI.model.service.factory.FactoryService;
-import org.bson.types.ObjectId;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2018-01-04T13:39:04.668Z")
 public class CertificationApiServiceImpl extends CertificationApiService {

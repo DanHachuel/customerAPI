@@ -11,12 +11,12 @@ import br.net.gvt.efika.customerAPI.model.GenericRequest;
 import br.net.gvt.efika.util.dao.http.Urls;
 import br.net.gvt.efika.util.dao.http.factory.FactoryHttpDAOAbstract;
 
-public class LegadoServiceInventoryDAOImpl implements ServiceInventoryDAO {
+public class GenericServiceInventoryDAOImpl implements ServiceInventoryDAO {
 
     @Override
     public EfikaCustomer consultar(String instancia) throws Exception {
         FactoryHttpDAOAbstract<EfikaCustomer> fac = new FactoryHttpDAOAbstract<>(EfikaCustomer.class);
-        return (EfikaCustomer) fac.createWithoutProxy().post(Urls.SERVICE_INVENTORY_LEGADO_V1.getUrl(),
+        return (EfikaCustomer) fac.createWithoutProxy().post(Urls.SERVICE_INVENTORY.getUrl(),
                 RequestFactory.customerRequest(new GenericRequest(instancia, "customerAPI")));
 
     }

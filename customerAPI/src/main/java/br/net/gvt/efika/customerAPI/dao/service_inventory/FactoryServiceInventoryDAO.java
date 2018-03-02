@@ -14,14 +14,8 @@ import br.net.gvt.efika.efika_customer.model.customer.enums.OrigemInventarioServ
 public class FactoryServiceInventoryDAO {
 
     public static ServiceInventoryDAO create(OrigemInventarioServico origem) throws Exception {
-        if (origem == OrigemInventarioServico.SOPHIA) {
-            return new SophiaServiceInventoryDAOImpl();
-        } else if (origem == OrigemInventarioServico.LEGADO_VIVO1) {
-            return new LegadoServiceInventoryDAOImpl();
-        }
-
-        throw new Exception("Provedor de Iventário de Serviços indisponível para: " + origem.name());
-
+        return new GenericServiceInventoryDAOImpl();
+        // throw new Exception("Provedor de Inventário de Serviços indisponível para: " + origem.name());
     }
 
 }

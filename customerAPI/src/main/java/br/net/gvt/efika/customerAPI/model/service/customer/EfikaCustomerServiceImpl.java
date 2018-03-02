@@ -5,29 +5,35 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.customer;
 
+import br.net.gvt.efika.customerAPI.dao.network_inventory.FactoryNetworkInventoryDAO;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
-import br.net.gvt.efika.customerAPI.dao.network_inventory.NetworkInventoryDAO;
-import br.net.gvt.efika.customerAPI.dao.service_inventory.ServiceInventoryDAO;
+import br.net.gvt.efika.customerAPI.dao.service_inventory.FactoryServiceInventoryDAO;
+import br.net.gvt.efika.efika_customer.model.customer.enums.OrigemInventarioServico;
 
 public class EfikaCustomerServiceImpl implements EfikaCustomerService {
 
     private EfikaCustomer cust = new EfikaCustomer();
 
-    private ServiceInventoryDAO servDAO;
+    public EfikaCustomerServiceImpl() {
 
-    private NetworkInventoryDAO networkDAO;
-
-    public EfikaCustomerServiceImpl(ServiceInventoryDAO servDAO, NetworkInventoryDAO networkDAO) {
-        this.servDAO = servDAO;
-        this.networkDAO = networkDAO;
     }
 
     @Override
     public EfikaCustomer consultar(String instancia) throws Exception {
-        cust = this.servDAO.consultar(instancia);
-        cust.setRede(networkDAO.consultar(instancia));
+        try {
+            cust = FactoryServiceInventoryDAO.create(OrigemInventarioServico.SOPHIA).consultar(instancia);
+            cust.setRede(FactoryNetworkInventoryDAO.create().consultar(cust));
+            cust.getServicos().setOrigem(OrigemInventarioServico.SOPHIA);
+            return this.cust;
+        } catch (Exception e) {
+            EfikaCustomer legado = FactoryServiceInventoryDAO.create(OrigemInventarioServico.LEGADO_VIVO1).consultar(instancia);
+            legado.getServicos().setOrigem(OrigemInventarioServico.LEGADO_VIVO1);
+            
+            
+            
+            return legado;
+        }
 
-        return this.cust;
     }
 
 }

@@ -5,15 +5,14 @@
  */
 package br.net.gvt.efika.customerAPI.dao.network_inventory;
 
-import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
-import br.net.gvt.efika.efika_customer.model.customer.InventarioRede;
-
 /**
  *
  * @author G0042204
  */
-public interface NetworkInventoryDAO {
+public class FactoryNetworkInventoryDAO {
 
-    public InventarioRede consultar(EfikaCustomer cust) throws Exception;
+    public static NetworkInventoryDAO create() {
+        return new GenericNetworkInventoryDAOImpl();
+    }
 
 }

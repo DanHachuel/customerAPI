@@ -5,8 +5,6 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.factory;
 
-import br.net.gvt.efika.efika_customer.model.customer.enums.OrigemInventarioServico;
-import br.net.gvt.efika.customerAPI.dao.service_inventory.FactoryServiceInventoryDAO;
 import br.net.gvt.efika.customerAPI.model.service.finder.CustomerFinder;
 import br.net.gvt.efika.customerAPI.model.service.finder.CustomerFinderImpl;
 import br.net.gvt.efika.customerAPI.model.service.certification.impl.CertificationServiceImpl;
@@ -29,7 +27,7 @@ public class FactoryService {
     }
 
     public static EfikaCustomerService createEfikaCustomerService() throws Exception {
-        return new EfikaCustomerServiceImpl(FactoryServiceInventoryDAO.create(OrigemInventarioServico.SOPHIA), null);
+        return new EfikaCustomerServiceImpl();
     }
 
 }

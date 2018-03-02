@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author G0042204
  */
-public class SophiaServiceInventoryDAOImplIT {
+public class GenericServiceInventoryDAOImplIT {
 
-    public SophiaServiceInventoryDAOImplIT() {
+    public GenericServiceInventoryDAOImplIT() {
     }
 
     @AfterClass
@@ -41,10 +41,21 @@ public class SophiaServiceInventoryDAOImplIT {
     public void testConsultar() throws Exception {
         System.out.println("consultar");
         String instancia = "4130886762";
-        SophiaServiceInventoryDAOImpl instance = new SophiaServiceInventoryDAOImpl();
+        GenericServiceInventoryDAOImpl instance = new GenericServiceInventoryDAOImpl();
         EfikaCustomer result = instance.consultar(instancia);
-        assertTrue("inventário", result.getInstancia() != null);
-        assertTrue("inventário é sophia", result.getServicos().getOrigem() == OrigemInventarioServico.SOPHIA);
+        assertTrue("Inventário", result.getInstancia() != null);
+        assertTrue("Inventário é Sophia", result.getServicos().getOrigem() == OrigemInventarioServico.SOPHIA);
+        System.out.println("end");
+    }
+
+    @Test
+    public void testConsultarLegado() throws Exception {
+        System.out.println("consultarLegados");
+        String instancia = "1120414633";
+        GenericServiceInventoryDAOImpl instance = new GenericServiceInventoryDAOImpl();
+        EfikaCustomer result = instance.consultar(instancia);
+        assertTrue("Inventário", result.getInstancia() != null);
+        assertTrue("Inventário é Sophia", result.getServicos().getOrigem() == OrigemInventarioServico.SOPHIA);
         System.out.println("end");
     }
 
