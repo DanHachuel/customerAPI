@@ -48,7 +48,7 @@ public class CertificationApi {
     }
 
     @POST
-    @Path("/findByCustomer")
+    @Path("/confRede")
     @Produces({"application/json", "application/xml"})
     public Response confiabilidadeRede(GenericRequest body, SecurityContext securityContext) throws NotFoundException {
         return delegate.confiabilidadeRede(body, securityContext);
