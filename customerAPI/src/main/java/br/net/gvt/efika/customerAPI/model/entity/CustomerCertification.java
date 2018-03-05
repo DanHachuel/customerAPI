@@ -23,7 +23,7 @@ import org.mongodb.morphia.annotations.Id;
  *
  * @author G0042204
  */
-@Entity(value = "certification", noClassnameStored = true)
+@Entity(value = "certification", noClassnameStored = false)
 public class CustomerCertification extends Certificational {
 
     @Id
