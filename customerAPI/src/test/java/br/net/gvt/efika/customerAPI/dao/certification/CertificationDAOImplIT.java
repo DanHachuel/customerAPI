@@ -8,6 +8,7 @@ package br.net.gvt.efika.customerAPI.dao.certification;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import java.util.List;
 import br.net.gvt.efika.customerAPI.model.entity.CustomerCertification;
+import br.net.gvt.efika.util.json.JacksonMapper;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -43,12 +44,12 @@ public class CertificationDAOImplIT {
         try {
             System.out.println("findByCustomer");
             EfikaCustomer cust = new EfikaCustomer();
-            cust.setInstancia("4130886762");
+            cust.setInstancia("4130157784");
             CertificationDAOImpl instance = new CertificationDAOImpl();
             List<CustomerCertification> result = instance.findByCustomer(cust);
+            System.out.println(new JacksonMapper<>(List.class).serialize(result));
             assertFalse(result.isEmpty());
         } catch (Exception e) {
-            
             e.printStackTrace();
             fail(e.getMessage());
         }
