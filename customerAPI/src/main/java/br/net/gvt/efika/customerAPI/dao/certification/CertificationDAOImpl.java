@@ -9,6 +9,7 @@ import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import java.util.List;
 import br.net.gvt.efika.customerAPI.model.entity.CustomerCertification;
 import br.net.gvt.efika.mongo.dao.AbstractMongoDAO;
+import br.net.gvt.efika.mongo.dao.MongoEndpointEnum;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.query.FindOptions;
 
@@ -19,7 +20,7 @@ import org.mongodb.morphia.query.FindOptions;
 public class CertificationDAOImpl extends AbstractMongoDAO<CustomerCertification> implements CertificationDAO {
 
     public CertificationDAOImpl() {
-        super("10.200.35.67", "customerAPI", CustomerCertification.class);
+        super(MongoEndpointEnum.MONGO.getIp(), "customerAPI", CustomerCertification.class);
     }
 
     @Override
