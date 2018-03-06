@@ -54,4 +54,18 @@ public class CertificationApi {
         return delegate.confiabilidadeRede(body, securityContext);
     }
 
+    @POST
+    @Path("/ontsDisp")
+    @Produces({"application/json", "application/xml"})
+    public Response ontsDisponiveis(GenericRequest body, SecurityContext securityContext) throws NotFoundException {
+        return delegate.ontsDisponiveis(body, securityContext);
+    }
+
+    @POST
+    @Path("/setOntToOlt")
+    @Produces({"application/json", "application/xml"})
+    public Response setOntToOlt(GenericRequest body, SecurityContext securityContext) throws NotFoundException {
+        return delegate.setOntToOlt(body, securityContext);
+    }
+
 }
