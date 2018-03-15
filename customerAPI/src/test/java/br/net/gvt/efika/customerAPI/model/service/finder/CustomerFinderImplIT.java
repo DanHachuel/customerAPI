@@ -5,8 +5,8 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.finder;
 
+import br.net.gvt.efika.customer.model.dto.GenericRequest;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
-import br.net.gvt.efika.customerAPI.model.GenericRequest;
 import br.net.gvt.efika.util.json.JacksonMapper;
 import org.junit.After;
 import org.junit.AfterClass;

@@ -1,7 +1,7 @@
 package br.net.gvt.efika.customerAPI.rest.impl;
 
+import br.net.gvt.efika.customer.model.dto.GenericRequest;
 import br.net.gvt.efika.customerAPI.rest.CustomerApiService;
-import br.net.gvt.efika.customerAPI.model.GenericRequest;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;

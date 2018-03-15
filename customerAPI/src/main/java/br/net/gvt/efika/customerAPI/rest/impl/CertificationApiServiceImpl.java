@@ -1,11 +1,11 @@
 package br.net.gvt.efika.customerAPI.rest.impl;
 
+import br.net.gvt.efika.customer.model.dto.GenericRequest;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.customerAPI.dao.mongo.FactoryDAO;
 import br.net.gvt.efika.customerAPI.rest.ApiResponseMessage;
 import br.net.gvt.efika.customerAPI.rest.CertificationApiService;
 import br.net.gvt.efika.customerAPI.model.CertificationResponse;
-import br.net.gvt.efika.customerAPI.model.GenericRequest;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;

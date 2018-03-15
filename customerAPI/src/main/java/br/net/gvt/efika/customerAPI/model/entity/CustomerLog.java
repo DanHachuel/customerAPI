@@ -5,9 +5,9 @@
  */
 package br.net.gvt.efika.customerAPI.model.entity;
 
+import br.net.gvt.efika.customer.model.dto.GenericRequest;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import br.net.gvt.efika.customerAPI.model.GenericRequest;
 import java.util.Calendar;
 import java.util.Date;
 import org.bson.types.ObjectId;

@@ -5,7 +5,7 @@
  */
 package br.net.gvt.efika.customerAPI.dao.request;
 
-import br.net.gvt.efika.customerAPI.model.GenericRequest;
+import br.net.gvt.efika.customer.model.dto.GenericRequest;
 
 /**
  *

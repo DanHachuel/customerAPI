@@ -5,12 +5,13 @@
  */
 package br.net.gvt.efika.customerAPI.soap;
 
+import br.net.gvt.efika.customer.model.dto.GenericRequest;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
-import br.net.gvt.efika.customerAPI.model.GenericRequest;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import br.net.gvt.efika.customerAPI.model.entity.CustomerCertification;
 import br.net.gvt.efika.customerAPI.model.service.factory.FactoryService;
+import javax.validation.Valid;
 
 /**
  *
@@ -20,7 +21,7 @@ import br.net.gvt.efika.customerAPI.model.service.factory.FactoryService;
 public class CustomerAPI {
 
     @WebMethod(operationName = "certification")
-    public CustomerCertification certification(GenericRequest body) throws Exception {
+    public CustomerCertification certification(@Valid GenericRequest body) throws Exception {
         try {
             return FactoryService.certSrvc().certificationByParam(body);
         } catch (Exception e) {
@@ -30,7 +31,7 @@ public class CustomerAPI {
     }
 
     @WebMethod(operationName = "getCadastro")
-    public EfikaCustomer getCadastro(GenericRequest body) throws Exception {
+    public EfikaCustomer getCadastro(@Valid GenericRequest body) throws Exception {
         try {
             return FactoryService.customerFinder().getCustomer(body);
         } catch (Exception e) {

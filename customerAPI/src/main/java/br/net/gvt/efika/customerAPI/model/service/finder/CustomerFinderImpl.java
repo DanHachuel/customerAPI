@@ -5,8 +5,8 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.finder;
 
+import br.net.gvt.efika.customer.model.dto.GenericRequest;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
-import br.net.gvt.efika.customerAPI.model.GenericRequest;
 import br.net.gvt.efika.customerAPI.dao.request.RequestFactory;
 import br.net.gvt.efika.util.dao.http.Urls;
 import br.net.gvt.efika.util.dao.http.factory.FactoryHttpDAOAbstract;
