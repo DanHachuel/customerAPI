@@ -88,6 +88,12 @@
             <version>2.7.5</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
         
         <dependency>
             <groupId>br.net.gvt.efika</groupId>
