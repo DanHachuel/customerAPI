@@ -13,6 +13,10 @@ public class GenericRequest {
     private String parameter = null;
     private String executor = null;
     private EfikaCustomer customer;
+    private SystemEnum system = null;
+    private ParamTypeEnum paramType = null;
+    private Date requestDate = null;
+    
 
     public GenericRequest(String parameter, String executor) {
         this.parameter = parameter;
@@ -21,11 +25,6 @@ public class GenericRequest {
 
     public GenericRequest() {
     }
-
-    private SystemEnum system = null;
-
-    private ParamTypeEnum paramType = null;
-    private Date requestDate = null;
 
     /**
      * Parâmetro referente ao cliente

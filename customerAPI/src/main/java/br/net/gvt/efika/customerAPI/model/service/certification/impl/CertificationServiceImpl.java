@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import br.net.gvt.efika.customerAPI.model.entity.ExceptionLog;
+import br.net.gvt.efika.customerAPI.model.enums.SystemEnum;
 import br.net.gvt.efika.customerAPI.model.service.certification.command.LogCommand;
 import br.net.gvt.efika.customerAPI.model.service.certificator.CertifierCustomerCertificationImpl;
 import br.net.gvt.efika.customerAPI.model.service.factory.FactoryEntitiy;
@@ -47,6 +48,7 @@ public class CertificationServiceImpl implements CertificationService {
         } else {
             cust = req.getCustomer();
         }
+        this.certification.setSystem(req.getSystem());
         this.certification.setCustomer(cust);
         this.certification.setExecutor(req.getExecutor());
 

@@ -125,6 +125,11 @@
             <version>1.0.1</version>
         </dependency>
                 
+        <dependency>
+            <groupId>br.net.gvt.efika</groupId>
+            <artifactId>stealer</artifactId>
+            <version>1.0.0</version>
+        </dependency>     
         
         <!-- https://mvnrepository.com/artifact/org.mongodb.morphia/morphia -->
         <dependency>
