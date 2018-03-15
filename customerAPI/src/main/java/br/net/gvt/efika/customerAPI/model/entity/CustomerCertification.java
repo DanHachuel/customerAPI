@@ -2,7 +2,7 @@ package br.net.gvt.efika.customerAPI.model.entity;
 
 import br.net.gvt.efika.customer.model.certification.CertificationBlock;
 import br.net.gvt.efika.customer.model.certification.Certificational;
-import br.net.gvt.efika.customerAPI.model.enums.SystemEnum;
+import br.net.gvt.efika.customer.model.enums.SystemEnum;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.fulltest.model.fulltest.FullTest;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;

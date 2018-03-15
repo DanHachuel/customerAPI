@@ -5,7 +5,10 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.factory;
 
-import br.net.gvt.efika.customerAPI.model.enums.SystemEnum;
+import br.net.gvt.efika.customer.model.enums.SystemEnum;
+import static br.net.gvt.efika.customer.model.enums.SystemEnum.APP;
+import static br.net.gvt.efika.customer.model.enums.SystemEnum.CRM;
+import static br.net.gvt.efika.customer.model.enums.SystemEnum.URA;
 import java.util.Locale;
 
 /**
