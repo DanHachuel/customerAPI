@@ -4,6 +4,7 @@ import br.net.gvt.efika.customer.model.dto.GenericRequest;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.customerAPI.rest.factories.CertificationApiServiceFactory;
 import br.net.gvt.efika.customerAPI.model.CertificationResponse;
+import javax.validation.Valid;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
@@ -18,7 +19,7 @@ public class CertificationApi {
     @Path("/execByParam")
     @Consumes({"application/json", "application/xml"})
     @Produces({"application/json", "application/xml"})
-    public Response certification(GenericRequest body, @Context SecurityContext securityContext)
+    public Response certification(@Valid GenericRequest body, @Context SecurityContext securityContext)
             throws NotFoundException {
         return delegate.certification(body, securityContext);
     }
@@ -26,7 +27,7 @@ public class CertificationApi {
     @POST
     @Path("/findByCustomer")
     @Produces({"application/json", "application/xml"})
-    public Response findByCustomer(EfikaCustomer body, @Context SecurityContext securityContext)
+    public Response findByCustomer(@Valid EfikaCustomer body, @Context SecurityContext securityContext)
             throws Exception {
         return delegate.findByCustomer(body, securityContext);
     }
