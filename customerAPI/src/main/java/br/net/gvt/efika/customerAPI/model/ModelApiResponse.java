@@ -6,9 +6,17 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2018-01-04T13:39:04.668Z")
 public class ModelApiResponse {
 
-    private Integer code = null;
-    private String type = null;
-    private String message = null;
+    private Integer code;
+    private String type;
+    private String message;
+
+    public ModelApiResponse() {
+    }
+
+    public ModelApiResponse(Integer code, String message) {
+        this.code = code;
+        this.message = message;
+    }
 
     /**
      *
