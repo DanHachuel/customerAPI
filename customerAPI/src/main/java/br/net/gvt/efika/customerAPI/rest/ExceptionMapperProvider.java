@@ -6,7 +6,6 @@
 package br.net.gvt.efika.customerAPI.rest;
 
 import br.net.gvt.efika.customerAPI.model.ModelApiResponse;
-import javax.ejb.Singleton;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
@@ -17,7 +16,6 @@ import javax.ws.rs.ext.Provider;
  * @author G0042204
  */
 @Provider
-@Singleton
 public class ExceptionMapperProvider implements ExceptionMapper<Exception> {
 
     @Override
