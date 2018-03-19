@@ -15,6 +15,7 @@ import model.manobra.facade.AnalisadorManobra;
 import model.manobra.facade.AnalisadorManobraFacade;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -67,12 +68,10 @@ public class AnalisadorManobraIT {
         lst.add(new CustomerAssert(AssertsEnum.PACOTES_DOWN_MAIOR_6000, Boolean.TRUE));
         lst.add(new CustomerAssert(AssertsEnum.PACOTES_UP_MAIOR_4000, Boolean.TRUE));
         e.setAsserts(lst);
-
         AnalisadorManobra instance = new AnalisadorManobraFacade(e);
         FinalizacaoManobra result = instance.analisar();
-        
+        Assert.assertTrue(!result.getManobrar());
         System.out.println("end");
-        
     }
 
 }
