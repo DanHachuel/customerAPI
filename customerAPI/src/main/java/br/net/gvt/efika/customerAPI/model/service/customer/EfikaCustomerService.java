@@ -10,7 +10,7 @@ import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 /**
  * Consultar Inventário de Serviços (CRM), Consultar Inventário de Rede
  * (Interna/Externa);
- *
+ *þ
  * @author G0042204
  */
 public interface EfikaCustomerService {

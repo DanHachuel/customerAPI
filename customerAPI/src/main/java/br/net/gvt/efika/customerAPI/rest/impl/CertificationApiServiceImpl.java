@@ -1,5 +1,6 @@
 package br.net.gvt.efika.customerAPI.rest.impl;
 
+import br.net.gvt.efika.customer.model.dto.CustomerRequest;
 import br.net.gvt.efika.customer.model.dto.GenericRequest;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.customerAPI.dao.mongo.FactoryDAO;
@@ -15,7 +16,7 @@ import br.net.gvt.efika.customerAPI.model.service.factory.FactoryService;
 public class CertificationApiServiceImpl extends CertificationApiService {
 
     @Override
-    public Response certification(GenericRequest body, SecurityContext securityContext)
+    public Response certification(CustomerRequest body, SecurityContext securityContext)
             throws NotFoundException {
         try {
             return Response.ok().entity(FactoryService.certSrvc().certificationByParam(body)).build();
@@ -28,7 +29,9 @@ public class CertificationApiServiceImpl extends CertificationApiService {
     @Override
     public Response findByCustomer(EfikaCustomer body, SecurityContext securityContext)
             throws Exception {
-        return Response.ok().entity(FactoryService.certSrvc().findByCustomer(body)).build();
+        CustomerRequest req = new CustomerRequest();
+        req.setCustomer(body);
+        return Response.ok().entity(FactoryService.certSrvc().findByCustomer(req)).build();
     }
 
     @Override
@@ -49,7 +52,7 @@ public class CertificationApiServiceImpl extends CertificationApiService {
     }
 
     @Override
-    public Response confiabilidadeRede(GenericRequest body, SecurityContext securityContext) throws NotFoundException {
+    public Response confiabilidadeRede(CustomerRequest body, SecurityContext securityContext) throws NotFoundException {
         try {
             return Response.ok().entity(FactoryService.certSrvc().certifyRede(body)).build();
         } catch (Exception e) {
@@ -59,7 +62,7 @@ public class CertificationApiServiceImpl extends CertificationApiService {
     }
 
     @Override
-    public Response ontsDisponiveis(GenericRequest body, SecurityContext securityContext) throws NotFoundException {
+    public Response ontsDisponiveis(CustomerRequest body, SecurityContext securityContext) throws NotFoundException {
         try {
             return Response.ok().entity(FactoryService.certSrvc().ontsDisp(body)).build();
         } catch (Exception e) {
@@ -69,7 +72,7 @@ public class CertificationApiServiceImpl extends CertificationApiService {
     }
 
     @Override
-    public Response setOntToOlt(GenericRequest body, SecurityContext securityContext) throws NotFoundException {
+    public Response setOntToOlt(CustomerRequest body, SecurityContext securityContext) throws NotFoundException {
         try {
             return Response.ok().entity(FactoryService.certSrvc().setOntToOlt(body)).build();
         } catch (Exception e) {

@@ -10,7 +10,7 @@ import br.net.gvt.efika.customerAPI.model.service.finder.CustomerFinderImpl;
 import br.net.gvt.efika.customerAPI.model.service.certification.impl.CertificationServiceImpl;
 import br.net.gvt.efika.customerAPI.model.service.certification.impl.CertificationService;
 import br.net.gvt.efika.customerAPI.model.service.customer.EfikaCustomerService;
-import br.net.gvt.efika.customerAPI.model.service.customer.EfikaCustomerServiceImpl;
+import br.net.gvt.efika.customerAPI.model.service.customer.EfikaCustomerServiceV2Impl;
 
 /**
  *
@@ -27,7 +27,7 @@ public class FactoryService {
     }
 
     public static EfikaCustomerService createEfikaCustomerService() throws Exception {
-        return new EfikaCustomerServiceImpl();
+        return new EfikaCustomerServiceV2Impl();
     }
 
 }

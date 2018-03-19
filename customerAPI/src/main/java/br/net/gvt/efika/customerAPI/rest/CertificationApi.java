@@ -1,6 +1,6 @@
 package br.net.gvt.efika.customerAPI.rest;
 
-import br.net.gvt.efika.customer.model.dto.GenericRequest;
+import br.net.gvt.efika.customer.model.dto.CustomerRequest;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.customerAPI.rest.factories.CertificationApiServiceFactory;
 import br.net.gvt.efika.customerAPI.model.CertificationResponse;
@@ -19,7 +19,7 @@ public class CertificationApi {
     @Path("/execByParam")
     @Consumes({"application/json", "application/xml"})
     @Produces({"application/json", "application/xml"})
-    public Response certification(@Valid GenericRequest body, @Context SecurityContext securityContext)
+    public Response certification(@Valid CustomerRequest body, @Context SecurityContext securityContext)
             throws NotFoundException {
         return delegate.certification(body, securityContext);
     }
@@ -51,21 +51,21 @@ public class CertificationApi {
     @POST
     @Path("/confRede")
     @Produces({"application/json", "application/xml"})
-    public Response confiabilidadeRede(GenericRequest body, SecurityContext securityContext) throws NotFoundException {
+    public Response confiabilidadeRede(CustomerRequest body, SecurityContext securityContext) throws NotFoundException {
         return delegate.confiabilidadeRede(body, securityContext);
     }
 
     @POST
     @Path("/ontsDisp")
     @Produces({"application/json", "application/xml"})
-    public Response ontsDisponiveis(GenericRequest body, SecurityContext securityContext) throws NotFoundException {
+    public Response ontsDisponiveis(CustomerRequest body, SecurityContext securityContext) throws NotFoundException {
         return delegate.ontsDisponiveis(body, securityContext);
     }
 
     @POST
     @Path("/setOntToOlt")
     @Produces({"application/json", "application/xml"})
-    public Response setOntToOlt(GenericRequest body, SecurityContext securityContext) throws NotFoundException {
+    public Response setOntToOlt(CustomerRequest body, SecurityContext securityContext) throws NotFoundException {
         return delegate.setOntToOlt(body, securityContext);
     }
 

@@ -6,6 +6,7 @@
 package br.net.gvt.efika.customerAPI.model.service.certification.impl;
 
 import br.net.gvt.efika.customer.model.certification.enums.CertificationResult;
+import br.net.gvt.efika.customer.model.dto.CustomerRequest;
 import br.net.gvt.efika.customer.model.dto.GenericRequest;
 import br.net.gvt.efika.customerAPI.model.entity.CustomerCertification;
 import br.net.gvt.efika.fulltest.model.fulltest.ValidacaoResult;
@@ -50,7 +51,9 @@ public class CertificationServiceImplIT {
     public void testCertificationByParam() throws Exception {
         try {
             System.out.println("certificationByParam");
-            GenericRequest req = new GenericRequest("4130886762", "G0042204");
+            CustomerRequest req = new CustomerRequest();
+            req.setParameter("4130886762");
+            req.setExecutor("G0042204");
             CertificationServiceImpl instance = new CertificationServiceImpl();
             CustomerCertification result = instance.certificationByParam(req);
             System.out.println(new JacksonMapper(CustomerCertification.class).serialize(result));
@@ -68,11 +71,13 @@ public class CertificationServiceImplIT {
     @Test
     public void testCertifyRede() throws Exception {
         System.out.println("certifyRede");
-        GenericRequest req = new GenericRequest("4133335556", "G0041775");
+        CustomerRequest req = new CustomerRequest();
+        req.setParameter("4133335556");
+        req.setExecutor("G0041775");
         CertificationServiceImpl instance = new CertificationServiceImpl();
         ValidacaoResult result = instance.certifyRede(req);
         System.out.println(new JacksonMapper(ValidacaoResult.class).serialize(result));
-        
+
     }
 
 }

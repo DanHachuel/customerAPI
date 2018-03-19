@@ -4,6 +4,7 @@ import br.net.gvt.efika.customerAPI.model.entity.CustomerCertification;
 import br.net.gvt.efika.customer.model.certification.CertificationBlock;
 import br.net.gvt.efika.customer.model.certification.enums.CertificationBlockName;
 import br.net.gvt.efika.customer.model.certification.enums.CertificationResult;
+import br.net.gvt.efika.customer.model.dto.CustomerRequest;
 import br.net.gvt.efika.customer.model.dto.GenericRequest;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.customerAPI.dao.mongo.FactoryDAO;
@@ -41,7 +42,7 @@ public class CertificationServiceImpl implements CertificationService {
     private EfikaCustomer cust;
 
     @Override
-    public CustomerCertification certificationByParam(GenericRequest req) throws Exception {
+    public CustomerCertification certificationByParam(CustomerRequest req) throws Exception {
         if (req.getCustomer() == null) {
             cust = FactoryService.customerFinder().getCustomer(req);
         } else {
@@ -118,9 +119,9 @@ public class CertificationServiceImpl implements CertificationService {
     }
 
     @Override
-    public List<CustomerCertification> findByCustomer(EfikaCustomer cust) throws Exception {
+    public List<CustomerCertification> findByCustomer(CustomerRequest req) throws Exception {
         try {
-            return FactoryDAO.newCertificationDAO().findByCustomer(cust);
+            return FactoryDAO.newCertificationDAO().findByCustomer(req.getCustomer());
         } catch (Exception e) {
             FactoryDAO.newExceptionLogDAO().save(new ExceptionLog(e));
             throw new Exception("Falha ao buscar histórico de execuções.");
@@ -128,7 +129,7 @@ public class CertificationServiceImpl implements CertificationService {
     }
 
     @Override
-    public ValidacaoResult certifyRede(GenericRequest req) throws Exception {
+    public ValidacaoResult certifyRede(CustomerRequest req) throws Exception {
         if (req.getCustomer() == null) {
             cust = finder.getCustomer(req);
         } else {
@@ -140,7 +141,7 @@ public class CertificationServiceImpl implements CertificationService {
     }
 
     @Override
-    public List<SerialOntGpon> ontsDisp(GenericRequest req) throws Exception {
+    public List<SerialOntGpon> ontsDisp(CustomerRequest req) throws Exception {
         if (req.getCustomer() == null) {
             cust = finder.getCustomer(req);
         } else {
@@ -152,7 +153,7 @@ public class CertificationServiceImpl implements CertificationService {
     }
 
     @Override
-    public ValidacaoResult setOntToOlt(GenericRequest req) throws Exception {
+    public ValidacaoResult setOntToOlt(CustomerRequest req) throws Exception {
         if (req.getCustomer() == null) {
             cust = finder.getCustomer(req);
         } else {
