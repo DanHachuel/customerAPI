@@ -6,8 +6,6 @@
 package br.net.gvt.efika.customerAPI.model.service.customer;
 
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
-import br.net.gvt.efika.efika_customer.model.customer.InventarioRadius;
-import br.net.gvt.efika.efika_customer.model.customer.InventarioRede;
 import br.net.gvt.efika.util.thread.EfikaAbstractRunnable;
 
 /**
@@ -20,9 +18,9 @@ public abstract class EfikaCustomerServiceAbstract implements EfikaCustomerServi
 
     protected abstract EfikaCustomer consultarInventarioServicos(String instancia) throws Exception;
 
-    protected abstract InventarioRede consultarInventarioRede(EfikaCustomer cust) throws Exception;
+    protected abstract EfikaCustomer consultarInventarioRede(EfikaCustomer cust) throws Exception;
 
-    protected abstract InventarioRadius consultarInventarioRadius(EfikaCustomer cust) throws Exception;
+    protected abstract EfikaCustomer consultarInventarioRadius(EfikaCustomer cust) throws Exception;
 
     @Override
     public EfikaCustomer consultar(String instancia) throws Exception {
@@ -33,14 +31,15 @@ public abstract class EfikaCustomerServiceAbstract implements EfikaCustomerServi
             @Override
             public void processar() throws Exception {
                 EfikaCustomerServiceAbstract scope = EfikaCustomerServiceAbstract.this;
-                scope.cust.setRede(scope.consultarInventarioRede(scope.cust));
+                EfikaCustomer ec2 = scope.consultarInventarioRede(scope.cust);
+                scope.cust.setRede(ec2.getRede());
+                scope.cust.setRadius(ec2.getRadius());
             }
         };
+        
         run.start();
-
-        
-        
         run.join();
+
         return this.cust;
     }
 

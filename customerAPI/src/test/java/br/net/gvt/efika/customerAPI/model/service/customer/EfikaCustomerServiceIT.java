@@ -39,7 +39,7 @@ public class EfikaCustomerServiceIT {
      * Test of consultar method, of class EfikaCustomerService.
      */
     @Test
-    public void testConsultar() throws Exception {
+    public void testConsultar() {
         try {
             System.out.println("consultar");
             String instancia = "4130886762";
