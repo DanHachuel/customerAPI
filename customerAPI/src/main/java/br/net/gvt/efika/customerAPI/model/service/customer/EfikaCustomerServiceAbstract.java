@@ -5,8 +5,10 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.customer;
 
+import br.net.gvt.efika.customer.model.dto.CustomerRequest;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
-import br.net.gvt.efika.util.thread.EfikaAbstractRunnable;
+import br.net.gvt.efika.stealer.model.service.network_inventory.FactoryNetworkInventoryService;
+import br.net.gvt.efika.stealer.model.service.service_inventory.FactoryServiceInventoryService;
 
 /**
  *
@@ -16,30 +18,22 @@ public abstract class EfikaCustomerServiceAbstract implements EfikaCustomerServi
 
     protected EfikaCustomer cust = new EfikaCustomer();
 
-    protected abstract EfikaCustomer consultarInventarioServicos(String instancia) throws Exception;
+    protected final EfikaCustomer consultarInventarioServicos(String instancia) throws Exception {
+        return FactoryServiceInventoryService.create().consultar(instancia);
+    }
 
-    protected abstract EfikaCustomer consultarInventarioRede(EfikaCustomer cust) throws Exception;
-
-    protected abstract EfikaCustomer consultarInventarioRadius(EfikaCustomer cust) throws Exception;
+    protected EfikaCustomer consultarInventarioRede(EfikaCustomer cust) throws Exception {
+        CustomerRequest req = new CustomerRequest();
+        req.setCustomer(cust);
+        return FactoryNetworkInventoryService.newNetworkInventoryService().consultar(req);
+    }
+    
+    protected final void finalizar(){
+    }
 
     @Override
     public EfikaCustomer consultar(String instancia) throws Exception {
-//        try {
         cust = this.consultarInventarioServicos(instancia);
-
-        EfikaAbstractRunnable run = new EfikaAbstractRunnable() {
-            @Override
-            public void processar() throws Exception {
-                EfikaCustomerServiceAbstract scope = EfikaCustomerServiceAbstract.this;
-                EfikaCustomer ec2 = scope.consultarInventarioRede(scope.cust);
-                scope.cust.setRede(ec2.getRede());
-                scope.cust.setRadius(ec2.getRadius());
-            }
-        };
-        
-        run.start();
-        run.join();
-
         return this.cust;
     }
 

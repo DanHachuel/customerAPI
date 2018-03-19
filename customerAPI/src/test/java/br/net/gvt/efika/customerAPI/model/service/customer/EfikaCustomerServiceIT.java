@@ -5,7 +5,6 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.customer;
 
-import br.net.gvt.efika.customerAPI.model.entity.CustomerCertification;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.util.json.JacksonMapper;
 import org.junit.After;
@@ -39,9 +38,9 @@ public class EfikaCustomerServiceIT {
      * Test of consultar method, of class EfikaCustomerService.
      */
     @Test
-    public void testConsultar() {
+    public void testConsultarSophia() {
         try {
-            System.out.println("consultar");
+            System.out.println("testConsultarSophia");
             String instancia = "4130886762";
             EfikaCustomerService instance = new EfikaCustomerServiceV2Impl();
             EfikaCustomer result = instance.consultar(instancia);
@@ -50,7 +49,20 @@ public class EfikaCustomerServiceIT {
         } catch (Exception e) {
             fail(e.getMessage());
         }
-
+    }
+    
+    @Test
+    public void testConsultarSophiaMetalicoVivo1() {
+        try {
+            System.out.println("testConsultarSophiaMetalicoVivo1");
+            String instancia = "4130886762";
+            EfikaCustomerService instance = new EfikaCustomerServiceV2Impl();
+            EfikaCustomer result = instance.consultar(instancia);
+            assertTrue(result.getRede() != null);
+            System.out.println(new JacksonMapper(EfikaCustomer.class).serialize(result));
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
     }
 
 }

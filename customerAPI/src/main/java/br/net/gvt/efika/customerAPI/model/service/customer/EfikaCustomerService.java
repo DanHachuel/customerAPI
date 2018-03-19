@@ -7,7 +7,7 @@ package br.net.gvt.efika.customerAPI.model.service.customer;
 
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 
-/**
+/**þ
  * Consultar Inventário de Serviços (CRM), Consultar Inventário de Rede
  * (Interna/Externa);
  *þ

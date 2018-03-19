@@ -5,10 +5,8 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.customer;
 
-import br.net.gvt.efika.customer.model.dto.CustomerRequest;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
-import br.net.gvt.efika.stealer.model.service.network_inventory.FactoryNetworkInventoryService;
-import br.net.gvt.efika.stealer.model.service.service_inventory.FactoryServiceInventoryService;
+import br.net.gvt.efika.util.thread.EfikaAbstractRunnable;
 
 public class EfikaCustomerServiceV2Impl extends EfikaCustomerServiceAbstract {
 
@@ -16,21 +14,25 @@ public class EfikaCustomerServiceV2Impl extends EfikaCustomerServiceAbstract {
 
     }
 
-    @Override
-    protected EfikaCustomer consultarInventarioServicos(String instancia) throws Exception {
-        return FactoryServiceInventoryService.create().consultar(instancia);
-    }
+
 
     @Override
-    protected EfikaCustomer consultarInventarioRede(EfikaCustomer cust) throws Exception {
-        CustomerRequest req = new CustomerRequest();
-        req.setCustomer(cust);
-        return FactoryNetworkInventoryService.newNetworkInventoryService().consultar(req);
-    }
+    public EfikaCustomer consultar(String instancia) throws Exception {
+        super.consultar(instancia); //To change body of generated methods, choose Tools | Templates.
+        EfikaAbstractRunnable run = new EfikaAbstractRunnable() {
+            @Override
+            public void processar() throws Exception {
+                EfikaCustomerServiceV2Impl scope = EfikaCustomerServiceV2Impl.this;
+                EfikaCustomer ec2 = scope.consultarInventarioRede(scope.cust);
+                scope.cust.setRede(ec2.getRede());
+                scope.cust.setRadius(ec2.getRadius());
+            }
+        };
 
-    @Override
-    protected EfikaCustomer consultarInventarioRadius(EfikaCustomer cust) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        run.start();
+        run.join();
+
+        return this.cust;
     }
 
 }
