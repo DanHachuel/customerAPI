@@ -5,14 +5,13 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.manobra.facade;
 
+import br.net.gvt.efika.customerAPI.model.service.manobra.analitcs.FinalizacaoManobra;
 import br.net.gvt.efika.efika_customer.model.customer.CustomerAssert;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import br.net.gvt.efika.efika_customer.model.customer.asserts.AssertsEnum;
 import java.util.ArrayList;
 import java.util.List;
-import model.manobra.analitcs.FinalizacaoManobra;
-import model.manobra.facade.AnalisadorManobra;
-import model.manobra.facade.AnalisadorManobraFacade;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;

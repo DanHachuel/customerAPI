@@ -5,11 +5,10 @@
  */
 package br.net.gvt.efika.customerAPI.model.service.manobra.facade;
 
+import br.net.gvt.efika.customer.model.manobra.enums.ConclusaoManobraEnum;
+import br.net.gvt.efika.customerAPI.model.service.manobra.analitcs.AnaliseMotivo;
+import br.net.gvt.efika.customerAPI.model.service.manobra.analitcs.FinalizacaoManobra;
 import java.util.List;
-import model.manobra.analitcs.AnaliseMotivo;
-import model.manobra.analitcs.ConclusaoManobraEnum;
-import model.manobra.analitcs.FinalizacaoManobra;
-import model.manobra.facade.AnalisadorManobraFacade;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -21,18 +20,18 @@ import static org.junit.Assert.*;
  * @author G0042204
  */
 public class AnalisadorManobraFacadeIT {
-    
+
     public AnalisadorManobraFacadeIT() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -81,7 +80,8 @@ public class AnalisadorManobraFacadeIT {
     }
 
     /**
-     * Test of verificarNecessidadeManobra method, of class AnalisadorManobraFacade.
+     * Test of verificarNecessidadeManobra method, of class
+     * AnalisadorManobraFacade.
      */
     @Test
     public void testVerificarNecessidadeManobra() {
@@ -94,5 +94,5 @@ public class AnalisadorManobraFacadeIT {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
 }

@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.manobra.facade;
+package br.net.gvt.efika.customerAPI.model.service.manobra.facade;
 
+import br.net.gvt.efika.customer.model.manobra.enums.ConclusaoManobraEnum;
+import br.net.gvt.efika.customer.model.manobra.enums.MotivoManobraEnum;
+import br.net.gvt.efika.customerAPI.model.service.manobra.analitcs.AnaliseMotivo;
+import br.net.gvt.efika.customerAPI.model.service.manobra.analitcs.AnaliseMotivoGeneric;
+import br.net.gvt.efika.customerAPI.model.service.manobra.analitcs.Analiser;
+import br.net.gvt.efika.customerAPI.model.service.manobra.analitcs.FinalizacaoManobra;
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
 import java.util.ArrayList;
 import java.util.List;
-import model.manobra.analitcs.AnaliseMotivo;
-import model.manobra.analitcs.AnaliseMotivoGeneric;
-import model.manobra.analitcs.Analiser;
-import model.manobra.analitcs.ConclusaoManobraEnum;
-import model.manobra.analitcs.FinalizacaoManobra;
-import model.manobra.analitcs.MotivoManobraEnum;
 
 /**
  *

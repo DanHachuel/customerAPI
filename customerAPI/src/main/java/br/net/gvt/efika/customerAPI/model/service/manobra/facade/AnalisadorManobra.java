@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.manobra.facade;
+package br.net.gvt.efika.customerAPI.model.service.manobra.facade;
 
-import model.manobra.analitcs.FinalizacaoManobra;
+import br.net.gvt.efika.customerAPI.model.service.manobra.analitcs.FinalizacaoManobra;
 
 /**
  *

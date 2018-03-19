@@ -6,7 +6,8 @@
 package br.net.gvt.efika.customerAPI.rest;
 
 import br.net.gvt.efika.customer.model.manobra.dto.ManobraAnaliticoRequest;
-import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
+import br.net.gvt.efika.customer.model.manobra.enums.MotivoManobraEnum;
+import br.net.gvt.efika.customerAPI.model.service.manobra.facade.AnalisadorManobraFacade;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -14,10 +15,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import model.manobra.analitcs.FinalizacaoManobraAdapter;
-import model.manobra.analitcs.MotivoManobraEnum;
-
-import model.manobra.facade.AnalisadorManobraFacade;
 
 /**
  *
@@ -32,7 +29,7 @@ public class ManobraService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response analitico(ManobraAnaliticoRequest in) {
         try {
-            return Response.ok(FinalizacaoManobraAdapter.adapter(new AnalisadorManobraFacade(in.getCustomer()).analisar())).build();
+            return Response.ok(new AnalisadorManobraFacade(in.getCustomer()).analisar()).build();
         } catch (Exception e) {
             return Response.serverError().entity(e).build();
         }
