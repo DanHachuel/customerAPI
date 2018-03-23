@@ -28,7 +28,7 @@ public class CertificationDAOImpl extends AbstractMongoDAO<CustomerCertification
         return getDatastore().createQuery(CustomerCertification.class)
                 .field("customer.instancia")
                 .equal(cust.getInstancia())
-                .order("dataFim")
+                .order("-dataFim")
                 .asList(new FindOptions()
                         .limit(10));
     }
