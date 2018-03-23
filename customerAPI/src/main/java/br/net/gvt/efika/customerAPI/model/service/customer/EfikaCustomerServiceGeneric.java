@@ -14,27 +14,31 @@ import br.net.gvt.efika.stealer.model.service.service_inventory.FactoryServiceIn
  *
  * @author G0042204
  */
-public abstract class EfikaCustomerServiceAbstract implements EfikaCustomerService {
+public class EfikaCustomerServiceGeneric implements EfikaCustomerService {
 
-    protected EfikaCustomer cust = new EfikaCustomer();
+    protected EfikaCustomer cust;
 
-    protected final EfikaCustomer consultarInventarioServicos(String instancia) throws Exception {
-        return FactoryServiceInventoryService.create().consultar(instancia);
+    protected final void consultarInventarioServicos(String instancia) throws Exception {
+        cust = FactoryServiceInventoryService.create().consultar(instancia);
     }
 
-    protected EfikaCustomer consultarInventarioRede(EfikaCustomer cust) throws Exception {
+    protected void consultarInventarioRede() throws Exception {
         CustomerRequest req = new CustomerRequest();
         req.setCustomer(cust);
-        return FactoryNetworkInventoryService.newNetworkInventoryService().consultar(req);
-    }
-    
-    protected final void finalizar(){
+        EfikaCustomer c1 = FactoryNetworkInventoryService.newNetworkInventoryService().consultar(req);
+        cust.setRede(c1.getRede());
+        cust.setRadius(c1.getRadius());
     }
 
     @Override
     public EfikaCustomer consultar(String instancia) throws Exception {
-        cust = this.consultarInventarioServicos(instancia);
+        this.consultarInventarioServicos(instancia);
+        this.consultarInventarioRede();
         return this.cust;
+    }
+
+    protected final void asserts() {
+
     }
 
     public EfikaCustomer getCust() {

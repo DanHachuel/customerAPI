@@ -6,6 +6,8 @@
 package br.net.gvt.efika.customerAPI.model.service.customer;
 
 import br.net.gvt.efika.efika_customer.model.customer.EfikaCustomer;
+import br.net.gvt.efika.efika_customer.model.customer.enums.OrigemPlanta;
+import br.net.gvt.efika.efika_customer.model.customer.enums.TipoRede;
 import br.net.gvt.efika.util.json.JacksonMapper;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -50,15 +52,19 @@ public class EfikaCustomerServiceIT {
             fail(e.getMessage());
         }
     }
-    
+
     @Test
-    public void testConsultarSophiaMetalicoVivo1() {
+    public void testConsultarSophiaMetalicoVivo2() {
         try {
-            System.out.println("testConsultarSophiaMetalicoVivo1");
+            System.out.println("testConsultarSophiaMetalicoVivo2");
             String instancia = "4130886762";
             EfikaCustomerService instance = new EfikaCustomerServiceV2Impl();
             EfikaCustomer result = instance.consultar(instancia);
             assertTrue(result.getRede() != null);
+            assertTrue(result.getRede().getTipo() == TipoRede.METALICA);
+            assertTrue(result.getRede().getPlanta() == OrigemPlanta.VIVO2);
+            assertTrue(result.getRadius() != null);
+            assertTrue(result.getServicos() != null);
             System.out.println(new JacksonMapper(EfikaCustomer.class).serialize(result));
         } catch (Exception e) {
             fail(e.getMessage());
