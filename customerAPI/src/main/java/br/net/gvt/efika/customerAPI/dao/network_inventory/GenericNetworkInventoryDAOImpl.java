@@ -17,7 +17,7 @@ public class GenericNetworkInventoryDAOImpl implements NetworkInventoryDAO {
     public InventarioRede consultar(EfikaCustomer cust) throws Exception {
 
         CustomerRequest req = new CustomerRequest();
-        req.setCust(cust);
+        req.setCustomer(cust);
         req.setExecutor("customerAPI");
         FactoryHttpDAOAbstract<InventarioRede> fac = new FactoryHttpDAOAbstract<>(InventarioRede.class);
         return (InventarioRede) fac.createWithoutProxy().post(Urls.NETWORK_INVENTORY.getUrl(), req);

@@ -44,6 +44,7 @@ public class CertifierCustomerCertificationImpl extends CertifierAbstract<Custom
         if (certification.getOrientacao() == null) {
             certification.concluir(CertificationResult.OK, "OK");
         }
+        
     }
 
     @Override
