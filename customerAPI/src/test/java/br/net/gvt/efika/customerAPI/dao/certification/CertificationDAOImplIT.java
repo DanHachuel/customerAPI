@@ -14,6 +14,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.BeforeClass;
 
 /**
  *
@@ -22,6 +23,10 @@ import static org.junit.Assert.*;
 public class CertificationDAOImplIT {
 
     public CertificationDAOImplIT() {
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
     }
 
     @AfterClass
@@ -54,6 +59,34 @@ public class CertificationDAOImplIT {
             fail(e.getMessage());
         }
 
+    }
+
+    /**
+     * Test of read method, of class CertificationDAOImpl.
+     */
+    @Test
+    public void testRead() throws Exception {
+        System.out.println("read");
+        String id = "";
+        CertificationDAOImpl instance = new CertificationDAOImpl();
+        CustomerCertification expResult = null;
+        CustomerCertification result = instance.read(id);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of findByFkId method, of class CertificationDAOImpl.
+     */
+    @Test
+    public void testFindByFkId() throws Exception {
+        System.out.println("findByFkId");
+        String fkId = "";
+        CertificationDAOImpl instance = new CertificationDAOImpl();
+       
+        CustomerCertification result = instance.findByFkId(fkId);
+        System.out.println(new JacksonMapper(CustomerCertification.class).serialize(result));
     }
 
 }

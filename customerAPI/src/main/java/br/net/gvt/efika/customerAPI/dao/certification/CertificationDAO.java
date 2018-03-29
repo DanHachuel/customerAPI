@@ -17,6 +17,8 @@ public interface CertificationDAO {
 
     public List<CustomerCertification> findByCustomer(EfikaCustomer cust) throws Exception;
 
+    public CustomerCertification findByFkId(String fkId);
+
     public CustomerCertification save(CustomerCertification cert) throws Exception;
 
     public CustomerCertification read(String id) throws Exception;

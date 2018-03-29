@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import br.net.gvt.efika.customerAPI.model.entity.ExceptionLog;
 import br.net.gvt.efika.customerAPI.model.service.certification.command.LogCommand;
 import br.net.gvt.efika.customerAPI.model.service.certificator.CertifierCustomerCertificationImpl;
+import br.net.gvt.efika.customerAPI.model.service.certificator.FkIdGenerator;
 import br.net.gvt.efika.customerAPI.model.service.factory.FactoryEntitiy;
 import br.net.gvt.efika.customerAPI.model.service.certificator.impl.CertifierCadastroCertificationImpl;
 import br.net.gvt.efika.customerAPI.model.service.certificator.impl.CertifierConectividadeCertificationImpl;
@@ -112,7 +113,7 @@ public class CertificationServiceImpl implements CertificationService {
     protected void conclude() throws Exception {
         new CertifierCustomerCertificationImpl().certify(certification);
         certification.setDataFim(Calendar.getInstance().getTime());
-        certification.setDataFim(Calendar.getInstance().getTime());
+        certification.setFkId(FkIdGenerator.generate(certification));
         FactoryDAO.newCertificationDAO().save(certification);
     }
 

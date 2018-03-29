@@ -38,4 +38,17 @@ public class CertificationDAOImpl extends AbstractMongoDAO<CustomerCertification
         return super.read(new ObjectId(id));
     }
 
+    @Override
+    public CustomerCertification findByFkId(String fkId) {
+        CustomerCertification ret = null;
+        try {
+            ret = getDatastore().createQuery(CustomerCertification.class)
+                    .field("fkId")
+                    .equal(fkId).get();
+        } catch (Exception e) {
+        }
+
+        return ret;
+    }
+
 }
