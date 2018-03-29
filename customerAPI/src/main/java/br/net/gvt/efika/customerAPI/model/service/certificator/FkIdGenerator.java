@@ -26,16 +26,17 @@ public class FkIdGenerator {
 
     private static String generateId(CustomerCertification certification) {
         String random = new RandomString(6).nextString();
-        String res = "FK-";
+        StringBuilder res = new StringBuilder();
+        res.append("FK-");
         if (certification != null && certification.getResultado() == CertificationResult.OK) {
-            res.concat("S");
+            res.append("S");
         } else {
-            res.concat("F");
+            res.append("F");
         }
 
-        String cn = certification.getCustomer().getInstancia().substring(0, 2);
-
-        return res + cn + random;
+        res.append(certification.getCustomer().getInstancia().substring(0, 2));
+        res.append(random);
+        return res.toString();
     }
 
 }
