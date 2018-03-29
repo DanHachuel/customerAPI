@@ -25,7 +25,7 @@ public class FkIdGenerator {
     }
 
     private static String generateId(CustomerCertification certification) {
-        String random = new RandomString(6).nextString();
+        String random = new RandomString(4).nextString();
         StringBuilder res = new StringBuilder();
         res.append("FK-");
         if (certification != null && certification.getResultado() == CertificationResult.OK) {
